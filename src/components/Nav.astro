@@ -1,0 +1,102 @@
+---
+import { Image } from "astro:assets"
+import logo from "../assets/logos/logoTextSide.png"
+
+const links = [
+  {href:"/",label:"Home"},
+  {href:"/",label:"Services"},
+  {href:"/",label:"Projects"},
+  {href:"/",label:"About"},
+  {href:"/",label:"Contact"},
+]
+---
+
+<nav class="h-20 flex justify-between items-center px-6 bg-transparent font-heading tracking-wider uppercase">
+
+    <Image src={logo} alt="Pennine Logo" class="w-44"></Image>
+
+  <!-- decktop menu -->
+  <ul class="hidden lg:flex gap-5">
+    {links.map((link,i)=>{
+      const isLast = i === links.length - 1;
+
+      return (
+        <li>
+          <a
+            href={link.href}
+            class=`hover:opacity-90 ${
+              isLast
+                ? "border-2 border-accent px-3 py-2 rounded-full "
+                : ""
+            }`
+          >
+        {link.label}
+          </a>
+        </li>
+      )
+    })}
+  </ul>
+
+  <!-- Mobile Button -->
+  <button 
+    id="menu-btn"
+    class=" lg:hidden flex flex-col justify-center items-center w-10 h-10 space-y-1 focus:outline-none cursor-pointer"
+    aria-label="Toggle Menu"
+  >
+    <span class="hamburger-bar transition-transform"></span>
+    <span class="hamburger-bar transition-opacity"></span>
+    <span class="hamburger-bar transition-transform"></span> 
+  </button>
+  
+  <!-- Mobile Sidebar -->
+  <div id="mobile-menu" class="z-50 lg:hidden fixed left-0 top-0 h-full w-2/3 bg-light/80 backdrop-blur-sm transform -translate-x-full transition-all duration-700 ease-in-out opacity-0">
+    <ul class="flex flex-col h-full text-2xl items-center justify-center gap-6">
+      {links.map((link,i)=>{
+        const isLast = i === links.length - 1;
+
+        return (
+          <li>
+            <a
+            href={link.href}
+            class=`hover:text-dark ${
+              isLast
+                ? "border-2 border-accent px-3 py-2 rounded-full "
+                : ""
+            }`
+            >
+              {link.label}
+            </a>
+          </li>
+        )
+      })}
+    </ul>
+    
+  </div>
+</nav>
+
+<style>
+  /* Mobile nav btn toggle */
+#menu-btn.open span:nth-child(1) {
+  transform: rotate(45deg) translateY(8px);
+}
+#menu-btn.open span:nth-child(2) {
+  opacity: 0;
+}
+#menu-btn.open span:nth-child(3) {
+  transform: rotate(-45deg) translateY(-8px);
+}
+</style>
+
+<script>
+  const menuBtn = document.getElementById("menu-btn")
+  const mobileMenu = document.getElementById("mobile-menu")
+
+  const toggleMenu = ()=>{
+    menuBtn?.classList.toggle("open")
+    mobileMenu?.classList.toggle("-translate-x-full")
+    mobileMenu?.classList.toggle("opacity-0")
+    document.body.classList.toggle("overflow-hidden")
+  }
+
+  menuBtn?.addEventListener("click", toggleMenu)
+</script>

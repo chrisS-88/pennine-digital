@@ -1,0 +1,49 @@
+---
+import Hero from "../components/Hero.astro"
+import BaseLayout from "../layouts/BaseLayout.astro"
+import FeatureCard from "../components/FeatureCard.astro"
+import DesignSvg from "../components/icons/DesignSvg.astro"
+import AutomationSvg from "../components/icons/AutomationSvg.astro"
+import SupportSvg from "../components/icons/SupportSvg.astro"
+
+
+const featureDetails = [
+  { 
+    title: "Web Design & Branding", 
+    description: "Clean, modern websites that reflect your business.", 
+    icon: DesignSvg, 
+  },
+  { title: "Automation Essentials", 
+    description: "Forms, emails, bookings, social posts — all automated.", 
+    icon: AutomationSvg, 
+  },
+  { title: "Support & Growth", 
+    description: "Chatbots, e‑commerce basics, and ongoing help.", 
+    icon: SupportSvg, 
+  },
+]
+---
+
+<BaseLayout title="Pennine Digital">
+
+  <section class="mb-24">
+    <Hero/>
+  </section>
+
+  <section class="bg-gradient-soft text-center px-6 py-12 md:px-16 md:max-w-6xl mx-auto">
+
+    <h2 class="font-heading text-3xl mb-3">Websites that work smarter for your business</h2>
+    <p class="text-lg">Helping Bradford and West Yorkshire businesses get online with clean design and practical automation.</p>
+
+    <div class="mt-12 mb-20 md:flex gap-6">
+        {featureDetails.map((item)=> (
+      <div class="mx-auto mb-6">
+        <FeatureCard key={item.title} {...item}/>
+      </div>
+      ))}
+    </div>
+
+    <a href="/" class="w-max border-2 border-accent rounded-lg px-4 py-2 mb-12">Explore Services</a>
+
+  </section>
+</BaseLayout>
