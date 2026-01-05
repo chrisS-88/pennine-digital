@@ -5,6 +5,7 @@ import FeatureCard from "../components/FeatureCard.astro"
 import DesignSvg from "../components/icons/DesignSvg.astro"
 import AutomationSvg from "../components/icons/AutomationSvg.astro"
 import SupportSvg from "../components/icons/SupportSvg.astro"
+import AboutSvg from "../components/icons/AboutSvg.astro"
 
 
 const serviceCardDetails = [
@@ -88,8 +89,20 @@ const projectsCardDetails = [
       <a href="/" class="text-light w-max border-2 border-accent rounded-lg px-4 py-2">View Projects</a>
     </div>
 
-    </div>
+  </section>
 
+  <section class="bg-gradient-soft/60">
+
+    <div class="max-w-6xl px-6 py-28 flex flex-col items-center justify-evenly gap-12 lg:flex-row text-center lg:text-left text-balance">
+      <div class="max-w-md lg:max-w-lg">
+        <h2 class="font-heading text-3xl mb-8">A friendly, local partner for your website</h2>
+        <p>I’m Chris — a front‑end developer based in West Yorkshire who cares about building websites that feel honest, approachable, and genuinely useful. I work with small businesses who want something simple and trustworthy, without the jargon or the pressure. My focus is on clean design, thoughtful details, and practical automation that quietly makes everyday work easier.</p>
+      </div>
+      <AboutSvg/>
+    </div>
+    <div class="flex justify-center">
+      <a href="/" class="text-dark w-max border-2 border-accent rounded-lg px-4 py-2">More About Me</a>
+    </div>
 
   </section>
 </BaseLayout>
