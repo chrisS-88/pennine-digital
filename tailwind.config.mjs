@@ -14,6 +14,7 @@ export default {
         "gradient-primary": "linear-gradient(135deg, #1C1A1D, #4A3F55)",
         "gradient-warm": "linear-gradient(135deg, #4A3F55, #8C6A4A)",
         "gradient-soft": "linear-gradient(180deg, #FAF9F7, #EFEDEA)",
+        "gradient-dark": "linear-gradient(180deg, #1C1A1D 0%, #2A2A2A 100%)",
       },
       fontFamily: {
         sans: ["Lora", "serif"],
