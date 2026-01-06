@@ -1,14 +1,7 @@
 ---
 import { Image } from "astro:assets"
 import logo from "../assets/logos/logoTextSide.png"
-
-const links = [
-  {href:"/",label:"Home"},
-  {href:"/",label:"Services"},
-  {href:"/",label:"Projects"},
-  {href:"/",label:"About"},
-  {href:"/",label:"Contact"},
-]
+import { navLinks } from "../data/navLinks"
 ---
 
 <nav class="h-20 flex justify-between items-center px-6 bg-transparent font-heading tracking-wider uppercase">
@@ -17,8 +10,8 @@ const links = [
 
   <!-- decktop menu -->
   <ul class="hidden lg:flex gap-5">
-    {links.map((link,i)=>{
-      const isLast = i === links.length - 1;
+    {navLinks.map((link,i)=>{
+      const isLast = i === navLinks.length - 1;
 
       return (
         <li>
@@ -51,8 +44,8 @@ const links = [
   <!-- Mobile Sidebar -->
   <div id="mobile-menu" class="z-50 lg:hidden fixed left-0 top-0 h-full w-2/3 bg-light/80 backdrop-blur-sm transform -translate-x-full transition-all duration-700 ease-in-out opacity-0">
     <ul class="flex flex-col h-full text-2xl items-center justify-center gap-6">
-      {links.map((link,i)=>{
-        const isLast = i === links.length - 1;
+      {navLinks.map((link,i)=>{
+        const isLast = i === navLinks.length - 1;
 
         return (
           <li>
