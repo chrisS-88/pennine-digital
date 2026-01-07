@@ -48,11 +48,11 @@ import { navLinks } from "../data/navLinks"
   <div id="mobile-menu" class="p-4 z-50 lg:hidden fixed left-0 top-0 h-full w-2/3 bg-dark/90 backdrop-blur-md transform -translate-x-full transition-all duration-700 ease-in-out opacity-0 text-light overflow-y-scroll">
     
     <Image src={logo} alt="Pennine Digital Logo" class="w-16"></Image>
-    <span class="font-light text-sm">Pennine Digital</span>
+    <span class="text-xl font-light">Pennine Digital</span>
     
     <div class="w-full h-[.5px] bg-secondary/60 mt-6"></div>
 
-    <ul class="flex flex-col justify-center gap-6 text-xl px-4 py-16">
+    <ul class="flex flex-col justify-center gap-6 text-2xl px-4 py-24">
       {navLinks.map((link,i)=>{
 
         return (
@@ -72,12 +72,12 @@ import { navLinks } from "../data/navLinks"
 
     <div class="capitalize text-xs">
       
-      <div class="flex flex-col gap-4">
+      <div class="flex flex-col gap-2">
         <a class="tracking-widest" href="tel:+441234567890">Phone +44 7930971103</a>
         <a class="lowercase tracking-widest" href="mailto:info@penninedigital.co.uk">info@penninedigital.co.uk</a>
       </div>
 
-      <div class="mt-8">
+      <div class="mt-16">
         <p>&copy; 2026 Pennine Digital</p>
         <p>Based in West Yorkshire</p>    
       </div>
