@@ -7,7 +7,7 @@ import MailSvg from "./icons/MailSvg.astro";
 import { navLinks } from "../data/navLinks"
 ---
 
-<nav class="h-20 flex justify-between items-center px-6 bg-transparent font-heading tracking-wide uppercase">
+<nav class="fixed top-0 left-0 w-full h-20 flex justify-between items-center px-6 font-heading tracking-wide uppercase z-50 bg-light transition-transform duration-300">
 
     <Image src={logoWithText} alt="Pennine Digital Logo" class="w-44"></Image>
 
@@ -102,6 +102,41 @@ import { navLinks } from "../data/navLinks"
 </style>
 
 <script>
+    
+  const nav = document.querySelector("nav");
+
+let lastScrollY = window.scrollY;
+let accumulatedDownScroll = 0;
+const HIDE_AFTER = 80;
+
+window.addEventListener("scroll", () => {
+  const currentScrollY = window.scrollY;
+  const delta = currentScrollY - lastScrollY;
+
+  // Scrolling down
+  if (nav) {
+    if (delta > 0) {
+    accumulatedDownScroll += delta;
+
+    if (accumulatedDownScroll >= HIDE_AFTER) {
+      nav.classList.add("-translate-y-full");
+    }
+  }
+
+  // Scrolling up
+  if (delta < 0) {
+    nav.classList.remove("-translate-y-full");
+    accumulatedDownScroll = 0; // reset
+  }
+
+  lastScrollY = currentScrollY;
+  }
+  
+});
+
+  
+
+
   const menuBtn = document.getElementById("menu-btn")
   const mobileMenu = document.getElementById("mobile-menu")
 
