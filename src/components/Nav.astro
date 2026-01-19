@@ -2,12 +2,10 @@
 import { Image } from "astro:assets"
 import logoWithText from "../assets/logos/logoTextSide.png"
 import logo from "../assets/logos/logo.png"
-import LinkedInSvg from "./icons/LinkedInSvg.astro";
-import MailSvg from "./icons/MailSvg.astro";
 import { navLinks } from "../data/navLinks"
 ---
 
-<nav class="fixed top-0 left-0 w-full h-20 flex justify-between items-center px-6 font-heading tracking-wide uppercase z-50 bg-light transition-transform duration-300">
+<nav class="fixed top-0 left-0 w-full h-20 flex justify-between items-center px-6 font-heading tracking-wide uppercase z-50 bg-light transition-transform duration-300 shadow-lg">
 
     <Image src={logoWithText} alt="Pennine Digital Logo" class="w-44"></Image>
 
@@ -102,50 +100,79 @@ import { navLinks } from "../data/navLinks"
 </style>
 
 <script>
-    
-  const nav = document.querySelector("nav");
+// @ts-nocheck    DISABLES TS FOR THIS SCRIPT BLOCK
 
-let lastScrollY = window.scrollY;
-let accumulatedDownScroll = 0;
-const HIDE_AFTER = 80;
+  const NAV_DEFAULTS = {
+    hideOnScroll: true,
+    hideAfter: 80,
+    showAtTop: true,
+    hiddenClass: "-translate-y-full",
+  };
 
-window.addEventListener("scroll", () => {
-  const currentScrollY = window.scrollY;
-  const delta = currentScrollY - lastScrollY;
+  function initNav(userOptions = {}) {
+    const options = { ...NAV_DEFAULTS, ...userOptions };
 
-  // Scrolling down
-  if (nav) {
-    if (delta > 0) {
-    accumulatedDownScroll += delta;
+    const nav = document.querySelector("nav");
+    if (!nav || !options.hideOnScroll) return;
 
-    if (accumulatedDownScroll >= HIDE_AFTER) {
-      nav.classList.add("-translate-y-full");
+    let lastScrollY = window.scrollY;
+    let accumulatedDownScroll = 0;
+
+    function onScroll() {
+      const currentScrollY = window.scrollY;
+      const delta = currentScrollY - lastScrollY;
+
+      // Always visible near top
+      if (options.showAtTop && currentScrollY < options.hideAfter) {
+        nav.classList.remove(options.hiddenClass);
+        accumulatedDownScroll = 0;
+        lastScrollY = currentScrollY;
+        return;
+      }
+
+      // Scrolling down
+      if (delta > 0) {
+        accumulatedDownScroll += delta;
+        if (accumulatedDownScroll >= options.hideAfter) {
+          nav.classList.add(options.hiddenClass);
+        }
+      }
+
+      // Scrolling up
+      if (delta < 0) {
+        nav.classList.remove(options.hiddenClass);
+        accumulatedDownScroll = 0;
+      }
+
+      lastScrollY = currentScrollY;
     }
+
+    window.addEventListener("scroll", onScroll);
+
+    // Cleanup for SPAs / reuse
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+    };
   }
 
-  // Scrolling up
-  if (delta < 0) {
-    nav.classList.remove("-translate-y-full");
-    accumulatedDownScroll = 0; // reset
+
+  // MOBILE NAV BUTTON BEHAVIOUR
+  function initMobileMenu() {
+    const menuBtn = document.getElementById("menu-btn")
+    const mobileMenu = document.getElementById("mobile-menu")
+
+    const toggleMenu = ()=>{
+      menuBtn?.classList.toggle("open")
+      mobileMenu?.classList.toggle("-translate-x-full")
+      mobileMenu?.classList.toggle("opacity-0")
+      document.body.classList.toggle("overflow-hidden")
+    }
+
+    menuBtn?.addEventListener("click", toggleMenu)
   }
 
-  lastScrollY = currentScrollY;
-  }
-  
-});
-
-  
-
-
-  const menuBtn = document.getElementById("menu-btn")
-  const mobileMenu = document.getElementById("mobile-menu")
-
-  const toggleMenu = ()=>{
-    menuBtn?.classList.toggle("open")
-    mobileMenu?.classList.toggle("-translate-x-full")
-    mobileMenu?.classList.toggle("opacity-0")
-    document.body.classList.toggle("overflow-hidden")
-  }
-
-  menuBtn?.addEventListener("click", toggleMenu)
+  document.addEventListener("DOMContentLoaded", () => {
+    initNav();
+    initMobileMenu()
+  });
 </script>

@@ -1,0 +1,169 @@
+---
+import ServiceCard from "../components/ServiceCard.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Button from "../components/Button.astro"
+
+const serviceCards = [
+  {
+    title:"Web Design",
+    description:"Thoughtful layouts that feel welcoming and easy to navigate. I focus on clarity, accessibility, and a visual style that reflects your business without feeling corporate or over‑designed.",
+    listHeader: "Includes",
+    list:["Page layouts","Colour & typography","Mobile‑first design","Brand consistency"]
+  },
+  {
+    title:"Web Development",
+    description:"Fast, reliable websites built with modern tools. Everything is structured so it’s easy to maintain, update, and scale as your business grows.",
+    listHeader: "Includes",
+    list:["Responsive builds","Component‑based architecture","Performance optimisation","SEO‑friendly structure"]
+  },
+  {
+    title:"Website Care & Maintenance",
+    description:"If you’d rather not worry about updates, backups, or small fixes, I can take care of everything quietly in the background.",
+    listHeader: "Includes",
+    list:["Monthly updates","Content changes","Security checks","Ongoing improvements"]
+  },
+  {
+    title:"AI Automation for Small Businesses",
+    description:"Simple, practical automations that save time — from handling enquiries to generating content. Nothing complicated, just tools that make your day easier.",
+    listHeader: "Includes",
+    list:["Automated email replies","Content generation","Form processing","Workflow setup"]
+  },
+]
+
+const faqs = [
+  {
+    question: "How long does a project take?",
+    answer:
+      "Most small websites take 2–4 weeks depending on size and content. I’ll always give you a clear timeline before we begin."
+  },
+  {
+    question: "Do you work with existing websites?",
+    answer:
+      "Yes — I can improve, rebuild, or modernise what you already have. Whether it needs a refresh or a full overhaul, I can help."
+  },
+  {
+    question: "Do you offer ongoing support?",
+    answer:
+      "Absolutely. I offer simple monthly plans with no long contracts. You can hand over updates, fixes, and improvements whenever you need them."
+  },
+  {
+    question: "What do you need from me to get started?",
+    answer:
+      "Usually just a short chat, any existing content you want to use, and an idea of what you’re aiming for. I guide you through the rest."
+  }
+];
+
+---
+
+<BaseLayout title="Services">
+  
+  <section class="bg-light mt-20 pt-20 pb-10">
+    <div class="px-6 max-w-2xl text-center mx-auto">
+      <h1 class="text-4xl md:text-5xl font-heading font-semibold">Websites that help your business run smoother</h1>
+      <p class="mt-4 text-dark/70">I design and build modern, thoughtful websites that are easy to use, simple to update, and shaped around how your business actually works.</p>
+    </div>
+    <div class="flex justify-center my-10 text-secondary/80">
+      <svg
+        width="40"
+        height="40"
+        viewBox="0 0 24 24"
+        fill="none"
+        aria-hidden="true"
+        class="stroke-current"
+      >
+        <path
+          d="M12 3.5V7.5M12 16.5V20.5M4 12H8M16 12H20
+            M6.2 6.2L8.7 8.7M15.3 15.3L17.8 17.8
+            M6.2 17.8L8.7 15.3M15.3 8.7L17.8 6.2"
+          stroke-width="1"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+      </svg>
+    </div>
+  </section>
+
+  <section class="bg-gradient-soft">
+    <div class="px-6 max-w-4xl mx-auto text-center md:text-left">
+      <p class="text-lg md:text-xl text-dark/80">Running a small business is demanding enough. Your website shouldn’t add to the stress. I create sites that feel calm, intuitive, and genuinely useful — whether you’re starting fresh or improving what you already have.
+      </p>
+    </div>
+
+    <div class="px-6 py-24 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 items-stretch gap-12">
+      {serviceCards.map((item) => (
+        
+          <ServiceCard key={item.title} {...item} />
+        
+      ))}
+    </div>
+  </section>
+
+  <section class="bg-light py-24">
+    <div class="px-6 text-center">
+      <h2 class="font-heading text-3xl">How the process works</h2>
+      <p class="mt-4 text-dark/70">A simple, straightforward approach that keeps things clear from the start.</p>
+
+      <div class="mt-16 flex flex-col gap-16 lg:flex-row max-w-5xl mx-auto">
+        <div class="flex-1">
+          <div class="text-5xl font-heading text-secondary/50">01</div>
+          <h3 class="font-semibold text-xl tracking-wide text-dark mt-1">Chat</h3>
+          <p class="text-dark/70 leading-relaxed mt-4">
+            We begin with a quick conversation about what you need, what’s working, and what isn’t. 
+            No pressure, no technical talk — just a chance to understand your goals.
+          </p>
+        </div>
+
+        <div class="flex-1">
+          <div class="text-5xl font-heading text-secondary/50">02</div>
+          <h3 class="font-semibold text-xl tracking-wide text-dark mt-1">Design</h3>
+          <p class="text-dark/70 leading-relaxed mt-4">
+            I shape the structure, layout, and visual direction. You’ll see how everything fits together before anything is built.
+          </p>
+        </div>
+
+        <div class="flex-1">
+          <div class="text-5xl font-heading text-secondary/50">03</div>
+          <h3 class="font-semibold text-xl tracking-wide text-dark mt-1">Build</h3>
+          <p class="text-dark/70 leading-relaxed mt-4">
+            Your website comes together using modern, reliable tools. I keep things efficient, organised, and easy to maintain long‑term.
+          </p>
+        </div>
+        
+      </div>
+
+    </div>
+
+  </section>
+
+  <section class="bg-white">
+
+    <div class="py-24 max-w-3xl mx-auto px-6">
+      <h2 class="text-3xl font-heading mb-12">Frequently asked questions</h2>
+      
+      <div class="space-y-12">
+        {faqs.map((faq, i)=>(
+          <div>
+            <h3 class="text-xl font-semibold">{faq.question}</h3>
+            <p class="mt-4 text-dark/80 leading-relaxed">{faq.answer}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+
+  </section>
+
+  <section class="bg-gradient-dark text-light text-center">
+
+    <div class="max-w-3xl mx-auto px-6 pt-28 pb-20">
+      <h2 class="font-heading text-3xl mb-6">Ready to start your project?</h2>
+      <p class="leading-relaxed text-light/70">Whether you have a clear plan or just an idea, I’d love to hear what you’re working on.
+      No pressure — just a friendly chat about what you need.</p>
+    </div>
+    
+    <div class="flex justify-center pb-28">
+      <Button href="/" title="Start Your Project" variant="main"/>
+    </div>
+
+  </section>
+
+</BaseLayout>
