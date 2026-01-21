@@ -8,3 +8,18 @@
     @apply block h-0.5 w-6 bg-dark duration-300;
   }
 }
+
+/* contact form */
+@layer utilities {
+  .form-label-div {
+    @apply flex flex-col gap-2;
+  }
+
+  .form-input {
+    @apply px-2 py-1 rounded-md border border-dark/10 outline-dark/20;
+  }
+
+  .check-box {
+    @apply checked:accent-dark/60;
+  }
+}
