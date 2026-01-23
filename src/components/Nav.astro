@@ -3,6 +3,8 @@ import { Image } from "astro:assets"
 import logoWithText from "../assets/logos/logoTextSide.png"
 import logo from "../assets/logos/logo.png"
 import { navLinks } from "../data/navLinks"
+
+const current = Astro.url.pathname
 ---
 
 <nav class="fixed top-0 left-0 w-full h-20 flex justify-between items-center px-6 font-heading tracking-wide uppercase z-50 bg-light transition-transform duration-300 shadow-lg">
@@ -18,10 +20,13 @@ import { navLinks } from "../data/navLinks"
         <li>
           <a
             href={link.href}
-            class=`hover:text-secondary ${
+            class=`hover:text-dark/70 ${
               isLast
                 ? "border border-accent px-2 py-1 rounded-full"
                 : ""
+            }
+            ${
+              current === link.href ? "text-primary font-semibold" : "text-dark"
             }`
           >
         {link.label}

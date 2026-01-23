@@ -1,18 +1,16 @@
 ---
-const {title, description, icon:Icon, variant = "services"} = Astro.props
+const { title, description, icon: Icon, variant = "services" } = Astro.props;
 
 const variants = {
   services: "bg-light shadow-lg",
   projects: "bg-light/90 border border-light shadow-xl",
-}
+};
 ---
 
-<div 
-  class=`p-8 min-h-48 rounded-2xl h-full ${variants[variant]}`>
-    <h3 class="font-heading font-semibold mb-2">{title}</h3>
-    <p>{description}</p>
-    <div class="flex justify-center mt-4">
-      {Icon && <Icon/>}
-    </div>
+<div class=`p-8 min-h-48 rounded-2xl h-full ${variants[variant]}`>
+  <h3 class="font-heading font-semibold mb-2">{title}</h3>
+  <p>{description}</p>
+  <div class="flex justify-center mt-4">
+    {Icon && <Icon />}
+  </div>
 </div>
-

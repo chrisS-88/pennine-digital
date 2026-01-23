@@ -1,8 +1,8 @@
 ---
-const { title, description, listHeader, list } = Astro.props
+const { title, description, listHeader, list } = Astro.props;
 ---
 
-<section class="p-6 rounded-lg bg-light  shadow-lg space-y-4">
+<section class="p-6 rounded-lg bg-light shadow-lg space-y-4">
   <header class="space-y-2">
     <h3 class="text-xl font-semibold text-dark">
       {title}
@@ -17,9 +17,7 @@ const { title, description, listHeader, list } = Astro.props
       {listHeader}
     </p>
     <ul class="pl-4 space-y-1 text-sm text-dark/70 list-disc">
-      {list.map((item) => (
-        <li class="leading-relaxed">{item}</li>
-      ))}
+      {list.map((item) => <li class="leading-relaxed">{item}</li>)}
     </ul>
   </div>
 </section>

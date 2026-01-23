@@ -1,34 +1,35 @@
 ---
-import { navLinks } from "../data/navLinks"
+import { navLinks } from "../data/navLinks";
 import LinkedInSvg from "./icons/LinkedInSvg.astro";
 import MailSvg from "./icons/MailSvg.astro";
 ---
 
 <footer class="bg-gradient-footer text-light text-center pt-10 font-heading">
-
   <div class="mb-6">
     <p class="mb-2 uppercase tracking-wider">Pennine Digital</p>
     <p class="text-light/70">Based in West Yorkshire</p>
   </div>
-  
-  <ul class="flex justify-center gap-1 mb-4 text-light/80">
-    {navLinks.map((link,i)=>{
-      const isLast = i === navLinks.length - 1;
 
-      return (
-        <li class="text-sm">
-          <a href={link.href}>
-            {link.label}
-            {!isLast && <span class="inline-block px-2">·</span> }
-          </a>
-        </li>
-      )
-    })}
+  <ul class="flex justify-center gap-1 mb-4 text-light/80">
+    {
+      navLinks.map((link, i) => {
+        const isLast = i === navLinks.length - 1;
+
+        return (
+          <li class="text-sm">
+            <a href={link.href}>
+              {link.label}
+              {!isLast && <span class="inline-block px-2">·</span>}
+            </a>
+          </li>
+        );
+      })
+    }
   </ul>
 
   <div class="flex justify-center gap-6">
-    <LinkedInSvg/>
-    <MailSvg/>
+    <LinkedInSvg />
+    <MailSvg />
   </div>
 
   <span class="block text-sm text-light/50 mt-8 pb-1">&copy; 2026 Pennine Digital</span>
