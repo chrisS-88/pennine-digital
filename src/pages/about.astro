@@ -1,10 +1,11 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import hero from "/public/about_bg.webp";
 ---
 
 <BaseLayout title="Pennine Digital - About">
   <section class="bg-light pb-24 relative h-[70vh] mt-20">
-    <img src="../src/assets/imgs/about_bg.jpg" alt="Image of moorland" class="w-full h-full object-cover absolute" />
+    <img src={hero.src} alt="Image of moorland" class="w-full h-full object-cover absolute" />
 
     <div class="absolute inset-0 h-full bg-black/55"></div>
 
