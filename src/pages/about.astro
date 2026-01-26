@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import hero from "/public/about_bg.webp";
+import Button from "../components/Button.astro";
 ---
 
 <BaseLayout title="Pennine Digital - About">
@@ -19,7 +20,7 @@ import hero from "/public/about_bg.webp";
   </section>
 
   <section class="pt-24 bg-light">
-    <div class="px-6 md:px-14 md:max-w-4xl">
+    <div class="px-6 md:max-w-3xl mx-auto leading-relaxed">
       <h2 class="text-3xl font-heading">The person behind the work</h2>
       <p class="mt-4 text-dark/80">
         I’m Chris — a front‑end developer and creative technologist based in Riddlesden. Over the last couple of years, I’ve been learning
@@ -35,10 +36,10 @@ import hero from "/public/about_bg.webp";
     </div>
   </section>
 
-  <section class="py-24 bg-light">
+  <section class="py-28 bg-light">
     <div class="px-6 text-center max-w-6xl mx-auto">
       <h2 class="text-3xl font-heading">What I care about</h2>
-      <div class="grid md:grid-cols-3 gap-12 mt-4">
+      <div class="grid md:grid-cols-3 gap-12 mt-8">
         <div class="bg-white border border-dark/10 rounded-lg p-6">
           <h3 class="text-xl font-heading font-semibold">Clarity</h3>
           <p class="mt-2 text-dark/70">Everything is explained in plain language. No jargon, no confusion.</p>
@@ -54,6 +55,25 @@ import hero from "/public/about_bg.webp";
           <p class="mt-2 text-dark/70">Websites should feel calm, fast, and well‑made — not rushed or overcomplicated.</p>
         </div>
       </div>
+    </div>
+  </section>
+
+  <section class="bg-gradient-soft">
+    <div class="px-6 max-w-3xl mx-auto leading-relaxed">
+      <h2 class="font-heading text-3xl">Why I started Pennine Digital</h2>
+      <p class="text-dark/80 mt-4">
+        As I learned more about the web, I noticed how many local businesses were stuck between expensive agencies and DIY website builders
+        that never quite feel right. I wanted to offer something in the middle — a personal, dependable service that gives people a website
+        they can be proud of without the stress.
+      </p>
+      <p class="text-dark/80 mt-2">
+        Pennine Digital is my way of doing that. A small studio with a local focus and a simple, honest approach.
+      </p>
+    </div>
+
+    <div class="text-center py-24">
+      <h2 class="text-xl font-heading text-dark/80 mb-14">If you’d like to chat about a project, I’m here to help.</h2>
+      <Button href="/contact" title="Get in touch" variant="light" />
     </div>
   </section>
 </BaseLayout>

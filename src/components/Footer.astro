@@ -2,35 +2,43 @@
 import { navLinks } from "../data/navLinks";
 import LinkedInSvg from "./icons/LinkedInSvg.astro";
 import MailSvg from "./icons/MailSvg.astro";
+import logo from "../assets/logos/logo.png";
+import { Image } from "astro:assets";
 ---
 
-<footer class="bg-gradient-footer text-light text-center pt-10 font-heading">
-  <div class="mb-6">
-    <p class="mb-2 uppercase tracking-wider">Pennine Digital</p>
-    <p class="text-light/70">Based in West Yorkshire</p>
-  </div>
+<footer class="bg-gradient-footer text-light font-heading pt-16 pb-8">
+  <div class="max-w-5xl mx-auto px-6">
+    <div class="text-center mb-10">
+      <Image src={logo} alt="Pennine Digital Logo" class="w-16 pb-2 mx-auto" />
+      <p class="text-xl font-semibold tracking-wide">Pennine Digital</p>
+      <p class="text-light/70 mt-1">Based in West Yorkshire</p>
+    </div>
 
-  <ul class="flex justify-center gap-1 mb-4 text-light/80">
-    {
-      navLinks.map((link, i) => {
-        const isLast = i === navLinks.length - 1;
+    <div class="h-px bg-light/10 mb-10"></div>
 
-        return (
-          <li class="text-sm">
-            <a href={link.href}>
+    <ul class="flex justify-center gap-6 mb-10 text-light/80 text-sm">
+      {
+        navLinks.map((link) => (
+          <li>
+            <a href={link.href} class="hover:text-light transition">
               {link.label}
-              {!isLast && <span class="inline-block px-2">·</span>}
             </a>
           </li>
-        );
-      })
-    }
-  </ul>
+        ))
+      }
+    </ul>
 
-  <div class="flex justify-center gap-6">
-    <LinkedInSvg />
-    <MailSvg />
+    <div class="flex justify-center gap-6 mb-10">
+      <a href="https://linkedin.com" class="hover:opacity-80 transition">
+        <LinkedInSvg />
+      </a>
+      <a href="mailto:hello@penninedigital.co.uk" class="hover:opacity-80 transition">
+        <MailSvg />
+      </a>
+    </div>
+
+    <p class="text-center text-sm text-light/50">
+      &copy; {new Date().getFullYear()} Pennine Digital
+    </p>
   </div>
-
-  <span class="block text-sm text-light/50 mt-8 pb-1">&copy; 2026 Pennine Digital</span>
 </footer>
