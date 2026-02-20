@@ -1,6 +1,6 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-import hero from "/public/about_bg.webp";
+import hero from "/public/about_hero.jpg";
 import Button from "../components/Button.astro";
 ---
 
@@ -8,11 +8,11 @@ import Button from "../components/Button.astro";
   <section class="bg-light pb-24 relative h-[70vh] mt-20">
     <img src={hero.src} alt="Image of moorland" class="w-full h-full object-cover absolute" />
 
-    <div class="absolute inset-0 h-full bg-black/55"></div>
+    <div class="absolute inset-0 h-full bg-black/45"></div>
 
     <div class="px-6 pt-20 h-full max-w-2xl mx-auto z-10 relative flex flex-col justify-center">
       <h1 class="text-4xl md:text-5xl font-heading font-semibold text-light">About Pennine Digital</h1>
-      <p class="mt-4 text-lg text-light/80">
+      <p class="mt-4 text-lg text-light/90">
         Pennine Digital is a small web studio based in West Yorkshire, focused on building clean, modern websites for local businesses. The
         aim is simple: make the web feel less complicated and more helpful.
       </p>
