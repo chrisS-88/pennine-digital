@@ -1,113 +1,118 @@
 ---
-import { Image } from "astro:assets"
-import logoWithText from "../assets/logos/logoTextSide.png"
-import logo from "../assets/logos/logo.png"
-import { navLinks } from "../data/navLinks"
+import { Image } from "astro:assets";
+import logoWithText from "../assets/logos/logoTextSide.png";
+import { navLinks } from "../data/navLinks";
 
-const current = Astro.url.pathname
+const current = Astro.url.pathname;
 ---
 
-<nav class="fixed top-0 left-0 w-full h-20 flex justify-between items-center px-6 font-heading tracking-wide uppercase z-50 bg-light transition-transform duration-300 shadow-lg">
-
+<nav
+  class="fixed top-0 left-0 w-full h-20 flex justify-between items-center px-6 font-heading tracking-wide uppercase z-50 bg-background transition-transform duration-300 shadow-lg">
   <a href="/">
-    <Image src={logoWithText} alt="Pennine Digital Logo" class="w-44"></Image>
+    <Image src={logoWithText} alt="Pennine Digital Logo" class="w-44" />
   </a>
 
   <!-- decktop menu -->
   <ul class="hidden lg:flex gap-5">
-    {navLinks.map((link,i)=>{
-      const isLast = i === navLinks.length - 1;
-
-      return (
-        <li>
-          <a
-            href={link.href}
-            class=`hover:text-secondary ${
-              isLast
-                ? "border border-accent px-2 py-1 rounded-full"
-                : ""
-            }
-            ${
-              current === link.href ? "text-primary font-semibold" : "text-dark"
-            }`
-          >
-        {link.label}
-          </a>
-        </li>
-      )
-    })}
-  </ul>
-
-  <!-- Mobile Button -->
-  <button 
-    id="menu-btn"
-    class=" lg:hidden flex flex-col justify-center items-center w-10 h-10 space-y-1 focus:outline-none cursor-pointer"
-    aria-label="Toggle Menu"
-  >
-    <span class="hamburger-bar transition-transform"></span>
-    <span class="hamburger-bar transition-opacity"></span>
-    <span class="hamburger-bar transition-transform"></span> 
-  </button>
-  
-  <!-- Mobile Sidebar -->
-  <div id="mobile-menu" class="p-4 z-50 lg:hidden fixed left-0 top-0 h-full w-2/3 bg-dark/90 backdrop-blur-md transform -translate-x-full transition-all duration-700 ease-in-out opacity-0 text-light overflow-y-scroll">
-    
-    <Image src={logo} alt="Pennine Digital Logo" class="w-16"></Image>
-    <span class="text-xl font-light">Pennine Digital</span>
-    
-    <div class="w-full h-[.5px] bg-secondary/60 mt-6"></div>
-
-    <ul class="flex flex-col justify-center gap-6 text-2xl px-4 py-24">
-      {navLinks.map((link,i)=>{
+    {
+      navLinks.map((link, i) => {
+        const isLast = i === navLinks.length - 1;
 
         return (
           <li>
             <a
-            class="hover:text-secondary"
-            href={link.href}
-            >
+              href={link.href}
+              class={`
+              relative px-2 py-1 transition-all duration-200
+              ${
+                isLast
+                  ? "ml-2 rounded-full bg-accent text-background hover:bg-accentHover"
+                  : `text-dark/80 hover:text-dark
+                      after:absolute after:left-0 after:-bottom-1
+                      after:h-[1.5px] after:w-0
+                      after:bg-dark
+                      after:transition-all after:duration-200
+                      hover:after:w-full`
+              }
+              ${current === link.href && !isLast ? "text-dark font-medium after:w-full" : ""}
+            `}>
               {link.label}
             </a>
           </li>
-        )
-      })}
+        );
+      })
+    }
+  </ul>
+
+  <!-- Mobile Button -->
+  <button id="menu-btn" aria-label="Toggle Menu" class="lg:hidden">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+
+  <!-- Mobile Sidebar -->
+  <div
+    id="mobile-menu"
+    class="p-4 z-50 lg:hidden fixed left-0 top-0 h-full w-2/3 bg-surface/90 backdrop-blur-md transform -translate-x-full transition-all duration-700 ease-in-out opacity-0 text-dark overflow-y-scroll">
+    <Image src={logoWithText} alt="Pennine Digital Logo" class="w-44" />
+
+    <div class="w-full h-[.5px] bg-dark/20 mt-6"></div>
+
+    <ul class="flex flex-col gap-6 text-2xl px-6 py-14">
+      {
+        navLinks.map((link, i) => {
+          const isLast = i === navLinks.length - 1;
+          return (
+            <li>
+              <a
+                href={link.href}
+                class={`
+            block py-2 text-center transition-all duration-200
+            ${isLast ? "rounded-full bg-accent text-background hover:bg-accentHover" : "text-dark/70 hover:text-dark"}
+            ${current === link.href && !isLast ? "text-dark font-medium" : ""}
+          `}>
+                {link.label}
+              </a>
+            </li>
+          );
+        })
+      }
     </ul>
 
-    <div class="w-full h-[.5px] bg-secondary/60 mb-6"></div>
+    <div class="w-full h-[.5px] bg-dark/20 mb-6"></div>
 
-    <div class="capitalize text-xs">
-      
-      <div class="flex flex-col gap-2">
-        <a class="tracking-widest" href="tel:+447930971103">Phone +44 7930971103</a>
-        <a class="lowercase tracking-widest" href="mailto:info@penninedigital.co.uk">info@penninedigital.co.uk</a>
+    <div class="mt-10 text-sm">
+      <p class="mb-3 text-dark/60">Reach me here:</p>
+
+      <div class="flex flex-col gap-2 text-accent">
+        <a href="tel:+447930971103" class="hover:text-accentHover transition"> 07930 971103 </a>
+        <a href="mailto:info@penninedigital.co.uk" class="hover:text-accentHover transition"> info@penninedigital.co.uk </a>
       </div>
 
-      <div class="mt-16">
-        <p>&copy; 2026 Pennine Digital</p>
-        <p>Based in West Yorkshire</p>    
+      <div class="mt-12 text-dark/50 text-xs">
+        <p>© 2026 Pennine Digital</p>
+        <p>Based in Riddlesden, West Yorkshire</p>
       </div>
-
     </div>
-    
-    
   </div>
 </nav>
 
-<style>
+<!-- <style>
   /* Mobile nav btn toggle */
-#menu-btn.open span:nth-child(1) {
-  transform: rotate(45deg) translateY(8px);
-}
-#menu-btn.open span:nth-child(2) {
-  opacity: 0;
-}
-#menu-btn.open span:nth-child(3) {
-  transform: rotate(-45deg) translateY(-8px);
-}
-</style>
+  #menu-btn.open span:nth-child(1) {
+    transform: rotate(45deg) translateY(8px);
+  }
+  #menu-btn.open span:nth-child(2) {
+    opacity: 0;
+  }
+  #menu-btn.open span:nth-child(3) {
+    transform: rotate(-45deg) translateY(-8px);
+  }
+</style> -->
 
 <script>
-// @ts-nocheck    DISABLES TS FOR THIS SCRIPT BLOCK
+  // @ts-nocheck    DISABLES TS FOR THIS SCRIPT BLOCK
 
   const NAV_DEFAULTS = {
     hideOnScroll: true,
@@ -162,24 +167,23 @@ const current = Astro.url.pathname
     };
   }
 
-
   // MOBILE NAV BUTTON BEHAVIOUR
   function initMobileMenu() {
-    const menuBtn = document.getElementById("menu-btn")
-    const mobileMenu = document.getElementById("mobile-menu")
+    const menuBtn = document.getElementById("menu-btn");
+    const mobileMenu = document.getElementById("mobile-menu");
 
-    const toggleMenu = ()=>{
-      menuBtn?.classList.toggle("open")
-      mobileMenu?.classList.toggle("-translate-x-full")
-      mobileMenu?.classList.toggle("opacity-0")
-      document.body.classList.toggle("overflow-hidden")
-    }
+    const toggleMenu = () => {
+      menuBtn?.classList.toggle("open");
+      mobileMenu?.classList.toggle("-translate-x-full");
+      mobileMenu?.classList.toggle("opacity-0");
+      document.body.classList.toggle("overflow-hidden");
+    };
 
-    menuBtn?.addEventListener("click", toggleMenu)
+    menuBtn?.addEventListener("click", toggleMenu);
   }
 
   document.addEventListener("DOMContentLoaded", () => {
     initNav();
-    initMobileMenu()
+    initMobileMenu();
   });
 </script>

@@ -4,19 +4,28 @@ export default {
   theme: {
     extend: {
       colors: {
-        primary: "#2A2A2A", // Soft Black
-        secondary: "#654d7c", // Heather Purple
-        accent: "#8C6A4A", // Warm Bronze
-        light: "#FAF9f7", // Off White
-        dark: "#1C1A1D", // Ink
+        // Brand Core
+        primary: "#0A3A4A",
+        primaryHover: "#082F3B",
+
+        accent: "#A65A2A",
+        accentHover: "#b56330",
+
+        background: "#F3F2EE",
+        surface: "#E8E6DF",
+        surfaceHover: "#DEDCD4",
+
+        dark: "#0C1C22",
+        muted: "#6A6F6D",
       },
 
       backgroundImage: {
-        "gradient-primary": "linear-gradient(135deg, #1C1A1D 0%, #43384C 100%)",
-        "gradient-warm": "linear-gradient(135deg, #43384C 0%, #8C6A4A 100%)",
-        "gradient-soft": "linear-gradient(180deg, #FAF9F7 0%, #F0EEEB 100%)",
-        "gradient-dark": "linear-gradient(180deg, #2A2A2A  0%, #1C1A1D 100%)",
-        "gradient-footer": "linear-gradient(180deg, #18171A 0%, #121115 100%)",
+        "gradient-soft": "linear-gradient(180deg, #F8F7F3 0%, #F3F2EC 30%, #EEF0EB 65%, #E8ECE8 100%)",
+
+        "gradient-dark": "linear-gradient(180deg, #143842 0%, #0E252C 50%, #08171C 100%)",
+
+        "gradient-cta":
+          "radial-gradient(circle at 50% 10%, rgba(10,58,74,0.35) 0%, rgba(10,58,74,0.15) 35%, transparent 70%), linear-gradient(180deg, #143842 0%, #0E252C 60%, #08171C 100%)",
       },
 
       fontFamily: {

@@ -1,23 +1,47 @@
 ---
-const { title, description, listHeader, list } = Astro.props;
+const { title, description, listHeader, list, variant = "default" } = Astro.props;
+
+const isCta = variant === "cta";
 ---
 
-<section class="p-6 rounded-lg bg-light shadow-lg space-y-4">
-  <header class="space-y-2">
-    <h3 class="text-xl font-semibold text-dark">
-      {title}
-    </h3>
-    <p class="text-sm text-dark/80 leading-relaxed">
-      {description}
-    </p>
-  </header>
+<div
+  class={`rounded-lg transition-all duration-300 hover:-translate-y-1
+  ${
+    isCta
+      ? "p-6 bg-accent/5 border border-accent/20 flex flex-col justify-between"
+      : "p-6 bg-muted/5 shadow-lg border border-transparent hover:shadow-xl space-y-4"
+  }`}>
+  {
+    isCta ? (
+      <>
+        <div class="space-y-3">
+          <h3 class="text-xl font-semibold text-dark">{title}</h3>
 
-  <div class="space-y-2">
-    <p class="text-xs font-semibold uppercase tracking-wide text-dark/70">
-      {listHeader}
-    </p>
-    <ul class="pl-4 space-y-1 text-sm text-dark/70 list-disc">
-      {list.map((item) => <li class="leading-relaxed">{item}</li>)}
-    </ul>
-  </div>
-</section>
+          <p class="text-sm text-dark/75 leading-relaxed">{description}</p>
+        </div>
+
+        <a href="/contact" class="mt-6 text-sm font-medium text-accent hover:underline">
+          Start a conversation →
+        </a>
+      </>
+    ) : (
+      <>
+        <div class="space-y-2">
+          <h3 class="text-xl font-semibold text-dark">{title}</h3>
+
+          <p class="text-sm text-dark/80 leading-relaxed">{description}</p>
+        </div>
+
+        <div class="space-y-2">
+          <p class="text-xs font-semibold uppercase tracking-wide text-dark/70">{listHeader}</p>
+
+          <ul class="pl-4 space-y-1 text-sm text-dark/70 list-disc">
+            {list?.map((item) => (
+              <li class="leading-relaxed">{item}</li>
+            ))}
+          </ul>
+        </div>
+      </>
+    )
+  }
+</div>
