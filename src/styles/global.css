@@ -67,6 +67,6 @@
   }
 
   .check-box {
-    @apply checked:accent-dark/60;
+    @apply checked:accent-primary/60;
   }
 }

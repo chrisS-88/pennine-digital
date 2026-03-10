@@ -21,11 +21,11 @@ import { Image } from "astro:assets";
 
     <div class="h-px bg-accent/20 mb-10"></div>
 
-    <ul class="flex justify-center gap-6 mb-10 text-background/70 text-sm">
+    <ul class="flex flex-col md:flex-row items-center justify-center gap-6 mb-10 text-background/70 text-sm">
       {
         navLinks.map((link) => (
           <li>
-            <a href={link.href} class="hover:text-accent transition-colors duration-200">
+            <a href={link.href} class="hover:text-accent hover:underline transition-all duration-200">
               {link.label}
             </a>
           </li>

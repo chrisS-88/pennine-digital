@@ -5,74 +5,95 @@ import Button from "../components/Button.astro";
 ---
 
 <BaseLayout title="Pennine Digital - About">
-  <section class="bg-light pb-24 relative h-[70vh] mt-20">
-    <img src={hero.src} alt="Image of moorland" class="w-full h-full object-cover absolute" />
+  <section class="relative min-h-[65vh] mt-20 flex items-center bg-background">
+    <img src={hero.src} alt="Moorland landscape in West Yorkshire" class="absolute inset-0 w-full h-full object-cover" />
 
-    <div class="absolute inset-0 h-full bg-black/45"></div>
+    <div class="absolute inset-0 bg-gradient-to-b from-black/50 via-black/60 to-black/50"></div>
 
-    <div class="px-6 pt-20 h-full max-w-2xl mx-auto z-10 relative flex flex-col justify-center">
-      <h1 class="text-4xl md:text-5xl font-heading font-semibold text-light">About Pennine Digital</h1>
-      <p class="mt-4 text-lg text-light/90">
+    <div class="relative max-w-2xl mx-auto px-6 text-background">
+      <h1 class="text-4xl md:text-5xl font-heading font-semibold">About Pennine Digital</h1>
+
+      <p class="mt-6 text-lg text-light/90 leading-relaxed">
         Pennine Digital is a small web studio based in West Yorkshire, creating clean, modern websites for local businesses. The goal is
-        straightforward — take the stress out of getting online and build something that actually helps.
+        simple — take the stress out of getting online and build something that genuinely helps your business grow.
       </p>
     </div>
   </section>
 
-  <section class="pt-24 bg-light">
-    <div class="px-6 md:max-w-3xl mx-auto leading-relaxed">
-      <h2 class="text-3xl font-heading">The person behind the work</h2>
-      <p class="mt-4 text-dark/80">
-        I’m Chris — a front‑end developer and creative technologist based in Riddlesden. Over the last couple of years I’ve been learning
-        modern development, building projects, and finding a way of working that feels calm, clear, and dependable.
+  <section class="py-24 bg-background">
+    <div class="px-6 max-w-2xl mx-auto leading-relaxed">
+      <h2 class="text-3xl font-heading mb-6">The person behind the work</h2>
+
+      <p class="text-dark/80">
+        I’m Chris — a front-end developer based in Riddlesden, West Yorkshire. Over the last few years I’ve been learning modern
+        development, building projects, and shaping a way of working that focuses on clarity, reliability, and thoughtful design.
       </p>
-      <p class="mt-4 text-dark/80">
-        Before getting into development, I spent years in hospitality. It taught me how to communicate well, stay organised, and look after
-        people — skills that matter just as much in web design as writing code.
+
+      <p class="mt-5 text-dark/80">
+        Before moving into development, I spent several years working in hospitality. It taught me how to communicate clearly, stay
+        organised, and look after people — skills that are just as important when building websites as writing the code itself.
       </p>
-      <p class="mt-4 text-dark/80">
-        Pennine Digital is where those experiences meet: thoughtful design, modern code, and a friendly, no‑nonsense approach.
+
+      <p class="mt-5 text-dark/80">
+        Pennine Digital is where those experiences come together: modern development, considered design, and a friendly, straightforward
+        approach to helping small businesses get online.
       </p>
     </div>
   </section>
 
-  <section class="py-28 bg-light">
+  <section class="py-28 bg-background/60">
     <div class="px-6 text-center max-w-6xl mx-auto">
       <h2 class="text-3xl font-heading">What I care about</h2>
-      <div class="grid md:grid-cols-3 gap-12 mt-8">
-        <div class="bg-white border border-dark/10 rounded-lg p-6">
+
+      <p class="mt-4 text-dark/70 max-w-2xl mx-auto">
+        The way a website is built matters just as much as how it looks. These are the principles that guide how I approach every project.
+      </p>
+
+      <div class="grid md:grid-cols-3 gap-10 mt-12">
+        <div class="bg-white border border-dark/10 rounded-lg p-7 hover:shadow-md transition-all duration-300 hover:-translate-y-1">
           <h3 class="text-xl font-heading font-semibold">Clarity</h3>
-          <p class="mt-2 text-dark/70">Everything is explained in plain language. No jargon, no confusion.</p>
+          <p class="mt-3 text-dark/70 leading-relaxed">
+            Everything is explained in plain language, without jargon or unnecessary complexity. You should always understand what’s
+            happening and why.
+          </p>
         </div>
 
-        <div class="bg-white border border-dark/10 rounded-lg p-6">
+        <div class="bg-white border border-dark/10 rounded-lg p-7 hover:shadow-md transition-all duration-300 hover:-translate-y-1">
           <h3 class="text-xl font-heading font-semibold">Reliability</h3>
-          <p class="mt-2 text-dark/70">If I say I’ll do something, I do it. Simple as that.</p>
+          <p class="mt-3 text-dark/70 leading-relaxed">
+            When I commit to something, I follow through. Clear communication, realistic timelines, and dependable support matter just as
+            much as the website itself.
+          </p>
         </div>
 
-        <div class="bg-white border border-dark/10 rounded-lg p-6">
+        <div class="bg-white border border-dark/10 rounded-lg p-7 hover:shadow-md transition-all duration-300 hover:-translate-y-1">
           <h3 class="text-xl font-heading font-semibold">Craftsmanship</h3>
-          <p class="mt-2 text-dark/70">Websites should feel calm, fast, and well‑made — not rushed or overcomplicated.</p>
+          <p class="mt-3 text-dark/70 leading-relaxed">
+            Good websites should feel calm, fast, and thoughtfully built. I focus on clean structure, performance, and details that make the
+            experience better for your customers.
+          </p>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="bg-gradient-soft">
+  <section class="bg-background pt-28">
     <div class="px-6 max-w-3xl mx-auto leading-relaxed">
       <h2 class="font-heading text-3xl">Why I started Pennine Digital</h2>
+
       <p class="text-dark/80 mt-4">
-        The more I learned about the web, the more I saw how many local businesses were caught between pricey agencies and DIY builders that
-        never quite hit the mark. I wanted to offer something in the middle — a personal, reliable service that builds websites from scratch
-        and gives people something that actually feels right for their business.
+        As I learned more about the web, I noticed many local businesses were stuck between expensive agencies and DIY website builders that
+        didn’t quite hit the mark. I wanted to offer something in the middle — a personal, reliable service that builds websites from
+        scratch and delivers something that genuinely fits your business.
       </p>
-      <p class="text-dark/80 mt-2">
-        That’s what Pennine Digital is about: a small, local studio with a straightforward, honest way of working.
+
+      <p class="text-dark/80 mt-4">
+        Pennine Digital is that service: a small, local studio with a straightforward, honest approach to web design and development.
       </p>
     </div>
 
     <div class="text-center py-24">
-      <h2 class="text-xl font-heading text-dark/80 mb-14">If you’d like to chat about a project, I’m here to help.</h2>
+      <h2 class="text-xl font-heading text-dark/80 mb-10">Ready to chat about your website? I’d love to hear from you.</h2>
       <Button href="/contact" title="Get in touch" variant="light" />
     </div>
   </section>
