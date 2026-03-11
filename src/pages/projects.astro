@@ -1,7 +1,74 @@
 ---
+import Button from "../components/Button.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
-
+import ProjectCard from "../components/ProjectCard.astro";
+import loftMockup from "../assets/projects/loft_mockup.webp";
 ---
 
-<BaseLayout>
+<BaseLayout title="Pennine Digital - Work">
+  <section class="bg-background pt-44 pb-16">
+    <div class="px-6 max-w-2xl text-center mx-auto">
+      <h1 class="text-4xl md:text-5xl font-heading font-semibold">My Work</h1>
+
+      <p class="mt-4 text-dark/70">
+        A look at some of the websites I’ve built for small businesses. Each project focuses on clean design, clarity, and making it easy
+        for customers to take the next step.
+      </p>
+    </div>
+  </section>
+
+  <!-- <section class="bg-light py-24">
+    <div class="max-w-5xl mx-auto px-6">
+      <div class="grid md:grid-cols-2 gap-12 items-center">
+        <div class="rounded-lg overflow-hidden shadow-lg">
+          <img src="/projects/project-1.jpg" alt="Website project preview" class="w-full h-full object-cover" />
+        </div>
+
+        <div>
+          <h2 class="font-heading text-3xl mb-4">Café Website</h2>
+
+          <p class="text-dark/80 leading-relaxed mb-6">
+            A simple, welcoming website for a local café. The goal was to create something clean and easy for customers to use — with clear
+            opening hours, menus, and contact details.
+          </p>
+
+          <ul class="text-dark/70 space-y-2 mb-6 text-sm">
+            <li>• Mobile-first layout</li>
+            <li>• Fast performance</li>
+            <li>• Simple navigation</li>
+            <li>• Clear contact information</li>
+          </ul>
+
+          <Button href="/" title="View Website" variant="light" />
+        </div>
+      </div>
+    </div>
+  </section> -->
+
+  <section class="bg-gradient-soft py-24">
+    <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-8">
+      <ProjectCard
+        title="Local Café Website"
+        description="A simple, welcoming website designed to make it easy for customers to find menus, opening hours, and contact details."
+        image={loftMockup}
+        link="https://loftcafe.netlify.app/"
+        list={["Mobile-first layout", "Clear navigation", "Fast loading performance"]}
+        tech={["Astro", "Tailwind", "Responsive Design", "Netlify"]}
+      />
+    </div>
+  </section>
+
+  <section class="bg-gradient-cta text-center text-background">
+    <div class="max-w-3xl mx-auto px-6 py-28">
+      <h2 class="font-heading text-3xl md:text-4xl mb-6">Have a project in mind?</h2>
+
+      <p class="text-light/70 max-w-xl mx-auto">
+        If you'd like something similar for your business, I'd love to hear about what you're working on.
+      </p>
+
+      <div class="mt-10 flex justify-center">
+        <Button href="/contact" title="Start Your Project" variant="main" />
+      </div>
+    </div>
+  </section>
 </BaseLayout>
