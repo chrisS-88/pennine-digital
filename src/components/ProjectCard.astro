@@ -3,26 +3,31 @@ const { title, description, image, link, list = [], tech = [] } = Astro.props;
 import { Image } from "astro:assets";
 ---
 
-<div class="bg-white/40 border border-dark/10 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow duration-300">
-  <div class="overflow-hidden rounded-t-lg">
-    <Image src={image} alt={title} class="w-full object-cover rounded-t-lg" />
+<div
+  class="group grid lg:grid-cols-2 bg-white/40 border border-dark/10 rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-all duration-300">
+  <div class="overflow-hidden">
+    <Image
+      src={image}
+      alt={title}
+      class="w-full h-full object-cover aspect-[16/12] lg:aspect-auto lg:h-full transition-transform duration-500 group-hover:scale-[1.03]"
+    />
   </div>
 
-  <div class="p-6 space-y-4">
-    <h3 class="text-xl font-heading font-semibold text-dark">
+  <div class="p-8 flex flex-col justify-center space-y-5 bg-[#FAF9F6]">
+    <h3 class="text-2xl font-heading font-semibold text-dark">
       {title}
     </h3>
 
-    <p class="text-dark/70 text-sm leading-relaxed">
+    <p class="text-dark/70 leading-relaxed">
       {description}
     </p>
 
     {
       list.length > 0 && (
-        <ul class="space-y-1 text-sm text-dark/70 mt-2">
+        <ul class="space-y-1 text-sm text-dark/70">
           {list.map((item) => (
             <li class="flex items-start gap-2">
-              <span class="text-accent">•</span>
+              <span class="text-accent mt-[2px]">•</span>
               <span>{item}</span>
             </li>
           ))}
@@ -32,9 +37,9 @@ import { Image } from "astro:assets";
 
     {
       tech.length > 0 && (
-        <div class="flex flex-wrap gap-2 text-xs text-dark/60">
+        <div class="flex flex-wrap gap-2 pt-2">
           {tech.map((item) => (
-            <span class="bg-muted/10 px-2 py-1 rounded">{item}</span>
+            <span class="text-xs bg-muted/10 px-2 py-1 rounded-lg text-dark/60">{item}</span>
           ))}
         </div>
       )
@@ -42,9 +47,11 @@ import { Image } from "astro:assets";
 
     {
       link && (
-        <a href={link} class="inline-block text-accent text-sm font-medium hover:underline" target="_blank">
-          View Website →
-        </a>
+        <div class="pt-2">
+          <a href={link} target="_blank" rel="noopener noreferrer" class="inline-block text-accent font-medium hover:underline">
+            View Website ↗
+          </a>
+        </div>
       )
     }
   </div>
