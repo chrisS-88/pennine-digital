@@ -9,11 +9,11 @@ import { Image } from "astro:assets";
     <Image
       src={image}
       alt={title}
-      class="w-full h-full object-cover aspect-[16/12] lg:aspect-auto lg:h-full transition-transform duration-500 group-hover:scale-[1.03]"
+      class="w-full h-full object-cover aspect-[16/12] lg:aspect-auto lg:h-full bg-surface transition-transform duration-500 group-hover:scale-[1.03]"
     />
   </div>
 
-  <div class="p-8 flex flex-col justify-center space-y-5 bg-[#FAF9F6]">
+  <div class="p-8 flex flex-col justify-center space-y-5 bg-background">
     <h3 class="text-2xl font-heading font-semibold text-dark">
       {title}
     </h3>

@@ -6,29 +6,31 @@ import loftMockup from "../assets/projects/loft_mockup.webp";
 ---
 
 <BaseLayout title="Pennine Digital - Work">
-  <section class="bg-background pt-44 pb-24">
-    <div class="px-6 max-w-2xl text-center mx-auto">
-      <h1 class="text-4xl md:text-5xl font-heading font-semibold">My Work</h1>
+  <div class="bg-gradient-soft">
+    <section class="pt-44 pb-24">
+      <div class="px-6 max-w-2xl text-center mx-auto">
+        <h1 class="text-4xl md:text-5xl font-heading font-semibold">My Work</h1>
 
-      <p class="mt-4 text-dark/75 text-lg">
-        A look at some of the websites I’ve built for small businesses. Each project focuses on clean design, clarity, and making it easy
-        for customers to take the next step.
-      </p>
-    </div>
-  </section>
+        <p class="mt-4 text-dark/75 text-lg">
+          A look at some of the websites I’ve built for small businesses. Each project focuses on clean design, clarity, and making it easy
+          for customers to take the next step.
+        </p>
+      </div>
+    </section>
 
-  <section class="bg-gradient-soft py-24">
-    <div class="max-w-6xl mx-auto px-6 grid gap-8">
-      <ProjectCard
-        title="Local Café Website"
-        description="A simple, welcoming website designed to make it easy for customers to find menus, opening hours, and contact details."
-        image={loftMockup}
-        link="https://loftcafe.netlify.app/"
-        list={["Mobile-first layout", "Clear navigation", "Fast loading performance"]}
-        tech={["Astro", "Tailwind", "Responsive Design", "Netlify"]}
-      />
-    </div>
-  </section>
+    <section class="pb-24">
+      <div class="max-w-6xl mx-auto px-6 grid gap-8">
+        <ProjectCard
+          title="The Loft Café Website"
+          description="A simple, welcoming website designed to make it easy for customers to find menus, opening hours, and contact details."
+          image={loftMockup}
+          link="https://loftcafe.netlify.app/"
+          list={["Mobile-first layout", "Clear navigation", "Fast loading performance"]}
+          tech={["Astro", "Tailwind", "Responsive Design", "Netlify"]}
+        />
+      </div>
+    </section>
+  </div>
 
   <section class="bg-gradient-cta text-center text-background">
     <div class="max-w-3xl mx-auto px-6 py-28">
