@@ -10,6 +10,8 @@ import AboutSvg from "../components/icons/AboutSvg.astro";
 import UserSvg from "../components/icons/UserSvg.astro";
 import LightningSvg from "../components/icons/LightningSvg.astro";
 import ShieldSvg from "../components/icons/ShieldSvg.astro";
+import ProjectCard from "../components/ProjectCard.astro";
+import loftMockup from "../assets/projects/loft_mockup.webp";
 
 const serviceCardDetails = [
   {
@@ -26,13 +28,6 @@ const serviceCardDetails = [
     title: "Personal Service",
     description: "Direct support from start to finish. I’m here for updates, changes, and honest advice whenever you need it.",
     icon: SupportSvg,
-  },
-];
-
-const projectsCardDetails = [
-  {
-    title: "Projects Coming Soon",
-    description: "I'm currently working with a few local businesses and will be sharing some recent website projects here soon.",
   },
 ];
 
@@ -84,7 +79,7 @@ const trustPoints = [
 
   <section class="bg-gradient-soft w-full">
     <div class="max-w-6xl text-center px-6 py-28 mx-auto">
-      <h2 class="font-heading text-3xl mb-3">Simple, well-built websites for local businesses</h2>
+      <h2 class="font-heading text-3xl md:text-4xl mb-3">Simple, well-built websites for local businesses</h2>
 
       <p class="text-lg max-w-2xl mx-auto text-dark/80">
         Helping small businesses and creatives across Bradford and West Yorkshire with clean, modern websites that are simple to use and
@@ -107,7 +102,7 @@ const trustPoints = [
 
   <section class="bg-background">
     <div class="max-w-6xl mx-auto px-6 py-28 text-center">
-      <h2 class="font-heading text-3xl mb-3">Simple, transparent pricing</h2>
+      <h2 class="font-heading text-3xl md:text-4xl mb-3">Simple, transparent pricing</h2>
 
       <p class="text-lg max-w-3xl mx-auto text-dark/80">
         Clear pricing with no surprises. I work with small businesses around Bradford and West Yorkshire to create reliable, modern websites
@@ -134,26 +129,69 @@ const trustPoints = [
     </div>
   </section>
 
-  <section class="bg-gradient-dark text-center">
-    <div class="max-w-6xl text-center px-6 py-28 mx-auto h-full">
-      <h2 class="font-heading text-3xl mb-6 text-background">Recent Work</h2>
+  <section class="border-t border-dark/5 bg-gradient-soft py-28">
+    <div class="max-w-6xl mx-auto px-6">
+      <!-- Section intro -->
+      <div class="text-center mb-20">
+        <p class="text-xs uppercase tracking-widest text-dark/50 mb-3">Featured Work</p>
 
-      <p class="max-w-3xl mx-auto text-lg text-background/80">
-        A look at some of the websites I’ve been working on for small businesses. Each project focuses on clean design, clear content, and
-        making it easy for customers to get in touch.
-      </p>
+        <h2 class="font-heading text-3xl md:text-4xl">A recent website project</h2>
 
-      <div class="mt-12 mb-16 flex justify-center">
-        {
-          projectsCardDetails.map((item) => (
-            <div class="max-w-md">
-              <FeatureCard {...item} variant="projects" />
-            </div>
-          ))
-        }
+        <p class="text-dark/70 mt-4 text-lg max-w-xl mx-auto">
+          A website created for a local café — designed to make it easy for customers to find menus, opening hours, and get in touch.
+        </p>
       </div>
 
-      <Button href="/projects" title="View Projects" variant="dark" />
+      <div class="grid lg:grid-cols-2 gap-16 items-center max-w-5xl mx-auto">
+        <div class="bg-surface rounded-xl overflow-hidden shadow-md">
+          <img
+            src={loftMockup.src}
+            alt="The Loft Café Website"
+            class="w-full h-full object-cover transition-transform duration-500 hover:scale-[1.02]"
+          />
+        </div>
+
+        <div>
+          <h3 class="text-2xl font-heading font-semibold text-dark">The Loft Café Website</h3>
+
+          <p class="mt-4 text-dark/70 leading-relaxed">
+            A simple, welcoming website designed to help customers quickly find menus, opening hours, and contact details — while reflecting
+            the café’s relaxed and friendly atmosphere.
+          </p>
+
+          <ul class="mt-6 space-y-2 text-sm text-dark/70">
+            <li class="flex gap-2">
+              <span class="text-accent">•</span>
+              Mobile-first layout
+            </li>
+
+            <li class="flex gap-2">
+              <span class="text-accent">•</span>
+              Clear, simple navigation
+            </li>
+
+            <li class="flex gap-2">
+              <span class="text-accent">•</span>
+              Fast loading performance
+            </li>
+          </ul>
+
+          <div class="flex flex-wrap gap-2 mt-6">
+            <span class="text-xs bg-muted/10 px-2 py-1 rounded text-dark/60">Astro</span>
+            <span class="text-xs bg-muted/10 px-2 py-1 rounded text-dark/60">Tailwind</span>
+            <span class="text-xs bg-muted/10 px-2 py-1 rounded text-dark/60">Responsive Design</span>
+            <span class="text-xs bg-muted/10 px-2 py-1 rounded text-dark/60">Netlify</span>
+          </div>
+
+          <div class="mt-8 flex items-center gap-6">
+            <a href="https://loftcafe.netlify.app/" target="_blank" class="text-accent font-medium hover:underline"> View Live Site ↗ </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="text-center mt-20">
+        <Button href="/projects" title="View All Work" variant="light" />
+      </div>
     </div>
   </section>
 
@@ -161,7 +199,7 @@ const trustPoints = [
     <div
       class="max-w-6xl px-6 pt-24 pb-20 flex flex-col items-center justify-evenly gap-12 lg:flex-row text-center lg:text-left text-balance">
       <div class="max-w-lg lg:max-w-lg">
-        <h2 class="font-heading text-3xl mb-6">A friendly, local partner for your website</h2>
+        <h2 class="font-heading text-3xl md:text-4xl mb-6">A friendly, local partner for your website</h2>
 
         <p class="mb-6">
           I’m Chris — a web developer based in Riddlesden, West Yorkshire. I build clean, reliable websites for small businesses that want
@@ -185,7 +223,7 @@ const trustPoints = [
 
   <section class="bg-background py-28 text-center">
     <div class="max-w-6xl mx-auto px-6">
-      <h2 class="font-heading text-3xl mb-6">Why work with me?</h2>
+      <h2 class="font-heading text-3xl md:text-4xl mb-6">Why work with me?</h2>
 
       <p class="max-w-3xl mx-auto text-dark/80 mb-12 text-lg">
         I help small businesses across Bradford and West Yorkshire get online with websites that are clear, practical, and easy for your
@@ -200,7 +238,7 @@ const trustPoints = [
 
   <section class="bg-gradient-cta text-center text-background pb-28">
     <div class="max-w-4xl mx-auto px-6 pt-28 pb-20">
-      <h2 class="font-heading text-3xl mb-6">Thinking about a new website?</h2>
+      <h2 class="font-heading text-3xl md:text-4xl mb-6">Thinking about a new website?</h2>
 
       <p class="leading-relaxed text-background/80 text-lg">
         If you’re a small business in Bradford or West Yorkshire looking for a clean, reliable website, I’d be happy to chat about what you
