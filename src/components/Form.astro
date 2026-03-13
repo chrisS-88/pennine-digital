@@ -29,6 +29,14 @@
   <fieldset class="mt-6">
     <legend>Budget range:</legend>
 
+    <!-- 
+  Netlify fix:
+  This hidden input gives the radio group a proper field name ("budget").
+  Without it, Netlify uses the selected value ("Under £500") as the label in emails.
+  The hidden field is overwritten by whichever radio option the user selects.
+-->
+    <input type="hidden" name="budget" value="" />
+
     <ul class="mt-3 space-y-2">
       <li>
         <input type="radio" id="budget-500" name="budget" value="Under £500" class="check-box" />
