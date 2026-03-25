@@ -49,22 +49,47 @@ const serviceCards = [
 
 const faqs = [
   {
-    question: "How long does a project take?",
-    answer: "Most small websites take 2–4 weeks depending on size and content. I’ll always give you a clear timeline before we begin.",
+    question: "How long does a website take to build?",
+    answer: "Most one‑page sites take around 1–2 weeks, and full websites take 3–5 weeks depending on content and feedback.",
   },
   {
-    question: "Do you work with existing websites?",
-    answer: "Yes — I can improve, rebuild, or modernise what you already have. Whether it needs a refresh or a full overhaul, I can help.",
-  },
-  {
-    question: "Do you offer ongoing support?",
+    question: "Do I need to provide the text and photos?",
     answer:
-      "Absolutely. I offer simple monthly plans with no long contracts. You can hand over updates, fixes, and improvements whenever you need them.",
+      "Yes — you know your business best. I’ll guide you on what to write and how much you need, and I can tidy up wording if needed.",
   },
   {
-    question: "What do you need from me to get started?",
+    question: "Can I update the website myself?",
     answer:
-      "Usually just a short chat, any existing content you want to use, and an idea of what you’re aiming for. I guide you through the rest.",
+      "Most small businesses don’t need a CMS, so I handle updates for you. If you’re on the Monthly Care Plan, small content changes are included.",
+  },
+  {
+    question: "What’s included in the Monthly Care Plan?",
+    answer:
+      "Hosting, security updates, backups, uptime monitoring and small content changes. It keeps your site running smoothly without you needing to worry about anything technical.",
+  },
+  {
+    question: "Do you offer e‑commerce or booking systems?",
+    answer: "Yes — simple booking systems and small shops can be added as optional extras. We’ll chat about what you need before starting.",
+  },
+  {
+    question: "How does payment work?",
+    answer: "A 50% deposit secures your project, and the remaining 50% is due when the site goes live.",
+  },
+  {
+    question: "What’s the process?",
+    answer: [
+      "Quick chat about your business",
+      "You send over content (text + photos)",
+      "I design and build your website",
+      "You review and request tweaks",
+      "We launch the site",
+      "Optional care plan begins",
+    ],
+    isList: true,
+  },
+  {
+    question: "Do you work with businesses outside Yorkshire?",
+    answer: "Yes — but I specialise in helping local, independent businesses across West Yorkshire.",
   },
 ];
 ---
@@ -108,7 +133,7 @@ const faqs = [
       </p>
     </div>
 
-    <div class="mt-20 px-6 max-w-5xl mx-auto flex flex-col gap-16 lg:flex-row">
+    <div class="mt-20 px-6 max-w-4xl xl:max-w-6xl mx-auto grid md:grid-cols-2 xl:grid-cols-4 gap-12">
       <!-- Step -->
       <div class="group flex-1 text-center lg:text-left">
         <div class="text-5xl inline-block font-heading text-primary/40 group-hover:text-primaryHover/50 transition-colors">01</div>
@@ -143,24 +168,45 @@ const faqs = [
           Your website is built using modern, reliable tools with performance and long-term maintainability in mind.
         </p>
       </div>
+
+      <!-- Step -->
+      <div class="group flex-1 text-center lg:text-left">
+        <div class="text-5xl inline-block font-heading text-primary/40 group-hover:text-primaryHover/50 transition-colors">04</div>
+
+        <h3 class="font-semibold text-xl text-dark mt-2">Launch</h3>
+
+        <p class="text-dark/70 leading-relaxed mt-4">
+          When the site is ready, we launch it. You can request updates at any time, or choose a care plan if you’d like ongoing support
+          included each month.
+        </p>
+      </div>
     </div>
   </section>
 
-  <section class="bg-gradient-soft">
-    <div class="py-28 max-w-3xl mx-auto px-6">
-      <h2 class="text-3xl md:text-4xl font-heading mb-16 text-center">Frequently asked questions</h2>
+  <section class="max-w-3xl mx-auto py-16">
+    <h2 class="text-center font-heading text-3xl font-semibold mb-10">Frequently Asked Questions</h2>
 
-      <div class="space-y-10">
-        {
-          faqs.map((faq) => (
-            <div class="pb-8 border-b border-dark/10 last:border-none">
-              <h3 class="text-lg md:text-xl font-semibold text-dark">{faq.question}</h3>
+    <div class="space-y-8">
+      {
+        faqs.map((faq) => (
+          <div class="pb-6 border-b border-neutral-200">
+            <h3 class="font-semibold text-lg mb-2">{faq.question}</h3>
 
-              <p class="mt-4 text-dark/75 leading-relaxed">{faq.answer}</p>
-            </div>
-          ))
-        }
-      </div>
+            {faq.isList ? (
+              <ul class="text-neutral-600 text-sm space-y-2 mt-2">
+                {faq.answer.map((step) => (
+                  <li class="flex items-start gap-2">
+                    <span class="text-accent font-bold leading-6">•</span>
+                    <span>{step}</span>
+                  </li>
+                ))}
+              </ul>
+            ) : (
+              <p class="text-neutral-600 leading-relaxed">{faq.answer}</p>
+            )}
+          </div>
+        ))
+      }
     </div>
   </section>
 
