@@ -35,9 +35,12 @@ const isCta = variant === "cta";
         <div class="space-y-2">
           <p class="text-xs font-semibold uppercase tracking-wide text-dark/70">{listHeader}</p>
 
-          <ul class="pl-4 space-y-1 text-sm text-dark/70 list-disc">
-            {list?.map((item) => (
-              <li class="leading-relaxed">{item}</li>
+          <ul class="pl-4 space-y-1 text-sm text-dark/70 list-disc ">
+            {list?.map((item = "string") => (
+              <li class="flex items-start gap-2">
+                <span class="text-accent font-bold leading-6">•</span>
+                <span>{item}</span>
+              </li>
             ))}
           </ul>
         </div>

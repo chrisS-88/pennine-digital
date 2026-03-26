@@ -5,23 +5,26 @@ import logo from "../assets/logos/logo.png";
 import { Image } from "astro:assets";
 ---
 
-<footer class="bg-[#061217] border-t border-white/5 text-background font-heading pt-20 pb-10">
+<footer class="bg-[#061217] border-t border-white/5 text-background pt-20 pb-12">
   <div class="max-w-5xl mx-auto px-6">
-    <div class="text-center mb-12">
-      <Image src={logo} alt="Pennine Digital Logo" class="w-16 mx-auto mb-3" />
+    <!-- Logo + Intro -->
+    <div class="text-center mb-16">
+      <Image src={logo} alt="Pennine Digital Logo" class="w-16 mx-auto mb-4" />
 
-      <p class="text-xl font-semibold tracking-wide">Pennine Digital</p>
+      <p class="text-xl font-heading font-semibold tracking-wide">Pennine Digital</p>
 
-      <p class="text-background/70 mt-2 max-w-md mx-auto text-sm leading-relaxed">
+      <p class="text-background/70 mt-3 max-w-md mx-auto text-sm leading-relaxed font-sans">
         Clean, reliable websites for small businesses across Bradford and West Yorkshire.
       </p>
 
-      <p class="text-background/70 text-sm mt-2">Based in Riddlesden, West Yorkshire</p>
+      <p class="text-background/60 text-xs mt-2 font-sans">Based in Riddlesden, West Yorkshire</p>
     </div>
 
-    <div class="h-px bg-accent/20 mb-10"></div>
+    <!-- Divider -->
+    <div class="h-px bg-white/10 mb-12"></div>
 
-    <ul class="flex flex-col md:flex-row items-center justify-center gap-6 mb-10 text-background/70 text-sm">
+    <!-- Navigation -->
+    <ul class="flex flex-col md:flex-row items-center justify-center gap-5 mb-12 text-background/70 text-sm font-sans">
       {
         navLinks.map((link) => (
           <li>
@@ -33,15 +36,22 @@ import { Image } from "astro:assets";
       }
     </ul>
 
-    <div class="flex justify-center gap-6 mb-10">
-      <a href="mailto:hello@penninedigital.co.uk" class="flex items-center gap-2 text-background/70 hover:text-accent transition">
+    <!-- Contact -->
+    <div class="flex justify-center mb-12">
+      <a href="mailto:hello@penninedigital.co.uk" class="flex items-center gap-2 text-background/70 hover:text-accent transition font-sans">
         <MailSvg class="w-5 h-5" />
         <span class="text-sm">hello@penninedigital.co.uk</span>
       </a>
     </div>
 
-    <div class="text-center mt-6 space-y-1">
-      <p class="text-sm text-background/60">
+    <!-- Legal + Credits -->
+    <div class="text-center space-y-3 font-sans">
+      <div class="flex justify-center gap-6 text-background/60 text-sm">
+        <a href="/privacy" class="hover:text-accent hover:underline transition">Privacy Policy</a>
+        <a href="/cookies" class="hover:text-accent hover:underline transition">Cookies</a>
+      </div>
+
+      <p class="text-sm text-background/50">
         © {new Date().getFullYear()} Pennine Digital · All rights reserved
       </p>
 

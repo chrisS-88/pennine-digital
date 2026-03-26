@@ -60,12 +60,17 @@ const faqs = [
   {
     question: "Can I update the website myself?",
     answer:
-      "Most small businesses don’t need a CMS, so I handle updates for you. If you’re on the Monthly Care Plan, small content changes are included.",
+      "Most small businesses don’t need a CMS, so I handle updates for you. If you’re on the Monthly Care Plan, you get up to two small content updates each month — perfect for keeping things fresh.",
   },
   {
     question: "What’s included in the Monthly Care Plan?",
     answer:
-      "Hosting, security updates, backups, uptime monitoring and small content changes. It keeps your site running smoothly without you needing to worry about anything technical.",
+      "Hosting, security updates, backups, uptime monitoring and up to two small content updates per month. It keeps your site running smoothly without you needing to worry about anything technical.",
+  },
+  {
+    question: "What counts as a small content update?",
+    answer:
+      "Small updates include things like swapping photos, updating text, adding a testimonial or changing opening hours. Larger changes — such as new pages, redesigns or new features — are quoted separately.",
   },
   {
     question: "Do you offer e‑commerce or booking systems?",
@@ -112,7 +117,7 @@ const faqs = [
 
   <section class="bg-background pb-24">
     <div class="px-6 max-w-3xl mx-auto text-center">
-      <p class="text-2xl font-medium text-secondary/80 font-heading uppercase tracking-wider mb-6">Services</p>
+      <p class="text-lg underline underline-offset-2 font-medium text-secondary/80 font-heading uppercase tracking-wider mb-6">Services</p>
       <p class="text-lg text-dark/75 leading-relaxed">
         Running a small business is demanding enough. Your website shouldn’t add to the stress. I create sites that feel calm, intuitive,
         and genuinely useful — whether you’re starting fresh or improving what you already have.
@@ -189,7 +194,7 @@ const faqs = [
     <div class="space-y-8">
       {
         faqs.map((faq) => (
-          <div class="pb-6 border-b border-neutral-200">
+          <div class=" p-6 border-b border-neutral-200">
             <h3 class="font-semibold text-lg mb-2">{faq.question}</h3>
 
             {faq.isList ? (

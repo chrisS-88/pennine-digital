@@ -37,7 +37,7 @@ const variants = {
   {
     includes && (
       <ul class="text-neutral-600 text-sm space-y-2 mt-4 text-left mx-auto max-w-[260px]">
-        {includes.map((item) => (
+        {includes.map((item = "string") => (
           <li class="flex items-start gap-2">
             <span class="text-accent font-bold leading-6">•</span>
             <span>{item}</span>
