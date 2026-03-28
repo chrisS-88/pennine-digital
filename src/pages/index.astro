@@ -12,6 +12,7 @@ import LightningSvg from "../components/icons/LightningSvg.astro";
 import ShieldSvg from "../components/icons/ShieldSvg.astro";
 import ProjectCard from "../components/ProjectCard.astro";
 import loftMockup from "../assets/projects/loft_mockup.webp";
+import { Image } from "astro:assets";
 
 const serviceCardDetails = [
   {
@@ -160,8 +161,8 @@ const trustPoints = [
 
       <div class="grid lg:grid-cols-2 gap-16 items-center max-w-5xl mx-auto">
         <div class="bg-surface rounded-xl overflow-hidden shadow-md">
-          <img
-            src={loftMockup.src}
+          <Image
+            src={loftMockup}
             alt="The Loft Café Website"
             class="w-full h-full object-cover transition-transform duration-500 hover:scale-[1.02]"
           />
