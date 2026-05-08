@@ -1,0 +1,84 @@
+---
+const { eyebrow, title, description, client, location, services, image, image_2, image_3, link = null } = Astro.props;
+import { Image } from "astro:assets";
+---
+
+<section class="py-32 bg-brand-50">
+  <div class="max-w-5xl mx-auto px-6">
+    <!-- Header -->
+    <header class="mb-20 text-center">
+      <p class="text-xs uppercase tracking-widest text-highlight mb-4">
+        {eyebrow}
+      </p>
+
+      <h1 class="font-heading text-4xl md:text-5xl text-brand-900 leading-tight">
+        {title}
+      </h1>
+
+      {description && <p class=" mt-6 text-lg max-w-2xl mx-auto leading-relaxed">{description}</p>}
+    </header>
+
+    <!-- Meta -->
+    <div class="grid sm:grid-cols-3 gap-10 text-left py-10 border-y border-brand-900/10">
+      <div>
+        <p class="text-xs uppercase tracking-widest text-brand-900/50 mb-1">Client</p>
+        <p class="text-brand-900/80">{client}</p>
+      </div>
+
+      <div>
+        <p class="text-xs uppercase tracking-widest text-brand-900/50 mb-1">Location</p>
+        <p class="text-brand-900/80">{location}</p>
+      </div>
+
+      <div>
+        <p class="text-xs uppercase tracking-widest text-brand-900/50 mb-1">Services</p>
+        <p class="text-brand-900/80">{services}</p>
+      </div>
+    </div>
+
+    <!-- Body -->
+    <article class="space-y-20 mt-20 max-w-3xl mx-auto text-brand-900 leading-relaxed">
+      <slot />
+    </article>
+
+    <!-- Images -->
+    {
+      image && (
+        <div class="space-y-6 py-20">
+          <div class="rounded-xl overflow-hidden">
+            <Image src={image} alt={title} class="w-full h-auto object-cover transition-all duration-500 saturate-0 hover:saturate-100" />
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            <div class="rounded-xl overflow-hidden">
+              <Image
+                src={image_2}
+                alt={`${title} screenshot 2`}
+                class="w-full h-auto object-cover transition-all duration-500 saturate-0 hover:saturate-100"
+              />
+            </div>
+
+            <div class="rounded-xl overflow-hidden">
+              <Image
+                src={image_3}
+                alt={`${title} screenshot 3`}
+                class="w-full h-auto object-cover transition-all duration-500 saturate-0 hover:saturate-100"
+              />
+            </div>
+          </div>
+        </div>
+      )
+    }
+
+    <!-- Footer -->
+    <div class="text-right mt-10">
+      {
+        link && (
+          <a href={link} target="_blank" class="text-accent font-medium hover:underline">
+            View Live Site ↗
+          </a>
+        )
+      }
+    </div>
+  </div>
+</section>

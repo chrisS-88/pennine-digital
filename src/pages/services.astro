@@ -2,48 +2,35 @@
 import ServiceCard from "../components/ServiceCard.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Button from "../components/Button.astro";
-import SeperationSvg from "../components/icons/SeperationSvg.astro";
 
 const serviceCards = [
   {
     title: "Web Design",
     description:
-      "Thoughtful layouts that feel welcoming and easy to navigate. I focus on clarity, accessibility, and a visual style that reflects your business without feeling corporate or over-designed.",
+      "Clean layouts that feel welcoming and easy to navigate. I focus on clarity, accessibility, and a visual style that reflects your business without feeling cluttered or over‑designed.",
     listHeader: "Includes",
-    list: ["Page layouts", "Colour and typography", "Mobile-first design", "Brand consistency"],
+    list: ["Page layouts", "Colour and typography", "Mobile‑first design", "Brand consistency"],
   },
   {
     title: "Website Development",
     description:
-      "Fast, reliable websites built with modern technology. Everything is structured to load quickly, work smoothly across devices, and remain easy to update over time.",
+      "Fast, reliable websites built on a lightweight, hand‑coded foundation. Everything is structured to load quickly, work smoothly across devices, and stay easy to update as your business grows.",
     listHeader: "Includes",
-    list: ["Responsive builds", "Clean, maintainable code", "Performance optimisation", "SEO-friendly structure"],
+    list: ["Responsive builds", "Clean, maintainable code", "Performance optimisation", "SEO‑friendly structure"],
   },
   {
     title: "Website Care & Maintenance",
     description:
-      "Quiet, reliable help with the small technical jobs that keep your website running smoothly — updates, fixes, and general housekeeping.",
+      "Reliable help with the small technical jobs that keep your website running smoothly. From updates and fixes to content changes and general housekeeping, I look after the details so you don’t have to.",
     listHeader: "Includes",
-    list: ["Minor fixes", "Small updates", "General maintenance", "Technical support"],
-  },
-  {
-    title: "Content & Updates",
-    description:
-      "Support with keeping your website fresh as your business evolves — whether that’s new photos, updated services, or small changes to existing pages.",
-    listHeader: "Includes",
-    list: ["Content updates", "Photo and gallery changes", "Service or menu updates", "New sections or pages"],
+    list: ["Minor fixes", "Small updates", "Content changes", "General maintenance"],
   },
   {
     title: "Website Audit",
-    description: "A practical review of your existing website to identify what’s working, what isn’t, and where improvements can be made.",
+    description:
+      "A practical review of your existing website to understand what’s working, what isn’t, and where improvements can be made. Clear, honest feedback with simple steps you can act on.",
     listHeader: "Includes",
     list: ["Performance review", "Design and usability feedback", "Mobile experience check", "Practical improvement suggestions"],
-  },
-  {
-    variant: "cta",
-    title: "Not sure what you need?",
-    description:
-      "If you're unsure which service fits your business, we can talk through your website and figure out the best approach together.",
   },
 ];
 
@@ -72,10 +59,6 @@ const faqs = [
     answer:
       "Small updates include things like swapping photos, updating text, adding a testimonial or changing opening hours. Larger changes — such as new pages, redesigns or new features — are quoted separately.",
   },
-  //{
-  // question: "Do you offer e‑commerce or booking systems?",
-  //  answer: "Yes — simple booking systems and small shops can be added as optional extras. We’ll chat about what you need //before starting.",
-  //},
   {
     question: "How does payment work?",
     answer: "A 50% deposit secures your project, and the remaining 50% is due when the site goes live.",
@@ -100,133 +83,84 @@ const faqs = [
 ---
 
 <BaseLayout title="Pennine Digital - Services">
-  <section class="bg-background pt-44 pb-12">
-    <div class="px-6 max-w-2xl text-center mx-auto">
-      <h1 class="text-4xl md:text-5xl font-heading font-semibold leading-tight">Websites that help your business run smoother</h1>
+  <section class="bg-primary pt-44 pb-24">
+    <div class="px-6 max-w-lg mx-auto">
+      <p class="text-sm uppercase tracking-wide text-highlight mb-2">What I Do</p>
+      <h1 class="text-4xl md:text-5xl font-heading font-semibold text-brand-200 max-w-sm">
+        Simple, modern websites shaped <span class="italic">around your business.</span>
+      </h1>
 
-      <p class="mt-5 text-dark/75 text-lg leading-relaxed max-w-xl mx-auto">
-        I design and build modern, thoughtful websites that are easy to use, simple to update, and shaped around how your business actually
-        works.
+      <p class="mt-10 text-brand-200/80 text-xl font-thin leading-relaxed max-w-sm">
+        I design and build websites that are clear to use, quick to load, and shaped around how your business actually works. Each one is
+        built by hand, keeping things lightweight, intentional, and free from the noise of templates or unnecessary extras.
       </p>
-    </div>
-
-    <div class="flex justify-center items-center mt-10 text-secondary/70">
-      <SeperationSvg />
     </div>
   </section>
 
-  <section class="bg-background pb-24">
+  <section class="bg-brand-50 py-24">
     <div class="px-6 max-w-3xl mx-auto text-center">
-      <p class="text-lg underline underline-offset-2 font-medium text-secondary/80 font-heading uppercase tracking-wider mb-6">Services</p>
-      <p class="text-lg text-dark/75 leading-relaxed">
-        Running a small business is demanding enough. Your website shouldn’t add to the stress. I create sites that feel calm, intuitive,
-        and genuinely useful — whether you’re starting fresh or improving what you already have.
+      <h2 class="text-center font-heading text-3xl mb-10 text-brand-900">Services</h2>
+
+      <p class="leading-relaxed">
+        Running a small business is demanding enough — your website shouldn’t make things harder. I build sites that feel clear, intuitive,
+        and genuinely useful, whether you’re starting fresh or improving what you already have.
       </p>
     </div>
 
-    <div class="px-6 py-24 max-w-6xl mx-auto grid gap-10 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+    <div class="px-6 py-24 max-w-lg mx-auto grid gap-10 grid-cols-1 md:grid-cols-2">
       {serviceCards.map((item) => <ServiceCard {...item} />)}
     </div>
-  </section>
 
-  <section class="bg-background pb-28">
-    <div class="px-6 text-center max-w-3xl mx-auto">
-      <h2 class="font-heading text-3xl md:text-4xl">How the process works</h2>
-
-      <p class="mt-4 text-dark/70 text-lg leading-relaxed">
-        A simple, straightforward approach that keeps everything clear from the start.
+    <div class="max-w-lg mx-auto mt-16 py-12 text-center">
+      <p class="text-xl font-semibold">Not sure what you need?</p>
+      <p class="max-w-sm mx-auto leading-relaxed">
+        If you're unsure which direction to take, we can look at your website together and figure out the best approach for your business.
       </p>
+      <a href="/contact"><p class="mt-4 text-lg underline hover:text-accent transition-all duration-200">Start a Conversation</p></a>
     </div>
+  </section>
 
-    <div class="mt-20 px-6 max-w-4xl xl:max-w-6xl mx-auto grid md:grid-cols-2 xl:grid-cols-4 gap-12">
-      <!-- Step -->
-      <div class="group flex-1 text-center lg:text-left">
-        <div class="text-5xl inline-block font-heading text-primary/40 group-hover:text-primaryHover/50 transition-colors">01</div>
+  <section class="bg-brand-100 py-24">
+    <div class="max-w-md mx-auto">
+      <h2 class="text-center font-heading text-3xl mb-10 text-brand-900">Frequently Asked Questions</h2>
 
-        <h3 class="font-semibold text-xl text-dark mt-2">Chat</h3>
+      <div class="space-y-8">
+        {
+          faqs.map((faq) => (
+            <div class=" p-6 border-b border-brand-300">
+              <h3 class="font-semibold text-lg mb-2">{faq.question}</h3>
 
-        <p class="text-dark/70 leading-relaxed mt-4">
-          We begin with a quick conversation about what you need, what’s working, and what isn’t. No pressure, no technical talk — just a
-          chance to understand your goals.
-        </p>
-      </div>
-
-      <!-- Step -->
-      <div class="group flex-1 text-center lg:text-left">
-        <div class="text-5xl inline-block font-heading text-primary/40 group-hover:text-primaryHover/50 transition-colors">02</div>
-
-        <h3 class="font-semibold text-xl text-dark mt-2">Design</h3>
-
-        <p class="text-dark/70 leading-relaxed mt-4">
-          I shape the structure, layout, and visual direction of your website. As the site develops, you'll be able to see how it’s coming
-          together and suggest changes along the way.
-        </p>
-      </div>
-
-      <!-- Step -->
-      <div class="group flex-1 text-center lg:text-left">
-        <div class="text-5xl inline-block font-heading text-primary/40 group-hover:text-primaryHover/50 transition-colors">03</div>
-
-        <h3 class="font-semibold text-xl text-dark mt-2">Build</h3>
-
-        <p class="text-dark/70 leading-relaxed mt-4">
-          Your website is built using modern, reliable tools with performance and long-term maintainability in mind.
-        </p>
-      </div>
-
-      <!-- Step -->
-      <div class="group flex-1 text-center lg:text-left">
-        <div class="text-5xl inline-block font-heading text-primary/40 group-hover:text-primaryHover/50 transition-colors">04</div>
-
-        <h3 class="font-semibold text-xl text-dark mt-2">Launch</h3>
-
-        <p class="text-dark/70 leading-relaxed mt-4">
-          When the site is ready, we launch it. You can request updates at any time, or choose a care plan if you’d like ongoing support
-          included each month.
-        </p>
+              {faq.isList ? (
+                <ul class="text-sm space-y-2 mt-2">
+                  {faq.answer.map((step) => (
+                    <li class="flex items-center gap-2">
+                      <span class="text-accent font-bold leading-6">•</span>
+                      <span>{step}</span>
+                    </li>
+                  ))}
+                </ul>
+              ) : (
+                <p class="leading-relaxed">{faq.answer}</p>
+              )}
+            </div>
+          ))
+        }
       </div>
     </div>
   </section>
 
-  <section class="max-w-3xl mx-auto py-16">
-    <h2 class="text-center font-heading text-3xl font-semibold mb-10">Frequently Asked Questions</h2>
+  <section class="bg-primary text-brand-200 text-center">
+    <div class="max-w-md mx-auto px-6 py-28">
+      <h2 class="font-heading text-4xl mb-6">Ready to start your project?</h2>
 
-    <div class="space-y-8">
-      {
-        faqs.map((faq) => (
-          <div class=" p-6 border-b border-neutral-200">
-            <h3 class="font-semibold text-lg mb-2">{faq.question}</h3>
-
-            {faq.isList ? (
-              <ul class="text-neutral-600 text-sm space-y-2 mt-2">
-                {faq.answer.map((step) => (
-                  <li class="flex items-start gap-2">
-                    <span class="text-accent font-bold leading-6">•</span>
-                    <span>{step}</span>
-                  </li>
-                ))}
-              </ul>
-            ) : (
-              <p class="text-neutral-600 leading-relaxed">{faq.answer}</p>
-            )}
-          </div>
-        ))
-      }
-    </div>
-  </section>
-
-  <section class="bg-gradient-cta text-background text-center">
-    <div class="max-w-3xl mx-auto px-6 py-28">
-      <h2 class="font-heading text-3xl md:text-4xl mb-6">Ready to start your project?</h2>
-
-      <p class="leading-relaxed text-light/70 max-w-xl mx-auto">
+      <p class="leading-relaxed text-brand-200/80 max-w-xl mx-auto">
         Whether you have a clear plan or just an idea, I’d love to hear what you’re working on. No pressure — just a friendly chat about
         what you need.
       </p>
 
       <div class="mt-10 flex flex-col items-center gap-2">
-        <Button href="/contact" title="Start Your Project" variant="main" />
-        <p class="text-sm mt-4 text-light/50">No obligation — just a quick conversation.</p>
+        <Button href="/contact" title="Start Your Project" variant="ghost" />
+        <p class="text-sm mt-4 text-brand-200/70">No obligation — just a quick conversation.</p>
       </div>
     </div>
   </section>

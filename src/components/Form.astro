@@ -2,12 +2,7 @@
 
 ---
 
-<form
-  name="contact"
-  method="POST"
-  action="/success"
-  data-netlify="true"
-  class="mt-8 md:max-w-2xl px-6 mx-auto py-12 rounded-3xl bg-muted/5 border border-dark/5">
+<form name="contact" method="POST" action="/success" data-netlify="true" class="w-full p-12 bg-brand-50 relative z-10">
   <input type="hidden" name="form-name" value="contact" />
   <input type="hidden" name="subject" value="New enquiry from your website" />
 
@@ -62,9 +57,13 @@
     </ul>
   </fieldset>
 
-  <button type="submit" class="block mx-auto w-max rounded-lg mt-10 px-4 py-2 font-medium text-background bg-primary hover:bg-primaryHover">
+  <button
+    type="submit"
+    class="block mx-auto w-max mt-10 px-4 py-2 text-brand-100 bg-primary/80 hover:bg-primary transition-colors duration-200">
     Send message
   </button>
 
-  <p class="text-dark/70 text-sm text-center mt-4">Your details are safe and will only be used to reply to your message.</p>
+  <p class="text-brand-700/60 text-center text-sm mt-4">I usually reply within one working day.</p>
+
+  <p class="text-brand-700/60 text-center text-xs mt-2">Your details are safe and will only be used to reply to your message.</p>
 </form>

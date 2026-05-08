@@ -1,47 +1,65 @@
 ---
 import Button from "../components/Button.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
-import ProjectCard from "../components/ProjectCard.astro";
-import loftMockup from "../assets/projects/loft_mockup.webp";
+import FeatureProjectCard from "../components/FeatureProjectCard.astro";
+import loftScreenshot from "../assets/projects/loft-cafe/screenshot.webp";
+import formFirstScreenshot from "../assets/projects/form-first/screenshot.webp";
 ---
 
-<BaseLayout title="Pennine Digital - Work">
-  <div class="bg-gradient-soft">
+<BaseLayout title="Pennine Digital – Work">
+  <div class="bg-brand-50">
     <section class="pt-44 pb-24">
-      <div class="px-6 max-w-2xl text-center mx-auto">
-        <h1 class="text-4xl md:text-5xl font-heading font-semibold">My Work</h1>
+      <div class="px-6 max-w-2xl mx-auto text-center">
+        <p class="text-sm uppercase tracking-wide text-accent mb-2">My Work</p>
 
-        <p class="mt-4 text-dark/75 text-lg">
-          A selection of real and concept websites that showcase my approach to clean design, clarity, and helping small businesses guide
-          customers to the next step.
+        <h1 class="text-5xl font-heading text-brand-900 font-semibold">A few projects I’ve worked on</h1>
+
+        <p class="mt-4 text-lg font-thin leading-relaxed">
+          A few examples of real and concept work, each built with the same focus: clarity, ease of use, and helping small businesses guide
+          customers forward.
         </p>
       </div>
     </section>
 
     <section class="pb-24">
-      <div class="max-w-6xl mx-auto px-6 grid gap-8">
-        <ProjectCard
+      <div class="max-w-xl mx-auto px-6 lg:px-20 grid gap-16 lg:gap-36">
+        <FeatureProjectCard
+          index={0}
           title="The Loft Café — Concept Website"
-          description="A self‑initiated concept project exploring a clean, welcoming website for a modern local café. Not commissioned or affiliated with The Loft Café."
-          image={loftMockup}
-          link="https://loftcafe.netlify.app/"
-          list={["Mobile-first layout", "Clear navigation", "Fast loading performance"]}
+          eyebrow="Concept Project"
+          description="A clean, welcoming website for a modern local café. A self‑initiated project exploring layout, clarity, and a warm, simple experience. Not commissioned or affiliated with The Loft Café."
+          image={loftScreenshot}
+          link="/projects/loft-cafe"
+          list={["Mobile‑first layout", "Clear navigation", "Fast loading performance"]}
           tech={["Astro", "Tailwind", "Responsive Design", "Netlify"]}
+        />
+
+        <FeatureProjectCard
+          index={1}
+          title="Form First — Booking Flow Demo"
+          eyebrow="Demo Project"
+          description="A step‑by‑step booking flow with lookup and a simple admin view. Built to explore structure, usability, and a straightforward interface for small service businesses."
+          image={formFirstScreenshot}
+          link="/projects/form-first"
+          list={["Multi‑step booking flow", "Lookup by reference", "Lightweight admin dashboard"]}
+          tech={["Astro", "React Islands", "Tailwind"]}
         />
       </div>
     </section>
   </div>
 
-  <section class="bg-gradient-cta text-center text-background">
+  <section class="bg-primary text-center text-brand-100">
     <div class="max-w-3xl mx-auto px-6 py-28">
-      <h2 class="font-heading text-3xl md:text-4xl mb-6">Have a project in mind?</h2>
+      <p class="text-sm uppercase tracking-wide text-highlight mb-2">Next Steps</p>
 
-      <p class="text-light/70 max-w-xl mx-auto">
-        If you'd like something similar for your business, I'd love to hear about what you're working on.
+      <h2 class="font-heading text-4xl mb-6">Have a project in mind?</h2>
+
+      <p class="text-brand-100/80 max-w-xl mx-auto leading-relaxed">
+        If you’d like something similar for your business, I’d love to hear what you’re working on and see how I can help.
       </p>
 
       <div class="mt-10 flex justify-center">
-        <Button href="/contact" title="Start Your Project" variant="main" />
+        <Button href="/contact" title="Start Your Project" variant="ghost" />
       </div>
     </div>
   </section>

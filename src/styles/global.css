@@ -1,10 +1,11 @@
 /* Self hosted fonts to speed up performance */
-@import "@fontsource/poppins/400.css";
-@import "@fontsource/poppins/500.css";
-@import "@fontsource/poppins/600.css";
+@import "@fontsource-variable/playwrite-nz";
 
-@import "@fontsource/lora/400.css";
-@import "@fontsource/lora/700.css";
+@import "@fontsource/sn-pro/300.css";
+@import "@fontsource/sn-pro/400.css";
+@import "@fontsource/sn-pro/500.css";
+@import "@fontsource/sn-pro/600.css";
+@import "@fontsource/sn-pro/700.css";
 
 @tailwind base;
 @tailwind components;
@@ -71,7 +72,7 @@
   }
 
   .form-input {
-    @apply px-2 py-1 rounded-md border border-dark/10 outline-dark/20;
+    @apply px-2 py-1 rounded-sm border border-brand-900/10 outline-brand-900/20;
   }
 
   .check-box {

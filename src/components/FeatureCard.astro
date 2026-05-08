@@ -1,42 +1,48 @@
 ---
-const { title, price, description, includes, icon: Icon, variant = "services", iconPosition = "bottom" } = Astro.props;
+const { title, price, description, includes, icon: Icon, variant, iconPosition = "top" } = Astro.props;
 
 const variants = {
-  services: "bg-muted/5 text-center rounded-2xl shadow-md transition-all duration-300 hover:-translate-y-1 hover:shadow-lg",
+  services: "border border-brand-200/10 transition-all hover:border-brand-200/40 duration-300",
 
   projects:
     "bg-white/80 text-center rounded-2xl border border-neutral-200 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-md",
 
   pricing:
-    "bg-white/80 backdrop-blur-sm text-center rounded-2xl border border-neutral-200 shadow-sm transition-all duration-300 hover:shadow-md hover:border-accent/30",
-
-  trust: "bg-muted/5 text-center rounded-2xl shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-md",
+    "bg-background/50 backdrop-blur-sm text-center rounded-2xl border border-neutral-200 shadow-sm transition-all duration-300 hover:shadow-md hover:border-accent/30",
 };
 ---
 
-<div class={`p-8 min-h-48 rounded-2xl h-full ${variants[variant]}`}>
+<div class={`p-8 min-h-48 h-full ${variants[variant as keyof typeof variants]}`}>
   {/* ICON AT TOP */}
   {
     Icon && iconPosition === "top" && (
       <div class="flex justify-center mb-4">
         <div class="bg-accent/10 rounded-full p-3">
-          <Icon class="w-8 h-8 text-accent" />
+          <Icon class="w-8 h-8 text-highlight" />
         </div>
       </div>
     )
   }
 
-  <h3 class="font-heading font-semibold mb-2">{title}</h3>
+  {
+    Icon && iconPosition === "top-left" && (
+      <div class="flex justify-start mb-4">
+        <Icon class="w-6 h-6 text-highlight" />
+      </div>
+    )
+  }
 
-  {price && <p class="text-neutral-700 font-medium mb-3">{price}</p>}
+  <h3 class="font-heading text-xl font-semibold mb-2">{title}</h3>
 
-  <p class="text-neutral-600 leading-relaxed mb-4">
+  {price && <p class="text-dark/90 font-medium mb-3">{price}</p>}
+
+  <p class="text-brand-200/60 leading-relaxed mb-4">
     {description}
   </p>
 
   {
     includes && (
-      <ul class="text-neutral-600 text-sm space-y-2 mt-4 text-left mx-auto max-w-[260px]">
+      <ul class="text-dark/80 text-sm space-y-2 mt-4 text-left mx-auto max-w-[260px]">
         {includes.map((item = "string") => (
           <li class="flex items-start gap-2">
             <span class="text-accent font-bold leading-6">•</span>

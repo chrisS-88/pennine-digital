@@ -3,32 +3,36 @@ import Hero from "../components/Hero.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Button from "../components/Button.astro";
 import FeatureCard from "../components/FeatureCard.astro";
-import DesignSvg from "../components/icons/DesignSvg.astro";
-import FeaturesSvg from "../components/icons/FeaturesSvg.astro";
-import SupportSvg from "../components/icons/SupportSvg.astro";
-import AboutSvg from "../components/icons/AboutSvg.astro";
-import UserSvg from "../components/icons/UserSvg.astro";
-import LightningSvg from "../components/icons/LightningSvg.astro";
-import ShieldSvg from "../components/icons/ShieldSvg.astro";
-import ProjectCard from "../components/ProjectCard.astro";
-import loftMockup from "../assets/projects/loft_mockup.webp";
 import { Image } from "astro:assets";
+import ProjectCard from "../components/ProjectCard.astro";
+import formFirstScreenshot from "../assets/projects/form-first/screenshot.webp";
+import loftCafeScreenshot from "../assets/projects/loft-cafe/screenshot.webp";
+import macbook from "../assets/images/macbook.webp";
+import Shopfront from "../components/icons/Shopfront.astro";
+import Tools from "../components/icons/Tools.astro";
+import Cutlery from "../components/icons/Cutlery.astro";
+import Creative from "../components/icons/Creative.astro";
 
 const serviceCardDetails = [
   {
-    title: "Web Design & Branding",
-    description: "A clean, thoughtful website that reflects your business and makes a strong first impression.",
-    icon: DesignSvg,
+    title: "Local Shops",
+    description: "Modern storefronts for independent boutiques and retail.",
+    icon: Shopfront,
   },
   {
-    title: "Practical Features",
-    description: "Clear pages, quick‑loading content, and simple ways for customers to get in touch — all set up properly.",
-    icon: FeaturesSvg,
+    title: "Skilled Trades",
+    description: "Clear, professional sites for builders, plumbers, and craftspeople.",
+    icon: Tools,
   },
   {
-    title: "Personal Service",
-    description: "Direct support from start to finish. I’m here for updates, changes, and honest advice whenever you need it.",
-    icon: SupportSvg,
+    title: "Cafés & Dining",
+    description: "Digital menus and simple booking for local food spots.",
+    icon: Cutlery,
+  },
+  {
+    title: "Creatives",
+    description: "Portfolio sites that let your work take center stage.",
+    icon: Creative,
   },
 ];
 
@@ -67,25 +71,6 @@ const pricingPlans = [
     ],
   },
 ];
-
-const trustPoints = [
-  {
-    title: "Personal Service",
-    description:
-      "From first chat to launch and beyond, I’m here to answer questions, make updates, and give honest advice whenever you need it.",
-    icon: UserSvg,
-  },
-  {
-    title: "Easy to Use",
-    description: "Websites that are simple for your customers to use, with updates and changes handled quickly whenever you need them.",
-    icon: LightningSvg,
-  },
-  {
-    title: "Built to Last",
-    description: "Thoughtful design and practical features ensure your website continues to work well as your business grows.",
-    icon: ShieldSvg,
-  },
-];
 ---
 
 <BaseLayout title="Pennine Digital">
@@ -93,34 +78,142 @@ const trustPoints = [
     <Hero />
   </section>
 
-  <section class="bg-gradient-soft w-full">
-    <div class="max-w-6xl text-center px-6 py-28 mx-auto">
-      <h2 class="font-heading text-3xl md:text-4xl mb-3">Simple, well-built websites for local businesses</h2>
+  <section class="bg-brand-100 pt-28 pb-24">
+    <div class="max-w-lg px-6 mx-auto gap-16 grid md:grid-cols-2 items-center">
+      <div class="max-w-xs">
+        <p class="text-sm uppercase tracking-wide text-accent">Expertise</p>
 
-      <p class="text-lg max-w-2xl mx-auto text-dark/80">
-        Helping small businesses and creatives across Bradford and West Yorkshire with fast, clear websites that are simple to use and built
-        to last.
-      </p>
+        <h2 class="font-heading text-brand-900 text-4xl mb-10">
+          Fast, reliable, and <span class="block italic">built with intention.</span>
+        </h2>
 
-      <div class="mt-12 mb-16 md:flex gap-6">
-        {
-          serviceCardDetails.map((item) => (
-            <div class="flex-1 mx-auto mb-6">
-              <FeatureCard key={item.title} {...item} variant="services" />
-            </div>
-          ))
-        }
+        <p class="mb-6">
+          Your website should feel effortless — quick to load, simple to use, and clear in its purpose. I focus on speed, clarity, and
+          reliability so your customers get the best experience every time they visit.
+        </p>
+
+        <ul class="space-y-4">
+          <li class="flex items-start gap-4">
+            <span class="block w-4 h-[2px] bg-accent mt-3"></span>
+            <span>Blazing‑fast load times that keep visitors engaged</span>
+          </li>
+          <li class="flex items-start gap-4">
+            <span class="block w-4 h-[2px] pt-[2px] bg-accent mt-3"></span>
+            <span>Mobile‑first layouts that feel natural on every device</span>
+          </li>
+          <li class="flex items-start gap-4">
+            <span class="block w-4 h-[2px] pt-[2px] bg-accent mt-3"></span>
+            <span>A stable, lightweight build that stays fast over time</span>
+          </li>
+        </ul>
       </div>
+      <div class="relative inline-block mx-12 md:m-0">
+        <Image src={macbook} alt="MacBook mockup" class="w-full saturate-0 relative z-10" />
 
-      <Button href="/services" title="View Services" variant="light" />
+        <div class="absolute inset-0 border border-accent translate-x-3 translate-y-3 z-0"></div>
+      </div>
     </div>
   </section>
 
-  <section class="bg-background">
-    <div class="max-w-6xl mx-auto px-6 py-28 text-center">
-      <h2 class="font-heading text-3xl md:text-4xl mb-3">Simple, transparent pricing</h2>
+  <section class="py-24 bg-primary text-brand-200">
+    <div class="lg:max-w-lg mx-auto px-6 lg:px-0 space-y-20">
+      <div>
+        <h2 class="font-heading leading-tight text-4xl md:max-w-sm">
+          Supporting Yorkshire businesses with <span class="italic text-highlight">clarity and craft.</span>
+        </h2>
 
-      <p class="text-lg max-w-3xl mx-auto text-dark/80">
+        <p class="text-xl font-thin mt-6 text-brand-200/80">
+          I help small Yorkshire businesses get online with simple, modern websites that feel true to what they do.
+        </p>
+      </div>
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        {serviceCardDetails.map((s) => <FeatureCard {...s} variant="services" iconPosition="top-left" />)}
+      </div>
+    </div>
+  </section>
+
+  <section class="py-24 bg-brand-200/60">
+    <div class="lg:max-w-lg mx-auto px-6 lg:px-0 md:flex md:justify-between">
+      <div>
+        <p class="text-sm uppercase tracking-wide text-accent">What I bring</p>
+        <h2 class="font-heading text-brand-900 leading-tight text-4xl md:max-w-sm">
+          Why work <span class="italic">with me?</span>
+        </h2>
+      </div>
+
+      <div class="space-y-8 md:max-w-xs mt-16">
+        <div>
+          <h4 class="text-xl italic font-heading text-brand-900">Direct Communication</h4>
+          <p>You work directly with the person building your site. It keeps the process simple and the decisions clear.</p>
+        </div>
+
+        <div>
+          <h4 class="text-xl italic font-heading text-brand-900">Technical Expertise</h4>
+          <p>
+            I build everything myself, without templates or page builders. It means your site is lightweight, fast, and put together with
+            care rather than assembled from parts.
+          </p>
+        </div>
+
+        <div>
+          <h4 class="text-xl italic font-heading text-brand-900">Clarity First</h4>
+          <p>A focus on simple structures and thoughtful design, so the site feels clean and easy to use.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-brand-100 py-24">
+    <div class="px-6 text-center">
+      <p class="text-sm uppercase tracking-wide text-accent">How I Work</p>
+
+      <h2 class="font-heading text-brand-900 text-4xl mb-10">
+        A simple, <span class="italic">three step journey.</span>
+      </h2>
+    </div>
+
+    <div class="mt-20 px-6 max-w-lg mx-auto grid md:grid-cols-3 gap-12 text-brand-900">
+      <!-- Step -->
+      <div class="relative flex-1 text-center">
+        <div class="absolute -top-16 text-9xl inline-block font-heading text-primary/5">01</div>
+
+        <h3 class="font-semibold text-xl mt-2">The Chat</h3>
+
+        <p class="text-brand-900/70 leading-relaxed mt-4">
+          We begin with a quick conversation to understand your business goals and your customers' needs.
+        </p>
+      </div>
+
+      <!-- Step -->
+      <div class="relative flex-1 text-center">
+        <div class="absolute -top-16 text-9xl inline-block font-heading text-primary/5">02</div>
+
+        <h3 class="font-semibold text-xl mt-2">The Build</h3>
+
+        <p class="text-brand-900/70 leading-relaxed mt-4">
+          Your website is built using modern, reliable tools with performance and long-term maintainability in mind.
+        </p>
+      </div>
+
+      <!-- Step -->
+      <div class="relative flex-1 text-center">
+        <div class="absolute -top-16 text-9xl inline-block font-heading text-primary/5">03</div>
+
+        <h3 class="font-semibold text-xl mt-2">The Launch</h3>
+
+        <p class="text-brand-900/70 leading-relaxed mt-4">
+          We go live. I handle the hosting and tech, so you can get back to running your business.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- <section class="bg-gradient-soft py-24">
+    <div class="max-w-6xl mx-auto px-6 text-center">
+      <h2 class="font-heading text-4xl mb-3">Simple, transparent pricing</h2>
+
+      <p class="text-lg max-w-3xl mx-auto text-brand-900/80">
         Clear pricing with no surprises. I work with small businesses around Bradford and West Yorkshire to create reliable, modern websites
         with a straightforward process from first conversation to launch.
       </p>
@@ -132,163 +225,87 @@ const trustPoints = [
       <div class="max-w-3xl mx-auto mb-12">
         <h4 class="font-heading text-lg mb-5">Optional extras to support your business:</h4>
 
-        <ul class="text-dark/80 leading-relaxed space-y-4">
+        <ul class="text-brand-900/80 leading-relaxed space-y-4">
           <li>
             <strong>Starter Brand Pack (£200)</strong>
-            <p class="text-sm text-dark/70 mt-1">
+            <p class="text-sm text-brand-900/70 mt-1">
               Clean logo, colour palette, typography choices, and a one-page brand sheet to keep everything consistent.
             </p>
           </li>
 
           <li>
             <strong>Digital Menus (from £150)</strong>
-            <p class="text-sm text-dark/70 mt-1">
+            <p class="text-sm text-brand-900/70 mt-1">
               Clean web-based menus that match your site's design. Updates included on the care plan, or £30 per update.
             </p>
           </li>
 
-          <!-- <li>
-            <strong>Online Booking Integration (from £100)</strong>
-            <p class="text-sm text-dark/70 mt-1">
-              Connect a booking system so customers can schedule appointments directly from your website.
-            </p>
-          </li> -->
-
           <li>
             <strong>Google Business Profile Setup (£75)</strong>
-            <p class="text-sm text-dark/70 mt-1">Get your business properly listed on Google Maps with optimized info and photos.</p>
+            <p class="text-sm text-brand-900/70 mt-1">Get your business properly listed on Google Maps with optimized info and photos.</p>
           </li>
         </ul>
       </div>
 
       <Button href="/contact" title="Start Your Project" variant="light" />
     </div>
-  </section>
+  </section> -->
 
-  <section class="border-t border-dark/5 bg-gradient-soft py-28">
-    <div class="max-w-6xl mx-auto px-6">
-      <!-- Section intro -->
-      <div class="text-center mb-20">
-        <p class="text-xs uppercase tracking-widest text-dark/50 mb-3">Featured Work</p>
+  <section class="bg-primary py-24">
+    <div class="lg:max-w-lg mx-auto px-6 lg:px-0">
+      <div>
+        <p class="text-sm uppercase tracking-wide text-highlight">Selected Projects</p>
 
-        <h2 class="font-heading text-3xl md:text-4xl">A recent website project</h2>
-
-        <p class="text-dark/70 mt-4 text-lg max-w-xl mx-auto">
-          A concept website created as a self‑initiated project — designed to explore layout, branding, and user experience for a modern
-          local café. This was not produced for or commissioned by The Loft Café.
-        </p>
-      </div>
-
-      <div class="grid lg:grid-cols-2 gap-16 items-center max-w-5xl mx-auto">
-        <div class="bg-surface rounded-xl overflow-hidden shadow-md">
-          <Image
-            src={loftMockup}
-            alt="The Loft Café Website"
-            class="w-full h-full object-cover transition-transform duration-500 hover:scale-[1.02]"
-          />
-        </div>
-
-        <div>
-          <h3 class="text-2xl font-heading font-semibold text-dark">The Loft Café - Concept Website</h3>
-
-          <p class="mt-4 text-dark/70 leading-relaxed">
-            A self‑initiated concept project exploring how a small, independent café could present menus, opening hours, and contact details
-            in a clean, welcoming way. The design focuses on clarity, warmth, and a relaxed atmosphere.
-          </p>
-
-          <ul class="mt-6 space-y-2 text-sm text-dark/70">
-            <li class="flex gap-2">
-              <span class="text-accent">•</span>
-              Mobile-first layout
-            </li>
-
-            <li class="flex gap-2">
-              <span class="text-accent">•</span>
-              Clear, simple navigation
-            </li>
-
-            <li class="flex gap-2">
-              <span class="text-accent">•</span>
-              Fast loading performance
-            </li>
-          </ul>
-
-          <div class="flex flex-wrap gap-2 mt-6">
-            <span class="text-xs bg-muted/10 px-2 py-1 rounded text-dark/60">Astro</span>
-            <span class="text-xs bg-muted/10 px-2 py-1 rounded text-dark/60">Tailwind</span>
-            <span class="text-xs bg-muted/10 px-2 py-1 rounded text-dark/60">Responsive Design</span>
-            <span class="text-xs bg-muted/10 px-2 py-1 rounded text-dark/60">Netlify</span>
-          </div>
-
-          <p class="text-xs text-dark/50 mt-8">Concept project — not affiliated with The Loft Café.</p>
-
-          <div class="mt-2 flex items-center gap-6">
-            <a href="https://loftcafe.netlify.app/" target="_blank" class="text-accent font-medium hover:underline"> View Live Site ↗ </a>
-          </div>
+        <div class="flex justify-between items-end">
+          <h2 class="font-heading text-brand-200 leading-tight text-4xl md:max-w-sm">
+            Recent <span class="italic">builds.</span>
+          </h2>
+          <a href="/projects" class="font-thin text-sm text-brand-200/80 hover:text-brand-200 transition-all duration-300 uppercase"
+            >View All Projects</a
+          >
         </div>
       </div>
+    </div>
 
-      <div class="text-center mt-20">
-        <Button href="/projects" title="View All Work" variant="light" />
+    <div class="grid md:grid-cols-2 gap-12 max-w-lg mx-auto mt-24 px-6 md:px-0">
+      <div class="md:-translate-y-6">
+        <ProjectCard
+          title="Form First"
+          subtitle="Design & Booking Flow"
+          description="A simple demo showing a clear booking flow with lookup and a small admin view."
+          image={formFirstScreenshot}
+          href="/projects/form-first"
+        />
+      </div>
+
+      <div class="md:translate-y-6">
+        <ProjectCard
+          title="Loft Café - Mockup"
+          subtitle="Design, digital menu & gallery"
+          description="A light, modern website mockup exploring how a small independent café could present itself online."
+          note="This is a concept piece and isn’t affiliated with The Loft Café."
+          image={loftCafeScreenshot}
+          href="/projects/loft-cafe"
+        />
       </div>
     </div>
   </section>
 
-  <section class="bg-gradient-soft">
-    <div
-      class="max-w-6xl px-6 pt-24 pb-20 flex flex-col items-center justify-evenly gap-12 lg:flex-row text-center lg:text-left text-balance">
-      <div class="max-w-lg lg:max-w-lg">
-        <h2 class="font-heading text-3xl md:text-4xl mb-6">A friendly, local partner for your website</h2>
-
-        <p class="mb-6">
-          I'm Chris — a web developer based in Riddlesden, West Yorkshire. I build clean, reliable websites for small businesses that want
-          something simple, clear, and easy for customers to use.
-        </p>
-
-        <p>
-          My focus is on thoughtful design and practical features that make day-to-day things easier — whether that's helping customers get
-          in touch, find information quickly, or learn about your services.
-        </p>
-      </div>
-
-      <AboutSvg />
-    </div>
-
-    <div class="flex justify-center pb-28">
-      <Button href="/about" title="More About Me" variant="light" />
-    </div>
-  </section>
-
-  <section class="bg-background py-28 text-center">
-    <div class="max-w-6xl mx-auto px-6">
-      <h2 class="font-heading text-3xl md:text-4xl mb-6">Why work with me?</h2>
-
-      <p class="max-w-3xl mx-auto text-dark/80 mb-12 text-lg">
-        I help small businesses across Bradford and West Yorkshire get online with websites that are clear, practical, and easy for your
-        customers to use. Here’s what you can expect when we work together:
-      </p>
-
-      <div class="grid md:grid-cols-3 gap-8 mb-12">
-        {trustPoints.map((point) => <FeatureCard {...point} variant="trust" iconPosition="top" />)}
-      </div>
-    </div>
-  </section>
-
-  <section class="bg-gradient-cta text-center text-background pb-28">
+  <section class="bg-brand-100 text-center pb-28">
     <div class="max-w-4xl mx-auto px-6 pt-28 pb-20">
-      <h2 class="font-heading text-3xl md:text-4xl mb-6">Thinking about a new website?</h2>
+      <h2 class="font-heading text-4xl mb-6">Thinking about a new website?</h2>
 
-      <p class="leading-relaxed text-background/80 text-lg">
-        If you’re a small business in Bradford or West Yorkshire looking for a clean, reliable website, I’d be happy to chat about what you
-        need. No pressure — just a friendly conversation to see if it’s the right fit.
+      <p class="leading-relaxed">
+        If you’re looking for a simple, fast, and dependable website, I’d be happy to talk things through. No pressure — just a
+        straightforward chat to see if it’s the right fit.
       </p>
     </div>
 
-    <Button href="/contact" title="Start Your Project" variant="main" />
+    <Button href="/contact" title="Start a conversation" variant="main" />
 
-    <p class="text-background/80 text-sm mt-4">
+    <p class="text-brand-900/80 text-sm mt-4">
       Or email me directly at
-      <a href="mailto:hello@penninedigital.co.uk" class="text-background/80 hover:text-accent transition"> hello@penninedigital.co.uk </a>
+      <a href="mailto:hello@penninedigital.co.uk" class="text-brand-900/60 hover:text-accent transition"> hello@penninedigital.co.uk </a>
     </p>
   </section>
 </BaseLayout>

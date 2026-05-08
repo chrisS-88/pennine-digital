@@ -1,21 +1,59 @@
 ---
 import Form from "../components/Form.astro";
+import Location from "../components/icons/Location.astro";
+import Mail from "../components/icons/Mail.astro";
+import Phone from "../components/icons/Phone.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
 ---
 
 <BaseLayout title="Pennine Digital - Contact">
-  <section class="py-44 bg-background px-3">
-    <div class="text-center px-6 max-w-2xl mx-auto">
-      <h1 class="text-4xl md:text-5xl font-heading font-semibold">Let’s talk about your project</h1>
+  <section class="py-36 bg-brand-100">
+    <div class="px-6 max-w-lg mx-auto">
+      <p class="text-sm uppercase tracking-wide text-accent mb-2">Available for new projects</p>
+      <h1 class="text-5xl max-w-xs font-heading text-brand-900 font-semibold">
+        Let’s talk about <br />
+        <span class="italic"> your business</span>
+      </h1>
 
-      <p class="mt-4 text-dark/80 leading-relaxed">
+      <p class="mt-4 leading-relaxed max-w-sm text-lg font-thin">
         Whether you’re starting something new or improving what you already have, I’d love to hear what you’re working on. Tell me a little
         about your project and I’ll get back to you as soon as I can.
       </p>
-
-      <p class="text-dark/70 text-sm mt-6">I usually reply within one working day.</p>
     </div>
 
-    <Form />
+    <div class="px-6 md:flex justify-between max-w-lg mx-auto mt-20">
+      <div class="space-y-12">
+        <div class="space-y-4">
+          <h3 class="font-heading text-xl font-semibold">Local Presence</h3>
+
+          <div class="flex items-start gap-3 text-dark/80">
+            <Location class="w-6 h-6 text-accent" />
+            <p>
+              Riddlesden, West Yorkshire <br />
+              UK
+            </p>
+          </div>
+        </div>
+
+        <div class="space-y-4">
+          <h3 class="font-heading text-xl font-semibold">Direct Channels</h3>
+
+          <div class="flex items-start gap-3 text-dark/80">
+            <Mail class="w-6 h-6 text-accent" />
+            <a href="mailto:hello@penninedigital.co.uk" class="block hover:underline"> hello@penninedigital.co.uk </a>
+          </div>
+
+          <div class="flex items-start gap-3 text-dark/80">
+            <Phone class="w-6 h-6 text-accent" />
+            <a href="tel:+447930971103" class="hover:underline"> 07930 971103 </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="relative mt-12 md:mt-0 md:min-w-[320px] lg:min-w-[620px]">
+        <Form />
+        <div class="absolute w-28 h-28 bg-primary/80 -top-2 -right-2 z-0"></div>
+      </div>
+    </div>
   </section>
 </BaseLayout>

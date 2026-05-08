@@ -1,0 +1,59 @@
+---
+import ProjectPageLayout from "../../layouts/ProjectPageLayout.astro";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+---
+
+<BaseLayout title="Loft Cafe — Mockup">
+  <ProjectPageLayout
+    eyebrow="Web Design & Development"
+    title="Loft Cafe — Concept Website"
+    description="A relaxed, welcoming website concept for a neighbourhood cafe — focused on a clean digital menu, branding, and an easy way for people to see what the Loft Cafe is all about."
+    client="Loft Cafe — Concept Website "
+    location="West Yorkshire"
+    services="Web Design, Web Development, Branding, Digital Menu"
+    tech={["Astro", "Tailwind"]}
+    link="https://loftcafe.netlify.app/">
+    <section>
+      <h2 class="font-heading text-xl text-dark mb-4">Goal</h2>
+      <p class="text-dark/80 leading-relaxed">
+        The aim was to imagine how a small independent Cafe could present itself online in a way that feels warm, welcoming, and easy to
+        browse. A place where people can quickly see the menu, get a feel for the space, and find the practical details without digging
+        around.
+      </p>
+    </section>
+
+    <section>
+      <h2 class="font-heading text-xl text-dark mb-4">Outcome</h2>
+      <p class="text-dark/80 leading-relaxed">
+        The result is a light, modern website that mirrors the cafe’s relaxed atmosphere. Clear sections, simple navigation, and a clean
+        layout make it easy to explore the menu, check opening times, and get a sense of the brand. Everything is designed to feel friendly
+        and true to a local spot.
+      </p>
+    </section>
+
+    <section>
+      <h2 class="font-heading text-xl text-dark mb-4">Features</h2>
+      <ul class="space-y-3 text-dark/80 leading-relaxed">
+        <li class="flex gap-3">
+          <span class="text-accent">•</span>
+          <span class="text-dark/80">Digital menu </span>
+        </li>
+
+        <li class="flex gap-3">
+          <span class="text-accent">•</span>
+          <span class="text-dark/80">Simple, modern layout </span>
+        </li>
+
+        <li class="flex gap-3">
+          <span class="text-accent">•</span>
+          <span class="text-dark/80">Branding exploration</span>
+        </li>
+
+        <li class="flex gap-3">
+          <span class="text-accent">•</span>
+          <span class="text-dark/80">Gallery</span>
+        </li>
+      </ul>
+    </section>
+  </ProjectPageLayout></BaseLayout
+>

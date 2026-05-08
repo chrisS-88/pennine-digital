@@ -1,0 +1,52 @@
+---
+import ProjectPageLayout from "../../layouts/ProjectPageLayout.astro";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+---
+
+<BaseLayout title="Form First — Booking Flow Demo">
+  <ProjectPageLayout
+    eyebrow="Web Design & Development"
+    title="Form First - Booking Flow Demo"
+    description="A simple demo exploring a clear, step-by-step booking flow with lookup and a lightweight admin view."
+    client="Self initiated demo"
+    location="West Yorkshire"
+    services="Web Design, Web Development, Booking Flow, Admin Panel"
+    tech={["Astro", "React Islands", "Tailwind"]}
+    link="https://formfirstpt.netlify.app/">
+    <section>
+      <h2 class="font-heading text-xl text-dark mb-4">Goal</h2>
+      <p class="text-dark/80 leading-relaxed">
+        The aim was to explore how a small service business could offer a simple, steady booking experience without any fuss. Something
+        calm, predictable, and easy to move through — both for making a booking and checking one.
+      </p>
+    </section>
+
+    <section>
+      <h2 class="font-heading text-xl text-dark mb-4">Outcome</h2>
+      <p class="text-dark/80 leading-relaxed">
+        The result is a clear, step‑by‑step flow with a light, open interface and a small admin view for seeing the essentials at a glance.
+        Nothing heavy — just a straightforward way to get things done without noise or distraction.
+      </p>
+    </section>
+
+    <section>
+      <h2 class="font-heading text-xl text-dark mb-4">Features</h2>
+      <ul class="space-y-3 text-dark/80 leading-relaxed">
+        <li class="flex gap-3">
+          <span class="text-accent">•</span>
+          <span class="text-dark/80">Multi‑step booking flow</span>
+        </li>
+
+        <li class="flex gap-3">
+          <span class="text-accent">•</span>
+          <span class="text-dark/80">Lookup by reference</span>
+        </li>
+
+        <li class="flex gap-3">
+          <span class="text-accent">•</span>
+          <span class="text-dark/80">Lightweight admin view</span>
+        </li>
+      </ul>
+    </section>
+  </ProjectPageLayout></BaseLayout
+>

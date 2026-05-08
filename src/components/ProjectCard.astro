@@ -1,58 +1,25 @@
 ---
-const { title, description, image, link, list = [], tech = [] } = Astro.props;
+const { title, description, image, href, subtitle, note } = Astro.props;
 import { Image } from "astro:assets";
 ---
 
-<div
-  class="group grid lg:grid-cols-2 bg-white/40 border border-dark/10 rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-all duration-300">
+<a href={href} class="group overflow-hidden">
   <div class="overflow-hidden">
     <Image
       src={image}
       alt={title}
-      class="w-full h-full object-cover aspect-[16/12] lg:aspect-auto lg:h-full bg-surface transition-transform duration-500 group-hover:scale-[1.03]"
+      class="w-full h-auto object-cover transition-all duration-500 saturate-0 group-hover:scale-[1.03] group-hover:saturate-100"
     />
   </div>
 
-  <div class="p-8 flex flex-col justify-center space-y-5 bg-background">
-    <h3 class="text-2xl font-heading text-dark">
-      {title}
-    </h3>
+  <div class="bg-accent/5 p-4">
+    <h3 class="font-heading text-3xl text-brand-200">{title}</h3>
 
-    <p class="text-dark/70 leading-relaxed">
+    <h4 class="text-highlight uppercase">{subtitle}</h4>
+
+    <p class="text-brand-200/80 leading-relaxed mt-4">
       {description}
     </p>
-
-    {
-      list.length > 0 && (
-        <ul class="space-y-1 text-sm text-dark/70">
-          {list.map((item) => (
-            <li class="flex items-start gap-2">
-              <span class="text-accent mt-[2px]">•</span>
-              <span>{item}</span>
-            </li>
-          ))}
-        </ul>
-      )
-    }
-
-    {
-      tech.length > 0 && (
-        <div class="flex flex-wrap gap-2 pt-2">
-          {tech.map((item) => (
-            <span class="text-xs bg-muted/10 px-2 py-1 rounded-lg text-dark/60">{item}</span>
-          ))}
-        </div>
-      )
-    }
-
-    {
-      link && (
-        <div class="pt-2">
-          <a href={link} target="_blank" rel="noopener noreferrer" class="inline-block text-accent font-medium hover:underline">
-            View Website ↗
-          </a>
-        </div>
-      )
-    }
+    {note && <p class="text-brand-200/60 italic mt-4">{note}</p>}
   </div>
-</div>
+</a>

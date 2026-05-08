@@ -1,15 +1,15 @@
 ---
-const { title, href, variant = "light" } = Astro.props;
+const { title, href, variant } = Astro.props;
 
 const variants = {
-  light: "text-dark border-2 border-accent hover:border-accentHover",
-  dark: "text-background border-2 border-accent hover:border-accentHover",
-  main: "text-background bg-accent border-2 border-transparent hover:bg-accentHover",
+  main: "bg-accent text-primary border border-transparent hover:bg-accent/90 transition-colors duration-200",
+  light: "text-accent border border-accent/60 hover:bg-accent/10 transition-colors duration-200",
+  ghost: "text-brand-100 border border-accent/40 hover:border-accent hover:bg-brand-100/5 transition-colors duration-200",
 };
 ---
 
 <a
   href={href}
-  class={`inline-block max-w-max rounded-lg px-4 py-2 font-heading transition-transform duration-200 hover:scale-105 ${variants[variant]}`}>
+  class={`inline-block text-center w-60 uppercase px-4 py-2 transition-all duration-300 ${variants[variant as keyof typeof variants]}`}>
   {title}
 </a>

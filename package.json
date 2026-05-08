@@ -9,9 +9,10 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@fontsource/lora": "^5.2.8",
-    "@fontsource/poppins": "^5.2.7",
-    "astro": "^5.16.6"
+    "@fontsource-variable/playwrite-nz": "^5.2.8",
+    "@fontsource/sn-pro": "^5.2.6",
+    "astro": "^5.16.6",
+    "pennine-design-system": "file:./pennine-design-system"
   },
   "devDependencies": {
     "@astrojs/tailwind": "^6.0.2",

@@ -1,19 +1,66 @@
 ---
 import { Image } from "astro:assets";
-import logoWithText from "../assets/logos/logoTextSide.png";
+import logo from "../assets/logos/logoWhite.webp";
 import { navLinks } from "../data/navLinks";
 
 const current = Astro.url.pathname;
 ---
 
 <nav
-  class="fixed top-0 left-0 w-full h-20 flex justify-between items-center px-6 font-heading tracking-wide uppercase z-50 bg-background transition-transform duration-300 shadow-lg">
-  <a href="/">
-    <Image src={logoWithText} alt="Pennine Digital Logo" class="w-44" />
+  class="fixed top-0 left-0 w-full h-20 flex items-center px-6 tracking-wide z-50
+         bg-brand-100/90 backdrop-blur-md text-brand-900 shadow-lg">
+  <!-- Left: Logo -->
+  <a href="/" class="flex items-center gap-4">
+    <span class="font-bold text-2xl">Pennine<span class="font-thin">Digital</span></span>
   </a>
 
-  <!-- decktop menu -->
-  <ul class="hidden lg:flex gap-2">
+  <ul class="hidden lg:flex gap-6 mx-auto">
+    {
+      navLinks.slice(0, navLinks.length - 1).map((link) => (
+        <li>
+          <a
+            href={link.href}
+            class={`
+              relative font-heading text-lg italic px-2 py-2 transition-all duration-300
+              ${current === link.href ? "text-brand-900 underline underline-offset-8" : "text-brand-700 hover:text-brand-900"}
+            `}>
+            {link.label}
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+
+  <div class="hidden lg:block">
+    <a
+      href={navLinks[navLinks.length - 1].href}
+      class="font-heading text-lg italic px-6 py-2 ml-4
+        border border-accent/40 text-primary
+        hover:border-accent/60 hover:bg-accent/5 hover:-translate-y-[1px]
+        transition-all duration-300">
+      {navLinks[navLinks.length - 1].label}
+    </a>
+  </div>
+
+  <!-- Mobile Button -->
+  <button id="menu-btn" aria-label="Toggle Menu" class="lg:hidden ml-auto">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+</nav>
+
+<!-- Mobile Sidebar -->
+<div
+  id="mobile-menu"
+  class="p-6 z-50 lg:hidden fixed left-0 top-0 h-full w-2/3 bg-primary/90 backdrop-blur-md
+         transform -translate-x-full transition-all duration-700 ease-in-out opacity-0
+         text-brand-100 overflow-y-scroll">
+  <Image src={logo} alt="Pennine Digital Logo" class="w-12" />
+
+  <div class="w-full h-px bg-brand-100/20 mt-6"></div>
+
+  <ul class="flex flex-col gap-8 text-2xl px-2 py-12">
     {
       navLinks.map((link, i) => {
         const isLast = i === navLinks.length - 1;
@@ -23,19 +70,14 @@ const current = Astro.url.pathname;
             <a
               href={link.href}
               class={`
-              relative px-2 py-2 transition-all duration-200
-              ${
-                isLast
-                  ? "ml-2 rounded-full border-2 border-accent text-dark hover:bg-accent hover:text-background"
-                  : `text-dark/80 hover:text-dark
-                      after:absolute after:left-1/2 after:-translate-x-1/2 after:-bottom-0
-                      after:h-[2px] after:w-0
-                    after:bg-dark
-                      after:transition-all after:duration-200
-                      hover:after:w-1/2`
-              }
-              ${current === link.href && !isLast ? "text-dark font-semibold after:w-1/2" : ""}
-            `}>
+                block py-2 text-left font-heading transition-all duration-200 italic
+                ${
+                  isLast
+                    ? "mt-4 inline-block px-6 py-3 border border-accent/40 text-brand-100 hover:border-accent hover:bg-accent/10 hover:-translate-y-[1px]"
+                    : "text-brand-100/80 hover:text-brand-100"
+                }
+                ${current === link.href && !isLast ? "text-brand-100 font-semibold" : ""}
+              `}>
               {link.label}
             </a>
           </li>
@@ -44,59 +86,22 @@ const current = Astro.url.pathname;
     }
   </ul>
 
-  <!-- Mobile Button -->
-  <button id="menu-btn" aria-label="Toggle Menu" class="lg:hidden">
-    <span></span>
-    <span></span>
-    <span></span>
-  </button>
+  <div class="w-full h-px bg-brand-100/20 mb-6"></div>
 
-  <!-- Mobile Sidebar -->
-  <div
-    id="mobile-menu"
-    class="p-4 z-50 lg:hidden fixed left-0 top-0 h-full w-2/3 bg-surface/90 backdrop-blur-md transform -translate-x-full transition-all duration-700 ease-in-out opacity-0 text-dark overflow-y-scroll">
-    <Image src={logoWithText} alt="Pennine Digital Logo" class="w-44" />
+  <div class="mt-10 text-sm">
+    <p class="mb-3 text-brand-100/60">Reach me here:</p>
 
-    <div class="w-full h-[.5px] bg-dark/20 mt-6"></div>
+    <div class="flex flex-col gap-2 text-accent">
+      <a href="tel:+447930971103" class="hover:text-accent/80 transition">07930 971103</a>
+      <a href="mailto:hello@penninedigital.co.uk" class="hover:text-accent/80 transition">hello@penninedigital.co.uk</a>
+    </div>
 
-    <ul class="flex flex-col gap-6 text-2xl px-6 py-14">
-      {
-        navLinks.map((link, i) => {
-          const isLast = i === navLinks.length - 1;
-          return (
-            <li>
-              <a
-                href={link.href}
-                class={`
-            block py-2 text-center transition-all duration-200
-            ${isLast ? "rounded-full border-2 border-accent p-2 text-dark hover:bg-accent hover:text-background" : "text-dark/70 hover:text-dark"}
-            ${current === link.href && !isLast ? "text-dark font-semibold" : ""}
-          `}>
-                {link.label}
-              </a>
-            </li>
-          );
-        })
-      }
-    </ul>
-
-    <div class="w-full h-[.5px] bg-dark/20 mb-6"></div>
-
-    <div class="mt-10 text-sm">
-      <p class="mb-3 text-dark/60">Reach me here:</p>
-
-      <div class="flex flex-col gap-2 text-accent">
-        <a href="tel:+447930971103" class="hover:text-accentHover transition"> 07930 971103 </a>
-        <a href="mailto:hello@penninedigital.co.uk" class="hover:text-accentHover transition"> hello@penninedigital.co.uk </a>
-      </div>
-
-      <div class="mt-12 text-dark/50 text-xs">
-        <p>© 2026 Pennine Digital</p>
-        <p>Based in Riddlesden, West Yorkshire</p>
-      </div>
+    <div class="mt-12 text-brand-100/40 text-xs leading-relaxed">
+      <p>© 2026 Pennine Digital</p>
+      <p>Based in Riddlesden, West Yorkshire</p>
     </div>
   </div>
-</nav>
+</div>
 
 <script>
   // @ts-nocheck    DISABLES TS FOR THIS SCRIPT BLOCK

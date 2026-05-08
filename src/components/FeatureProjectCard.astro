@@ -1,0 +1,58 @@
+---
+const { title, description, image, link, list = [], tech = [], eyebrow, index } = Astro.props;
+import { Image } from "astro:assets";
+
+const isEven = index % 2 === 0;
+---
+
+<div
+  class={`group grid lg:grid-cols-2 overflow-hidden transition-all duration-500
+    ${!isEven ? "lg:[&>div:first-child]:order-2 lg:[&>div:last-child]:order-1" : ""}
+  `}>
+  <div class="overflow-hidden">
+    <Image
+      src={image}
+      alt={title}
+      class="w-full h-full object-cover aspect-[16/12] lg:aspect-auto transition-all duration-500 group-hover:scale-[1.03]"
+    />
+  </div>
+
+  <div class="p-8 flex flex-col justify-center space-y-5">
+    {eyebrow && <p class="text-accent uppercase tracking-wide text-sm">{eyebrow}</p>}
+
+    <h3 class="text-3xl font-heading text-brand-900">
+      {title}
+    </h3>
+
+    <p class="text-brand-900/80 leading-relaxed">
+      {description}
+    </p>
+
+    {
+      list.length > 0 && (
+        <ul class="space-y-1 text-brand-900/70 text-sm">
+          {list.map((item: string) => (
+            <li class="flex items-start gap-2">
+              <span class="text-accent">•</span>
+              <span>{item}</span>
+            </li>
+          ))}
+        </ul>
+      )
+    }
+
+    {
+      tech.length > 0 && (
+        <div class="flex flex-wrap gap-2 pt-2">
+          {tech.map((item: string) => (
+            <span class="text-xs bg-brand-900/5 px-2 py-1 rounded-lg text-brand-900/70">{item}</span>
+          ))}
+        </div>
+      )
+    }
+
+    <div class="pt-2">
+      <a href={link} class="inline-block text-accent font-medium hover:underline"> View Project ↗ </a>
+    </div>
+  </div>
+</div>
