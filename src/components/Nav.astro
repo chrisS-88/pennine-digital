@@ -1,6 +1,7 @@
 ---
-import { Image } from "astro:assets";
-import logo from "../assets/logos/logoWhite.webp";
+// import { Image } from "astro:assets";
+// import logoWhite from "../assets/logos/logo_white.webp";
+// import logo from "../assets/logos/logo_white.webp";
 import { navLinks } from "../data/navLinks";
 
 const current = Astro.url.pathname;
@@ -11,6 +12,7 @@ const current = Astro.url.pathname;
          bg-brand-100/90 backdrop-blur-md text-brand-900 shadow-lg">
   <!-- Left: Logo -->
   <a href="/" class="flex items-center gap-4">
+    <img src="./src/assets/logos/logo.webp" alt="Brand logo" class="w-12" />
     <span class="font-bold text-2xl">Pennine<span class="font-thin">Digital</span></span>
   </a>
 
@@ -23,6 +25,7 @@ const current = Astro.url.pathname;
             class={`
               relative font-heading text-lg italic px-2 py-2 transition-all duration-300
               ${current === link.href ? "text-brand-900 underline underline-offset-8" : "text-brand-700 hover:text-brand-900"}
+              
             `}>
             {link.label}
           </a>
@@ -34,10 +37,9 @@ const current = Astro.url.pathname;
   <div class="hidden lg:block">
     <a
       href={navLinks[navLinks.length - 1].href}
-      class="font-heading text-lg italic px-6 py-2 ml-4
-        border border-accent/40 text-primary
-        hover:border-accent/60 hover:bg-accent/5 hover:-translate-y-[1px]
-        transition-all duration-300">
+      class={`font-heading text-lg italic px-6 py-2 ml-4 transition-all duration-300
+              ${current === navLinks[navLinks.length - 1].href ? "border border-accent bg-accent/5" : "border border-accent/40 hover:border-accent hover:bg-accent/5 text-brand-700 hover:text-brand-900"}
+            `}>
       {navLinks[navLinks.length - 1].label}
     </a>
   </div>
@@ -56,7 +58,10 @@ const current = Astro.url.pathname;
   class="p-6 z-50 lg:hidden fixed left-0 top-0 h-full w-2/3 bg-primary/90 backdrop-blur-md
          transform -translate-x-full transition-all duration-700 ease-in-out opacity-0
          text-brand-100 overflow-y-scroll">
-  <Image src={logo} alt="Pennine Digital Logo" class="w-12" />
+  <a href="/" class="flex items-center gap-4">
+    <img src="./src/assets/logos/logo_white.webp" alt="Brand logo" class="w-12" />
+    <span class="font-bold text-xl">Pennine<span class="font-thin">Digital</span></span>
+  </a>
 
   <div class="w-full h-px bg-brand-100/20 mt-6"></div>
 
@@ -73,10 +78,10 @@ const current = Astro.url.pathname;
                 block py-2 text-left font-heading transition-all duration-200 italic
                 ${
                   isLast
-                    ? "mt-4 inline-block px-6 py-3 border border-accent/40 text-brand-100 hover:border-accent hover:bg-accent/10 hover:-translate-y-[1px]"
+                    ? "mt-4 text-center px-6 border border-accent/40 text-brand-100 hover:border-accent hover:bg-accent/10 "
                     : "text-brand-100/80 hover:text-brand-100"
                 }
-                ${current === link.href && !isLast ? "text-brand-100 font-semibold" : ""}
+                ${current === link.href && isLast ? "border border-accent bg-accent/10 text-brand-50" : ""}
               `}>
               {link.label}
             </a>

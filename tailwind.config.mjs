@@ -1,5 +1,5 @@
-import base from "pennine-design-system/base/tailwind.base.js";
-import minimal from "pennine-design-system/motion/minimal.js";
+import base from "./pennine-design-system/base/tailwind.base.js";
+import minimal from "./pennine-design-system/motion/minimal.js";
 
 /** @type {import('tailwindcss').Config} */
 export default {
