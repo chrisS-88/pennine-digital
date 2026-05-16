@@ -1,19 +1,20 @@
 ---
-const { title, price, description, includes, icon: Icon, variant, iconPosition = "top" } = Astro.props;
+const { title, price, description, includes, icon: Icon, variant, iconPosition = "top", index } = Astro.props;
 
 const variants = {
   services: "border border-brand-200/10 transition-all hover:border-brand-200/40 duration-300",
 
-  projects:
-    "bg-white/80 text-center rounded-2xl border border-neutral-200 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-md",
+  projects: "bg-white/80 rounded-2xl border border-neutral-200 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-md",
 
-  pricing:
-    "bg-background/50 backdrop-blur-sm text-center rounded-2xl border border-neutral-200 shadow-sm transition-all duration-300 hover:shadow-md hover:border-accent/30",
+  pricing: "bg-brand-100 border border-brand-900/10 shadow-sm transition-all duration-300 hover:shadow-md",
 };
+
+const descriptionStyles = variant === "pricing" ? "text-brand-900/70 font-thin italic" : "text-brand-200/60";
 ---
 
-<div class={`p-8 min-h-48 h-full ${variants[variant as keyof typeof variants]}`}>
-  {/* ICON AT TOP */}
+<div
+  class={`p-8 min-h-48 h-full text-left ${variants[variant as keyof typeof variants]} ${index === 1 ? "scale-[1.05] border-accent/30 shadow-md bg-brand-50 border border-primary" : ""}`}>
+  <!-- {/* ICON AT TOP */}
   {
     Icon && iconPosition === "top" && (
       <div class="flex justify-center mb-4">
@@ -22,7 +23,7 @@ const variants = {
         </div>
       </div>
     )
-  }
+  } -->
 
   {
     Icon && iconPosition === "top-left" && (
@@ -32,20 +33,27 @@ const variants = {
     )
   }
 
-  <h3 class="font-heading text-xl font-semibold mb-2">{title}</h3>
+  <h3 class="font-heading text-xl mb-2">{title}</h3>
 
-  {price && <p class="text-dark/90 font-medium mb-3">{price}</p>}
-
-  <p class="text-brand-200/60 leading-relaxed mb-4">
+  <p class={`${descriptionStyles} leading-relaxed mb-2`}>
     {description}
   </p>
 
   {
+    price && (
+      <p class=" font-heading text-4xl mb-3">
+        {`£${price}`}
+        <span class="text-base text-brand-900/60">(from)</span>
+      </p>
+    )
+  }
+
+  {
     includes && (
-      <ul class="text-dark/80 text-sm space-y-2 mt-4 text-left mx-auto max-w-[260px]">
+      <ul class="text-brand-900/70 text-sm space-y-3 mt-8 text-left max-w-[260px]">
         {includes.map((item = "string") => (
-          <li class="flex items-start gap-2">
-            <span class="text-accent font-bold leading-6">•</span>
+          <li class="flex gap-2">
+            <span class="text-accent font-bold">✓</span>
             <span>{item}</span>
           </li>
         ))}
@@ -53,12 +61,12 @@ const variants = {
     )
   }
 
-  {/* ICON AT BOTTOM */}
+  <!-- {/* ICON AT BOTTOM */}
   {
     Icon && iconPosition === "bottom" && (
       <div class="flex justify-center mt-6">
         <Icon class="w-8 h-8 text-accent" />
       </div>
     )
-  }
+  } -->
 </div>

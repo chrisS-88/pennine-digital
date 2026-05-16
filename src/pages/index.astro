@@ -38,37 +38,22 @@ const serviceCardDetails = [
 
 const pricingPlans = [
   {
-    title: "One-Page Website",
-    price: "From £550",
-    description: "A clean, modern one-page website that gives your business a professional online presence.",
-    includes: [
-      "Custom design tailored to your brand",
-      "Mobile-friendly layout",
-      "Clear sections for services, about and contact",
-      "Lightweight build that keeps everything running smoothly",
-    ],
+    title: "Presence",
+    price: 550,
+    description: "A simple, confident website to get you online",
+    includes: ["Single‑page design", "Mobile‑friendly layout", "Clear, simple messaging", "Basic SEO setup", "Contact form"],
   },
   {
-    title: "Full Website",
-    price: "From £950",
-    description: "A multi-page website shaped around your business, with space to tell your story properly.",
-    includes: [
-      "Typically includes 3–5 pages, depending on what you need",
-      "Clear navigation and well-structured content",
-      "A stronger visual identity and brand feel",
-      "Designed to guide customers naturally through your site",
-    ],
+    title: "Identity",
+    price: 900,
+    description: "A more complete website with room to grow",
+    includes: ["Multi‑page website", "Human, easy‑to‑read copy", "Improved contact form", "Stronger site structure", "Better user journey"],
   },
   {
-    title: "Monthly Care Plan",
-    price: "£40/month",
-    description: "Keep your website secure, updated and running smoothly without lifting a finger.",
-    includes: [
-      "Hosting and security updates",
-      "Backups and uptime monitoring",
-      "Up to two small content updates per month",
-      "Priority support when you need it",
-    ],
+    title: "Experience",
+    price: 1400,
+    description: "A crafted website with tools that support your workflow",
+    includes: ["Up to 5 pages", "Third‑party integrations", "Enhanced SEO foundations", "Performance tuning", "Launch support"],
   },
 ];
 ---
@@ -134,7 +119,7 @@ const pricingPlans = [
   </section>
 
   <section class="py-24 bg-brand-200/60">
-    <div class="lg:max-w-lg mx-auto px-6 lg:px-0 md:flex md:justify-between">
+    <div class="lg:max-w-lg mx-auto px-6 md:flex md:justify-between">
       <div>
         <p class="text-sm uppercase tracking-wide text-accent">What I bring</p>
         <h2 class="font-heading text-brand-900 leading-tight text-4xl md:max-w-sm">
@@ -144,12 +129,12 @@ const pricingPlans = [
 
       <div class="space-y-8 md:max-w-xs pl-4 md:pl-0 mt-16">
         <div>
-          <h4 class="text-xl italic font-heading text-brand-900">Direct Communication</h4>
+          <h4 class="text-2xl italic font-heading text-brand-900">Direct Communication</h4>
           <p>You work directly with the person building your site. It keeps the process simple and the decisions clear.</p>
         </div>
 
         <div>
-          <h4 class="text-xl italic font-heading text-brand-900">Technical Expertise</h4>
+          <h4 class="text-2xl italic font-heading text-brand-900">Technical Expertise</h4>
           <p>
             I build everything myself, without templates or page builders. It means your site is lightweight, fast, and put together with
             care rather than assembled from parts.
@@ -157,7 +142,7 @@ const pricingPlans = [
         </div>
 
         <div>
-          <h4 class="text-xl italic font-heading text-brand-900">Clarity First</h4>
+          <h4 class="text-2xl italic font-heading text-brand-900">Clarity First</h4>
           <p>A focus on simple structures and thoughtful design, so the site feels clean and easy to use.</p>
         </div>
       </div>
@@ -209,50 +194,8 @@ const pricingPlans = [
     </div>
   </section>
 
-  <!-- <section class="bg-gradient-soft py-24">
-    <div class="max-w-6xl mx-auto px-6 text-center">
-      <h2 class="font-heading text-4xl mb-3">Simple, transparent pricing</h2>
-
-      <p class="text-lg max-w-3xl mx-auto text-brand-900/80">
-        Clear pricing with no surprises. I work with small businesses around Bradford and West Yorkshire to create reliable, modern websites
-        with a straightforward process from first conversation to launch.
-      </p>
-
-      <div class="mt-12 mb-16 grid md:grid-cols-3 gap-6">
-        {pricingPlans.map((plan) => <FeatureCard {...plan} variant="pricing" />)}
-      </div>
-
-      <div class="max-w-3xl mx-auto mb-12">
-        <h4 class="font-heading text-lg mb-5">Optional extras to support your business:</h4>
-
-        <ul class="text-brand-900/80 leading-relaxed space-y-4">
-          <li>
-            <strong>Starter Brand Pack (£200)</strong>
-            <p class="text-sm text-brand-900/70 mt-1">
-              Clean logo, colour palette, typography choices, and a one-page brand sheet to keep everything consistent.
-            </p>
-          </li>
-
-          <li>
-            <strong>Digital Menus (from £150)</strong>
-            <p class="text-sm text-brand-900/70 mt-1">
-              Clean web-based menus that match your site's design. Updates included on the care plan, or £30 per update.
-            </p>
-          </li>
-
-          <li>
-            <strong>Google Business Profile Setup (£75)</strong>
-            <p class="text-sm text-brand-900/70 mt-1">Get your business properly listed on Google Maps with optimized info and photos.</p>
-          </li>
-        </ul>
-      </div>
-
-      <Button href="/contact" title="Start Your Project" variant="light" />
-    </div>
-  </section> -->
-
   <section class="bg-primary py-24">
-    <div class="lg:max-w-lg mx-auto px-6 lg:px-0">
+    <div class="lg:max-w-lg mx-auto px-6">
       <div>
         <p class="text-sm uppercase tracking-wide text-highlight">Selected Projects</p>
 
@@ -267,7 +210,7 @@ const pricingPlans = [
       </div>
     </div>
 
-    <div class="grid md:grid-cols-2 gap-12 max-w-lg mx-auto mt-24 px-6 md:px-0">
+    <div class="grid md:grid-cols-2 gap-12 max-w-lg mx-auto mt-24 px-6">
       <div class="md:-translate-y-6">
         <ProjectCard
           title="Form First"
@@ -287,6 +230,73 @@ const pricingPlans = [
           image={loftCafeScreenshot}
           href="/projects/loft-cafe"
         />
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-brand-50 py-24">
+    <div class="max-w-xl mx-auto px-6 md:px-16 text-center">
+      <h2 class="font-heading text-brand-900 leading-tight text-4xl">
+        Clear, honest <span class="italic">pricing.</span>
+      </h2>
+
+      <p class="mx-auto mt-6 font-thin text-xl max-w-sm">
+        No hidden fees or complex contracts. Just high-quality web development tailored to your business.
+      </p>
+
+      <div class="mt-16 mb-16 grid md:grid-cols-3 gap-16">
+        {pricingPlans.map((plan, i) => <FeatureCard index={i} {...plan} variant="pricing" button="helo" />)}
+      </div>
+
+      <div class="bg-brand-100 border border-brand-900/10 p-8 flex justify-between">
+        <div class="text-left">
+          <h3 class="text-xl font-heading">Monthly Care Plan</h3>
+          <p class="text-brand-900/70 font-thin italic">Peace of mind with ongoing updates, security and hosting</p>
+
+          <ul class="mt-4 text-brand-900/70 text-sm space-y-2">
+            <li class="flex gap-2">
+              <span class="text-accent font-bold">✓</span>
+              <span>Ongoing updates and maintenance</span>
+            </li>
+            <li class="flex gap-2">
+              <span class="text-accent font-bold">✓</span>
+              <span>Security monitoring and backups</span>
+            </li>
+            <li class="flex gap-2">
+              <span class="text-accent font-bold">✓</span>
+              <span>Small content tweaks each month</span>
+            </li>
+            <li class="flex gap-2">
+              <span class="text-accent font-bold">✓</span>
+              <span>Fast, reliable hosting</span>
+            </li>
+          </ul>
+        </div>
+
+        <div>
+          <p class="font-heading text-4xl">£35<span class="text-base text-brand-900/60">/mo</span></p>
+        </div>
+      </div>
+
+      <div class="max-w-lg mx-auto mt-20">
+        <h4 class="font-heading text-2xl text-brand-900 italic mb-16">Optional extras to support your business</h4>
+
+        <div class="grid md:grid-cols-3 gap-10">
+          <div class="border border-brand-900/10 p-4 text-center">
+            <span class="text-accent block mb-1">£200</span>
+            <h4 class="text-lg font-thin text-brand-900">Starter Brand Pack</h4>
+          </div>
+
+          <div class="border border-brand-900/10 p-4 text-center">
+            <span class="text-accent block mb-1">£95</span>
+            <h4 class="text-lg font-thin text-brand-900">Local SEO Boost</h4>
+          </div>
+
+          <div class="border border-brand-900/10 p-4 text-center">
+            <span class="text-accent block mb-1">From £150</span>
+            <h4 class="text-lg font-thin text-brand-900">Digital Menus</h4>
+          </div>
+        </div>
       </div>
     </div>
   </section>

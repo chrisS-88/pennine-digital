@@ -13,7 +13,7 @@ const current = Astro.url.pathname;
   <!-- Left: Logo -->
   <a href="/" class="flex items-center gap-4">
     <Image src={logo} alt="Pennine Digital Logo" class="w-12" />
-    <span class="font-bold text-2xl">Pennine<span class="font-thin">Digital</span></span>
+    <span class="font-bold text-lg uppercase">Pennine<span class="font-thin">Digital</span></span>
   </a>
 
   <ul class="hidden lg:flex gap-6 mx-auto">
@@ -60,7 +60,7 @@ const current = Astro.url.pathname;
          text-brand-100 overflow-y-scroll">
   <a href="/" class="flex items-center gap-4">
     <Image src={logoWhite} alt="Pennine Digital Logo" class="w-12" />
-    <span class="font-bold text-xl">Pennine<span class="font-thin">Digital</span></span>
+    <span class="font-bold text-xl uppercase">Pennine<span class="font-thin">Digital</span></span>
   </a>
 
   <div class="w-full h-px bg-brand-100/20 mt-6"></div>
@@ -68,20 +68,14 @@ const current = Astro.url.pathname;
   <ul class="flex flex-col gap-8 text-2xl px-2 py-12">
     {
       navLinks.map((link, i) => {
-        const isLast = i === navLinks.length - 1;
-
         return (
           <li>
             <a
               href={link.href}
               class={`
-                block py-2 text-left font-heading transition-all duration-200 italic
-                ${
-                  isLast
-                    ? "mt-4 text-center px-6 border border-accent/40 text-brand-100 hover:border-accent hover:bg-accent/10 "
-                    : "text-brand-100/80 hover:text-brand-100"
-                }
-                ${current === link.href && isLast ? "border border-accent bg-accent/10 text-brand-50" : ""}
+                block py-2 text-left font-heading transition-all duration-200 italic  hover:text-brand-100
+                
+                ${current === link.href ? "text-brand-100 underline underline-offset-8" : "text-brand-100/80"}
               `}>
               {link.label}
             </a>
