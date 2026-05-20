@@ -66,7 +66,7 @@ const pricingPlans = [
   <section class="bg-brand-100 pt-28 pb-24">
     <div class="max-w-lg px-6 mx-auto gap-16 grid md:grid-cols-2 items-center">
       <div class="max-w-xs">
-        <p class="text-sm uppercase tracking-wide text-accent">Expertise</p>
+        <p class="text-sm uppercase tracking-widest text-accent">Expertise</p>
 
         <h2 class="font-heading text-brand-900 text-4xl mb-10">
           Fast, reliable, and <span class="block italic">built with intention.</span>
@@ -121,7 +121,7 @@ const pricingPlans = [
   <section class="py-24 bg-brand-200/60">
     <div class="lg:max-w-lg mx-auto px-6 md:flex md:justify-between">
       <div>
-        <p class="text-sm uppercase tracking-wide text-accent">What I bring</p>
+        <p class="text-sm uppercase tracking-widest text-accent">What I bring</p>
         <h2 class="font-heading text-brand-900 leading-tight text-4xl md:max-w-sm">
           Why work <span class="italic">with me?</span>
         </h2>
@@ -151,7 +151,7 @@ const pricingPlans = [
 
   <section class="bg-brand-100 py-24">
     <div class="px-6 text-center">
-      <p class="text-sm uppercase tracking-wide text-accent">How I Work</p>
+      <p class="text-sm uppercase tracking-widest text-accent">How I Work</p>
 
       <h2 class="font-heading text-brand-900 text-4xl">
         A simple, <span class="italic">three step journey.</span>
@@ -197,13 +197,15 @@ const pricingPlans = [
   <section class="bg-primary py-24">
     <div class="lg:max-w-lg mx-auto px-6">
       <div>
-        <p class="text-sm uppercase tracking-wide text-highlight">Selected Projects</p>
+        <p class="text-sm uppercase tracking-widest text-highlight">Selected Projects</p>
 
         <div class="flex justify-between items-end">
           <h2 class="font-heading text-brand-200 leading-tight text-4xl md:max-w-sm">
             Recent <span class="italic">builds.</span>
           </h2>
-          <a href="/projects" class="font-thin text-sm text-brand-200/80 hover:text-brand-200 transition-all duration-300 uppercase"
+          <a
+            href="/projects"
+            class="font-thin text-sm text-brand-200/80 hover:text-brand-200 transition-all duration-300 uppercase tracking-widest"
             >View All Projects</a
           >
         </div>
@@ -248,11 +250,16 @@ const pricingPlans = [
         {pricingPlans.map((plan, i) => <FeatureCard index={i} {...plan} variant="pricing" button="helo" />)}
       </div>
 
-      <div class="bg-brand-100 border border-brand-900/10 p-8 flex justify-between">
-        <div class="text-left">
-          <h3 class="text-xl font-heading">Monthly Care Plan</h3>
-          <p class="text-brand-900/70 font-thin italic">Peace of mind with ongoing updates, security and hosting</p>
+      <div class="bg-brand-100 border border-brand-900/10 p-8">
+        <div class="text-left mb-6 md:flex justify-between">
+          <div>
+            <h3 class="text-xl font-heading mb-2">Monthly Care Plan</h3>
+            <p class="text-brand-900/70 font-thin italic mb-2">Peace of mind with ongoing updates, security and hosting</p>
+          </div>
+          <p class="font-heading text-4xl">£35<span class="text-base text-brand-900/60">/mo</span></p>
+        </div>
 
+        <div class="text-left">
           <ul class="mt-4 text-brand-900/70 text-sm space-y-2">
             <li class="flex gap-2">
               <span class="text-accent font-bold">✓</span>
@@ -272,10 +279,6 @@ const pricingPlans = [
             </li>
           </ul>
         </div>
-
-        <div>
-          <p class="font-heading text-4xl">£35<span class="text-base text-brand-900/60">/mo</span></p>
-        </div>
       </div>
 
       <div class="max-w-lg mx-auto mt-20">
@@ -283,18 +286,21 @@ const pricingPlans = [
 
         <div class="grid md:grid-cols-3 gap-10">
           <div class="border border-brand-900/10 p-4 text-center">
-            <span class="text-accent block mb-1">£200</span>
-            <h4 class="text-lg font-thin text-brand-900">Starter Brand Pack</h4>
+            <span class="text-accent tracking-wide block mb-1">£200</span>
+            <h4 class="text-lg font-semibold">Starter Brand Pack</h4>
+            <p class="font-extralight">A sharp, ready‑to‑go brand setup that gets you looking professional fast.</p>
           </div>
 
           <div class="border border-brand-900/10 p-4 text-center">
-            <span class="text-accent block mb-1">£95</span>
-            <h4 class="text-lg font-thin text-brand-900">Local SEO Boost</h4>
+            <span class="text-accent tracking-wide block mb-1">£95</span>
+            <h4 class="text-lg font-semibold">Local SEO Boost</h4>
+            <p class="font-extralight">Quick, targeted improvements that help you show up higher in local searches.</p>
           </div>
 
           <div class="border border-brand-900/10 p-4 text-center">
-            <span class="text-accent block mb-1">From £150</span>
-            <h4 class="text-lg font-thin text-brand-900">Digital Menus</h4>
+            <span class="text-accent tracking-wide block mb-1">From £150</span>
+            <h4 class="text-lg font-semibold">Digital Menus</h4>
+            <p class="font-extralight">Digital menus designed for smooth browsing on any device.</p>
           </div>
         </div>
       </div>

@@ -1,38 +1,9 @@
 ---
-import ServiceCard from "../components/ServiceCard.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Button from "../components/Button.astro";
-
-const serviceCards = [
-  {
-    title: "Web Design",
-    description:
-      "Clean layouts that feel welcoming and easy to navigate. I focus on clarity, accessibility, and a visual style that reflects your business without feeling cluttered or over‑designed.",
-    listHeader: "Includes",
-    list: ["Page layouts", "Colour and typography", "Mobile‑first design", "Brand consistency"],
-  },
-  {
-    title: "Website Development",
-    description:
-      "Fast, reliable websites built on a lightweight, hand‑coded foundation. Everything is structured to load quickly, work smoothly across devices, and stay easy to update as your business grows.",
-    listHeader: "Includes",
-    list: ["Responsive builds", "Clean, maintainable code", "Performance optimisation", "SEO‑friendly structure"],
-  },
-  {
-    title: "Website Care & Maintenance",
-    description:
-      "Reliable help with the small technical jobs that keep your website running smoothly. From updates and fixes to content changes and general housekeeping, I look after the details so you don’t have to.",
-    listHeader: "Includes",
-    list: ["Minor fixes", "Small updates", "Content changes", "General maintenance"],
-  },
-  {
-    title: "Website Audit",
-    description:
-      "A practical review of your existing website to understand what’s working, what isn’t, and where improvements can be made. Clear, honest feedback with simple steps you can act on.",
-    listHeader: "Includes",
-    list: ["Performance review", "Design and usability feedback", "Mobile experience check", "Practical improvement suggestions"],
-  },
-];
+import Responsive from "../components/icons/Responsive.astro";
+import Speed from "../components/icons/Speed.astro";
+import Feather from "../components/icons/Feather.astro";
 
 const faqs = [
   {
@@ -85,9 +56,9 @@ const faqs = [
 <BaseLayout title="Pennine Digital - Services">
   <section class="bg-primary pt-44 pb-24">
     <div class="px-6 max-w-lg mx-auto">
-      <p class="text-sm uppercase tracking-wide text-highlight mb-2">What I Do</p>
+      <p class="text-sm uppercase tracking-widest text-highlight mb-2">What I Do</p>
       <h1 class="text-4xl md:text-5xl font-heading font-semibold text-brand-200 max-w-sm">
-        Simple, modern websites shaped <span class="italic">around your business.</span>
+        Simple, modern websites shaped around <span class="italic">your business.</span>
       </h1>
 
       <p class="mt-10 text-brand-200/80 text-xl font-thin leading-relaxed max-w-sm">
@@ -97,30 +68,126 @@ const faqs = [
     </div>
   </section>
 
-  <section class="bg-brand-50 py-24">
-    <div class="px-6 max-w-3xl mx-auto text-center">
-      <h2 class="text-center font-heading text-3xl mb-10 text-brand-900">Services</h2>
+  <section class="relative z-10">
+    <div class="px-6 max-w-md mx-auto text-center py-24">
+      <h2 class="text-center font-heading text-3xl mb-10 text-brand-900">A straightforward, personal approach.</h2>
 
-      <p class="leading-relaxed">
-        Running a small business is demanding enough — your website shouldn’t make things harder. I build sites that feel clear, intuitive,
-        and genuinely useful, whether you’re starting fresh or improving what you already have.
+      <p class="leading-relaxed text-xl font-thin">
+        When we work together, you’re speaking directly with the person writing the code, shaping the design, and guiding the project. It
+        means clearer conversations, quicker decisions, and a more considered website at the end of it.
       </p>
     </div>
 
-    <div class="px-6 py-24 max-w-lg mx-auto grid gap-10 grid-cols-1 md:grid-cols-2">
-      {serviceCards.map((item) => <ServiceCard {...item} />)}
-    </div>
+    <div class="w-full h-px bg-brand-900/10"></div>
+  </section>
 
-    <div class="max-w-lg mx-auto mt-16 py-12 text-center">
-      <p class="text-xl font-semibold">Not sure what you need?</p>
-      <p class="px-6 md:max-w-sm mx-auto leading-relaxed">
-        If you're unsure which direction to take, we can look at your website together and figure out the best approach for your business.
-      </p>
-      <a href="/contact"><p class="mt-4 text-lg underline hover:text-accent transition-all duration-200">Start a Conversation</p></a>
+  <section class="py-24 bg-[linear-gradient(160deg,_#062a2905_50%,_#fff_50%)]">
+    <div class="max-w-lg px-6 mx-auto grid md:grid-cols-2 gap-24">
+      <div>
+        <p class="text-sm uppercase tracking-widest text-accent">Service 01</p>
+        <h2 class="font-heading text-brand-900 text-2xl mb-6">
+          <span class="block text-8xl lg:text-9xl font-black leading-none">Custom</span>
+          <span class="italic underline underline-offset-4">Web Design</span>
+        </h2>
+      </div>
+
+      <div class="md:mt-36">
+        <p class="mb-10 text-xl font-medium max-w-prose text-brand-700">
+          A design process that begins with understanding your goals and ends with a website that feels genuinely yours.
+        </p>
+
+        <ul class="space-y-5 border-t border-brand-200 pt-6">
+          <li class="flex items-start gap-4">
+            <span class="block w-4 h-[2px] bg-accent mt-[10px]"></span>
+            <span class="tracking-wider text-brand-700">Responsive, device‑ready layouts</span>
+          </li>
+          <li class="flex items-start gap-4">
+            <span class="block w-4 h-[2px] bg-accent mt-[10px]"></span>
+            <span class="tracking-wider text-brand-700">Clean, editorial typography</span>
+          </li>
+          <li class="flex items-start gap-4">
+            <span class="block w-4 h-[2px] bg-accent mt-[10px]"></span>
+            <span class="tracking-wider text-brand-700">Simple, accessible navigation</span>
+          </li>
+        </ul>
+      </div>
     </div>
   </section>
 
-  <section class="bg-brand-100 py-24">
+  <section class="py-24 lg:pt-44 bg-brand-800 text-brand-100/80">
+    <div class="max-w-lg px-6 mx-auto">
+      <div>
+        <p class="text-sm uppercase tracking-widest text-accent">Service 02</p>
+        <h2 class="font-heading text-brand-100 text-4xl mb-6">Performance Optimisation</h2>
+        <div class="space-y-8 max-w-md">
+          <p>
+            A fast site isn’t a luxury — it’s essential. I build with speed and technical clarity in mind from the very beginning, ensuring
+            your site loads quickly, feels responsive, and performs reliably across all devices.
+          </p>
+
+          <p>
+            This means focusing on efficient code, lightweight assets, and a build process that avoids unnecessary bloat. The result is a
+            site that feels smooth, stable, and effortless for your customers to use — even on slower connections.
+          </p>
+        </div>
+      </div>
+
+      <div class="mt-24 grid grid-cols-3 mx-auto text-center">
+        <div class="flex flex-col items-center space-y-3">
+          <Speed class="w-12" />
+          <p class="text-xl font-heading tracking-widest text-brand-100">Fast</p>
+        </div>
+
+        <div class="flex flex-col items-center space-y-3">
+          <Feather class="w-12" />
+          <p class="text-xl font-heading tracking-widest text-brand-100">Light</p>
+        </div>
+
+        <div class="flex flex-col items-center space-y-3">
+          <Responsive class="w-12" />
+          <p class="text-xl font-heading tracking-widest text-brand-100">Flexible</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-24 bg-brand-50">
+    <div class="max-w-lg px-6 mx-auto">
+      <p class="text-sm uppercase tracking-widest text-accent">Service 03</p>
+
+      <h2 class="font-heading text-brand-900 text-4xl mb-6">Integrations</h2>
+
+      <p class="text-brand-900/80 leading-relaxed mb-16 max-w-xl">
+        Connecting your website to the tools your business relies on — creating a smoother, more joined‑up experience for you and your
+        customers.
+      </p>
+
+      <div class="grid md:grid-cols-3 gap-14">
+        <div class="border border-brand-900/10 p-6">
+          <h3 class="text-xl font-light text-brand-900 mb-3">Booking Systems</h3>
+          <p class="text-brand-900/80 leading-relaxed">
+            Seamless integrations with the booking tools you already use, keeping everything running smoothly.
+          </p>
+        </div>
+
+        <div class="border border-brand-900/10 p-6">
+          <h3 class="text-xl font-light text-brand-900 mb-3">Payments & Checkouts</h3>
+          <p class="text-brand-900/80 leading-relaxed">
+            Simple, secure payment connections that make it easy for customers to buy or book online.
+          </p>
+        </div>
+
+        <div class="border border-brand-900/10 p-6">
+          <h3 class="text-xl font-light text-brand-900 mb-3">Email & Customer Tools</h3>
+          <p class="text-brand-900/80 leading-relaxed">
+            Integrations that link your site with your email platform or customer system, keeping everything organised.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-24">
     <div class="max-w-md mx-auto">
       <h2 class="text-center font-heading text-3xl mb-10 text-brand-900">Frequently Asked Questions</h2>
 
