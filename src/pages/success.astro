@@ -1,18 +1,53 @@
 ---
-import Layout from "../layouts/BaseLayout.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
 ---
 
-<Layout title="Pennine Digital - Message sent">
-  <section class="pt-48 pb-24 bg-background">
-    <div class="max-w-2xl mx-auto text-center px-6">
-      <h1 class="text-4xl md:text-5xl font-heading font-semibold">Thanks for your message</h1>
+<BaseLayout title="Message Sent | Pennine Digital">
+  <section class="px-6 py-32">
+    <div class="max-w-lg mx-auto">
+      <div class="flex items-center gap-4 mb-4">
+        <div class="h-px w-10 bg-brand-900/10"></div>
 
-      <p class="text-brand-900/70 mt-4 leading-relaxed">
-        I really appreciate you getting in touch. I’ll read your message and get back to you as soon as I can — usually within one working
-        day.
+        <p class="font-mono text-xs uppercase tracking-[0.3em] text-accent">Thank you</p>
+      </div>
+
+      <h1 class="max-w-md font-heading text-4xl md:text-5xl font-semibold text-brand-900">Your message has been sent.</h1>
+
+      <p class="mt-4 max-w-md text-lg text-brand-900/70">
+        Thanks for getting in touch. I'll read through your enquiry and reply as soon as I can, usually within one working day.
       </p>
 
-      <a href="/" class="inline-block mt-10 px-4 py-2 text-brand-100 bg-primary/80 hover:bg-primary transition"> Back to Home </a>
+      <div class="mt-16 space-y-8 border-t border-brand-900/10 pt-10">
+        <div class="grid grid-cols-[3rem_1fr] gap-x-6 items-start">
+          <span class="font-mono text-sm text-accent/70 mt-[5px]">01</span>
+
+          <div>
+            <h2 class="font-heading text-xl text-brand-900">What's next?</h2>
+
+            <p class="mt-2 text-brand-900/70">
+              I'll review your message and get back to you by email to discuss your project and answer any questions you have.
+            </p>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-[3rem_1fr] gap-x-6 items-start">
+          <span class="font-mono text-sm text-accent/70 mt-[5px]">02</span>
+
+          <div>
+            <h2 class="font-heading text-xl text-brand-900">In the meantime</h2>
+
+            <p class="mt-2 text-brand-900/70">Feel free to continue exploring the site or have a look at the services I offer.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-16">
+        <a
+          href="/services"
+          class="inline-flex border border-brand-900/15 px-6 py-3 font-mono text-xs uppercase tracking-[0.25em] text-brand-900 transition-colors hover:border-brand-900/30">
+          Explore services
+        </a>
+      </div>
     </div>
   </section>
-</Layout>
+</BaseLayout>

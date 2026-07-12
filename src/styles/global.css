@@ -1,11 +1,7 @@
 /* Self hosted fonts to speed up performance */
-@import "@fontsource-variable/playwrite-nz";
-
-@import "@fontsource/sn-pro/300.css";
-@import "@fontsource/sn-pro/400.css";
-@import "@fontsource/sn-pro/500.css";
-@import "@fontsource/sn-pro/600.css";
-@import "@fontsource/sn-pro/700.css";
+@import "@fontsource-variable/outfit";
+@import "@fontsource-variable/inter";
+@import "@fontsource-variable/newsreader";
 
 @tailwind base;
 @tailwind components;
@@ -13,7 +9,6 @@
 
 /* NAV BURGER BTN */
 #menu-btn {
-  position: relative;
   width: 32px;
   height: 24px;
   cursor: pointer;
@@ -63,6 +58,32 @@
 
 #menu-btn.open span:nth-child(3) {
   transform: translateY(-11px) rotate(-40deg);
+}
+
+/* HERO GRID */
+
+.hero-grid::before {
+  content: "";
+
+  position: absolute;
+
+  left: 50%;
+  bottom: -10%;
+
+  width: 55%;
+  height: 75%;
+
+  background-image:
+    linear-gradient(to left, rgb(38 38 38 / 0.06) 1px, transparent 1px),
+    linear-gradient(to bottom, rgb(38 38 38 / 0.06) 1px, transparent 1px);
+
+  background-size: 48px 48px;
+
+  mask-image: radial-gradient(ellipse at bottom right, black 40%, transparent 85%);
+
+  pointer-events: none;
+
+  z-index: 0;
 }
 
 /* CONTACT FORM */

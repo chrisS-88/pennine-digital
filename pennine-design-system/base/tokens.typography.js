@@ -15,8 +15,4 @@ export default {
     normal: "1.5",
     spaced: "2.5",
   },
-  fontFamily: {
-    sans: ["Inter", "system-ui", "sans-serif"],
-    heading: ["Inter", "system-ui", "sans-serif"],
-  },
 };

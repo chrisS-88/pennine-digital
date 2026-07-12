@@ -1,0 +1,87 @@
+---
+interface AccordionItem {
+  question: string;
+  answer: string;
+}
+
+interface Props {
+  items: AccordionItem[];
+}
+
+const { items }: Props = Astro.props;
+---
+
+<div id="accordion-root" class="border-t border-brand-900/10">
+  {
+    items.map((item, i) => (
+      <div class="border-b border-brand-900/10">
+        <button
+          type="button"
+          class="flex w-full items-start justify-between gap-6 py-6 text-left"
+          data-accordion-button
+          data-target={`panel-${i}`}
+          aria-expanded="false"
+          aria-controls={`panel-${i}`}>
+          <div class="flex gap-6">
+            <span class="mt-1 font-mono text-sm text-accent/70">{(i + 1).toString().padStart(2, "0")}</span>
+
+            <span class="font-heading text-lg md:text-xl text-brand-900">{item.question}</span>
+          </div>
+
+          <span class="font-mono text-2xl leading-none text-brand-900/40 transition-transform duration-200" data-icon aria-hidden="true">
+            +
+          </span>
+        </button>
+
+        <div
+          id={`panel-${i}`}
+          class="grid overflow-hidden transition-all duration-300 ease-out grid-rows-[0fr] opacity-0"
+          data-accordion-panel>
+          <div class="overflow-hidden pb-6 pl-[3.5rem] pr-8 text-brand-900/70 leading-relaxed">{item.answer}</div>
+        </div>
+      </div>
+    ))
+  }
+</div>
+
+<script>
+  const root = document.getElementById("accordion-root");
+
+  if (root) {
+    const buttons = root.querySelectorAll<HTMLButtonElement>("[data-accordion-button]");
+
+    buttons.forEach((button) => {
+      button.addEventListener("click", () => {
+        const target = button.dataset.target;
+
+        root.querySelectorAll<HTMLElement>("[data-accordion-panel]").forEach((panel) => {
+          const trigger = panel.previousElementSibling as HTMLButtonElement | null;
+          const icon = trigger?.querySelector<HTMLElement>("[data-icon]");
+
+          if (panel.id === target) {
+            const isOpen = panel.classList.contains("grid-rows-[1fr]");
+
+            if (isOpen) {
+              panel.classList.remove("grid-rows-[1fr]", "opacity-100");
+              panel.classList.add("grid-rows-[0fr]", "opacity-0");
+            } else {
+              panel.classList.remove("grid-rows-[0fr]", "opacity-0");
+              panel.classList.add("grid-rows-[1fr]", "opacity-100");
+            }
+
+            trigger?.setAttribute("aria-expanded", String(!isOpen));
+
+            icon?.classList.toggle("rotate-45", !isOpen);
+          } else {
+            panel.classList.remove("grid-rows-[1fr]", "opacity-100");
+            panel.classList.add("grid-rows-[0fr]", "opacity-0");
+
+            trigger?.setAttribute("aria-expanded", "false");
+
+            icon?.classList.remove("rotate-45");
+          }
+        });
+      });
+    });
+  }
+</script>

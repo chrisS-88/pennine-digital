@@ -3,57 +3,127 @@ import Hero from "../components/Hero.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Button from "../components/Button.astro";
 import FeatureCard from "../components/FeatureCard.astro";
-import { Image } from "astro:assets";
-import ProjectCard from "../components/ProjectCard.astro";
-import formFirstScreenshot from "../assets/projects/form-first/screenshot.webp";
-import loftCafeScreenshot from "../assets/projects/loft-cafe/screenshot.webp";
-import macbook from "../assets/images/macbook.webp";
-import Shopfront from "../components/icons/Shopfront.astro";
-import Tools from "../components/icons/Tools.astro";
-import Cutlery from "../components/icons/Cutlery.astro";
-import Creative from "../components/icons/Creative.astro";
+import Accordion from "../components/Accordion.astro";
 
-const serviceCardDetails = [
+const websiteBenefits = [
   {
-    title: "Local Shops",
-    description: "Modern storefronts for independent boutiques and retail.",
-    icon: Shopfront,
+    title: "Fast loading",
+    description: "Lightweight websites that load quickly on every device.",
   },
   {
-    title: "Skilled Trades",
-    description: "Clear, professional sites for builders, plumbers, and craftspeople.",
-    icon: Tools,
+    title: "Mobile-first design",
+    description: "Built for customers searching, calling, and requesting quotes on their phones.",
   },
   {
-    title: "Cafés & Dining",
-    description: "Digital menus and simple booking for local food spots.",
-    icon: Cutlery,
+    title: "Clear messaging",
+    description: "Straightforward content that explains what you do and why customers should choose you.",
   },
   {
-    title: "Creatives",
-    description: "Portfolio sites that let your work take center stage.",
-    icon: Creative,
+    title: "Built to convert",
+    description: "Clear calls-to-action that encourage more enquiries, calls, and quote requests.",
   },
+  {
+    title: "Local search ready",
+    description: "Structured to support your services, locations, and visibility in local search.",
+  },
+  {
+    title: "Simple ownership",
+    description: "A one-off project with optional ongoing support if you ever need it.",
+  },
+];
+
+const industries = [
+  "Roofers",
+  "Electricians",
+  "Plumbers",
+  "Joiners",
+  "Landscapers",
+  "Gardeners",
+  "Decorators",
+  "Driveways",
+  "Cleaning Services",
+  "Handymen",
+  "...and more",
 ];
 
 const pricingPlans = [
   {
-    title: "Presence",
-    price: 550,
-    description: "A simple, confident website to get you online",
-    includes: ["Single‑page design", "Mobile‑friendly layout", "Clear, simple messaging", "Basic SEO setup", "Contact form"],
+    title: "Launch",
+    price: 495,
+    description: "A professional one-page website for new businesses that need a strong online presence without unnecessary complexity.",
+    includes: [
+      "Single bespoke landing page",
+      "Mobile-first design",
+      "Fast, SEO-ready build",
+      "Contact form & click-to-call",
+      "Google Maps integration",
+      "2 weeks of post-launch support",
+    ],
   },
   {
-    title: "Identity",
-    price: 900,
-    description: "A more complete website with room to grow",
-    includes: ["Multi‑page website", "Human, easy‑to‑read copy", "Improved contact form", "Stronger site structure", "Better user journey"],
+    title: "Enquiry",
+    price: 1295,
+    description: "A bespoke multi-page website designed to build trust, improve visibility and generate more customer enquiries.",
+    featured: true,
+    includes: [
+      "Up to 8 bespoke pages",
+      "Everything in Launch",
+      "Conversion-focused layouts",
+      "Service & location pages",
+      "Reviews & FAQ sections",
+      "30 days of post-launch support",
+    ],
   },
   {
-    title: "Experience",
-    price: 1400,
-    description: "A crafted website with tools that support your workflow",
-    includes: ["Up to 5 pages", "Third‑party integrations", "Enhanced SEO foundations", "Performance tuning", "Launch support"],
+    title: "Custom",
+    price: "1,995",
+    prefix: "From",
+    description: "A tailored website solution for established businesses with more advanced requirements and functionality.",
+    includes: [
+      "Everything in Enquiry",
+      "Additional pages",
+      "Advanced enquiry forms",
+      "Third-party integrations",
+      "Custom functionality",
+      "Priority planning & support",
+    ],
+  },
+];
+
+const faqs = [
+  {
+    question: "How long does a website take to build?",
+    answer:
+      "Most websites are completed within 2–4 weeks, depending on the size of the project and how quickly content, images, and feedback are provided.",
+  },
+  {
+    question: "What do you need from me to get started?",
+    answer:
+      "We'll start with a quick chat about your business, customers, and goals. I'll then guide you through what content, images, and information are needed to build your website.",
+  },
+  {
+    question: "Do you write the website content?",
+    answer:
+      "If you already have content, I can work with that. If not, I can help create clear, customer-focused copy that explains your services and encourages enquiries.",
+  },
+  {
+    question: "Will my website help me get found on Google?",
+    answer:
+      "Every website is built with strong SEO foundations, including fast performance, mobile-first design, and pages structured around your services and locations. No one can guarantee rankings, but your website will be built with visibility in mind.",
+  },
+  {
+    question: "Do you provide hosting and ongoing support?",
+    answer:
+      "Yes. You can arrange your own hosting, or choose managed hosting and care plans where I look after updates, maintenance, security, and technical support for you.",
+  },
+  {
+    question: "Am I tied into a contract?",
+    answer:
+      "No. Your website is a one-off project and belongs to you. Ongoing hosting and support are optional if you want continued help after launch.",
+  },
+  {
+    question: "Do you only work with Yorkshire businesses?",
+    answer: "Yorkshire is my main focus, but I also work with trades and local service businesses across the UK.",
   },
 ];
 ---
@@ -63,265 +133,240 @@ const pricingPlans = [
     <Hero />
   </section>
 
-  <section class="bg-brand-100 pt-28 pb-24">
-    <div class="max-w-lg px-6 mx-auto gap-16 grid md:grid-cols-2 items-center">
-      <div class="max-w-xs">
-        <p class="text-sm uppercase tracking-widest text-accent">Expertise</p>
+  <!-- FOUNDATIONS -->
+  <section class="py-24">
+    <div class="max-w-lg px-6 mx-auto">
+      <div class="flex items-center gap-4 mb-4">
+        <div class="h-px w-10 bg-brand-900/10"></div>
 
-        <h2 class="font-heading text-brand-900 text-4xl mb-10">
-          Fast, reliable, and <span class="block italic">built with intention.</span>
-        </h2>
-
-        <p class="mb-6">
-          Your website should feel effortless — quick to load, simple to use, and clear in its purpose. I focus on speed, clarity, and
-          reliability so your customers get the best experience every time they visit.
-        </p>
-
-        <ul class="space-y-4">
-          <li class="flex items-start gap-4">
-            <span class="block w-4 h-[2px] bg-accent mt-3"></span>
-            <span>Blazing‑fast load times that keep visitors engaged</span>
-          </li>
-          <li class="flex items-start gap-4">
-            <span class="block w-4 h-[2px] pt-[2px] bg-accent mt-3"></span>
-            <span>Mobile‑first layouts that feel natural on every device</span>
-          </li>
-          <li class="flex items-start gap-4">
-            <span class="block w-4 h-[2px] pt-[2px] bg-accent mt-3"></span>
-            <span>A stable, lightweight build that stays fast over time</span>
-          </li>
-        </ul>
+        <p class="font-mono text-xs tracking-[0.3em] uppercase text-accent">01 · Foundations</p>
       </div>
-      <div class="relative inline-block mx-12 md:m-0">
-        <Image src={macbook} alt="MacBook mockup" class="w-full saturate-0 relative z-10" />
-
-        <div class="absolute inset-0 border border-accent translate-x-3 translate-y-3 z-0"></div>
-      </div>
-    </div>
-  </section>
-
-  <section class="py-24 bg-primary text-brand-200">
-    <div class="lg:max-w-lg mx-auto px-6 lg:px-0 space-y-20">
-      <div>
-        <h2 class="font-heading leading-tight text-4xl md:max-w-sm">
-          Supporting small businesses with <span class="italic text-highlight">clarity and craft.</span>
-        </h2>
-
-        <p class="text-xl font-thin mt-6 text-brand-200/80">
-          I build fast, simple websites that help small businesses show up online with confidence.
-        </p>
-      </div>
-
-      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-        {serviceCardDetails.map((s) => <FeatureCard {...s} variant="services" iconPosition="top-left" />)}
-      </div>
-    </div>
-  </section>
-
-  <section class="py-24 bg-brand-200/60">
-    <div class="lg:max-w-lg mx-auto px-6 md:flex md:justify-between">
-      <div>
-        <p class="text-sm uppercase tracking-widest text-accent">What I bring</p>
-        <h2 class="font-heading text-brand-900 leading-tight text-4xl md:max-w-sm">
-          Why work <span class="italic">with me?</span>
-        </h2>
-      </div>
-
-      <div class="space-y-8 md:max-w-xs pl-4 md:pl-0 mt-16">
-        <div>
-          <h4 class="text-2xl italic font-heading text-brand-900">Direct Communication</h4>
-          <p>You work directly with the person building your site. It keeps the process simple and the decisions clear.</p>
-        </div>
-
-        <div>
-          <h4 class="text-2xl italic font-heading text-brand-900">Technical Expertise</h4>
-          <p>
-            I build everything myself, without templates or page builders. It means your site is lightweight, fast, and put together with
-            care rather than assembled from parts.
-          </p>
-        </div>
-
-        <div>
-          <h4 class="text-2xl italic font-heading text-brand-900">Clarity First</h4>
-          <p>A focus on simple structures and thoughtful design, so the site feels clean and easy to use.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="bg-brand-100 py-24">
-    <div class="px-6 text-center">
-      <p class="text-sm uppercase tracking-widest text-accent">How I Work</p>
-
-      <h2 class="font-heading text-brand-900 text-4xl">
-        A simple, <span class="italic">three step journey.</span>
-      </h2>
-    </div>
-
-    <div class="mt-20 px-6 max-w-lg mx-auto grid md:grid-cols-3 gap-20 text-brand-900">
-      <!-- Step -->
-      <div class="relative flex-1 text-center">
-        <div class="absolute inline-block -top-8 md:-top-16 text-8xl md:text-9xl font-heading text-primary/5">01</div>
-
-        <h3 class="font-semibold text-xl mt-2">The Chat</h3>
-
-        <p class="text-brand-900/70 leading-relaxed mt-4">
-          We begin with a quick conversation to understand your business goals and your customers' needs.
-        </p>
-      </div>
-
-      <!-- Step -->
-      <div class="relative flex-1 text-center">
-        <div class="absolute inline-block -top-8 md:-top-16 text-8xl md:text-9xl font-heading text-primary/5">02</div>
-
-        <h3 class="font-semibold text-xl mt-2">The Build</h3>
-
-        <p class="text-brand-900/70 leading-relaxed mt-4">
-          Your website is built using modern, reliable tools with performance and long-term maintainability in mind.
-        </p>
-      </div>
-
-      <!-- Step -->
-      <div class="relative flex-1 text-center">
-        <div class="absolute inline-block -top-8 md:-top-16 text-8xl md:text-9xl font-heading text-primary/5">03</div>
-
-        <h3 class="font-semibold text-xl mt-2">The Launch</h3>
-
-        <p class="text-brand-900/70 leading-relaxed mt-4">
-          We go live. I handle the hosting and tech, so you can get back to running your business.
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <section class="bg-primary py-24">
-    <div class="lg:max-w-lg mx-auto px-6">
-      <div>
-        <p class="text-sm uppercase tracking-widest text-highlight">Selected Projects</p>
-
-        <div class="flex justify-between items-end">
-          <h2 class="font-heading text-brand-200 leading-tight text-4xl md:max-w-sm">
-            Recent <span class="italic">builds.</span>
-          </h2>
-          <a
-            href="/projects"
-            class="font-thin text-sm text-brand-200/80 hover:text-brand-200 transition-all duration-300 uppercase tracking-widest"
-            >View All Projects</a
-          >
-        </div>
-      </div>
-    </div>
-
-    <div class="grid md:grid-cols-2 gap-12 max-w-lg mx-auto mt-24 px-6">
-      <div class="md:-translate-y-6">
-        <ProjectCard
-          title="Form First"
-          subtitle="Design & Booking Flow"
-          description="A simple demo showing a clear booking flow with lookup and a small admin view."
-          image={formFirstScreenshot}
-          href="/projects/form-first"
-        />
-      </div>
-
-      <div class="md:translate-y-6">
-        <ProjectCard
-          title="Loft Café - Mockup"
-          subtitle="Design, digital menu & gallery"
-          description="A light, modern website mockup exploring how a small independent café could present itself online."
-          note="This is a concept piece and isn’t affiliated with The Loft Café."
-          image={loftCafeScreenshot}
-          href="/projects/loft-cafe"
-        />
-      </div>
-    </div>
-  </section>
-
-  <section class="bg-brand-50 py-24">
-    <div class="max-w-xl mx-auto px-6 md:px-16 text-center">
-      <h2 class="font-heading text-brand-900 leading-tight text-4xl">
-        Clear, honest <span class="italic">pricing.</span>
+      <h2 class="text-3xl md:text-4xl max-w-md font-heading font-semibold text-brand-900">
+        Everything your website needs. Nothing it doesn't.
       </h2>
 
-      <p class="mx-auto mt-6 font-thin text-xl max-w-sm">
-        No hidden fees or complex contracts. Just high-quality web development tailored to your business.
+      <p class="mt-4 max-w-md text-brand-900/70 text-lg">
+        Every feature has a purpose — to help customers find your business, trust what they see, and get in touch.
       </p>
 
-      <div class="mt-16 mb-16 grid md:grid-cols-3 gap-16">
-        {pricingPlans.map((plan, i) => <FeatureCard index={i} {...plan} variant="pricing" button="helo" />)}
+      <div class="mt-12 space-y-10">
+        {
+          websiteBenefits.map((benefit, index) => (
+            <div class="grid grid-cols-[2.5rem_1fr] gap-x-6 items-start">
+              <span class="font-mono text-sm text-accent/70 mt-[5px]">{(index + 1).toString().padStart(2, "0")}</span>
+
+              <div>
+                <h3 class="font-heading text-xl text-brand-900">{benefit.title}</h3>
+
+                <p class="mt-2 text-brand-900/70 leading-relaxed">{benefit.description}</p>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- INDUSTRIES -->
+  <section class="py-24">
+    <div class="max-w-lg px-6 mx-auto">
+      <div class="flex items-center gap-4 mb-4">
+        <div class="h-px w-10 bg-brand-900/10"></div>
+
+        <p class="font-mono text-xs tracking-[0.3em] uppercase text-accent">02 · Industries</p>
       </div>
 
-      <div class="bg-brand-100 border border-brand-900/10 p-8">
-        <div class="text-left mb-6 md:flex justify-between">
+      <h2 class="text-3xl md:text-4xl font-heading font-semibold text-brand-900">Built for the businesses that keep Yorkshire moving.</h2>
+
+      <p class="mt-4 text-lg max-w-md text-brand-900/70">
+        From roofers and electricians to landscapers and cleaning companies, I build websites for businesses that rely on local customers
+        and word-of-mouth.
+      </p>
+
+      <p class="mt-20 text-xs uppercase tracking-[0.2em] text-brand-900/50">Common trades & services include:</p>
+
+      <div class="max-w-md flex flex-wrap gap-3 mt-10 text-sm">
+        {
+          industries.map((industry) => (
+            <span class="px-4 py-2 rounded-full border border-brand-900/10 bg-brand-50 text-brand-900/80">{industry}</span>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESS -->
+  <section class="py-24">
+    <div class="px-6 max-w-lg mx-auto">
+      <div class="">
+        <div class="flex items-center gap-4 mb-4">
+          <div class="h-px w-10 bg-brand-900/10"></div>
+
+          <p class="font-mono text-xs tracking-[0.3em] uppercase text-accent">03 · Process</p>
+        </div>
+
+        <h2 class="text-3xl md:text-4xl font-heading font-semibold text-brand-900">A simple process from first chat to launch.</h2>
+
+        <p class="mt-4 text-lg max-w-md text-brand-900/70">
+          No overcomplicated project management or endless back-and-forth. Just a clear, structured process from first chat to launch.
+        </p>
+      </div>
+
+      <div class="mt-16 max-w-lg mx-auto space-y-12">
+        <div class="grid grid-cols-[2.5rem_1fr] items-start gap-6">
+          <span class="font-mono text-sm text-accent/70 mt-[5px]">01</span>
+
           <div>
-            <h3 class="text-xl font-heading mb-2">Monthly Care Plan</h3>
-            <p class="text-brand-900/70 font-thin italic mb-2">Peace of mind with ongoing updates, security and hosting</p>
+            <h3 class="font-heading text-xl text-brand-900">Quick chat</h3>
+            <p class="mt-2 text-brand-900/70">We talk about your business, your customers, and what you want your website to achieve.</p>
           </div>
-          <p class="font-heading text-4xl">£35<span class="text-base text-brand-900/60">/mo</span></p>
         </div>
 
-        <div class="text-left">
-          <ul class="mt-4 text-brand-900/70 text-sm space-y-2">
-            <li class="flex gap-2">
-              <span class="text-accent font-bold">✓</span>
-              <span>Ongoing updates and maintenance</span>
-            </li>
-            <li class="flex gap-2">
-              <span class="text-accent font-bold">✓</span>
-              <span>Security monitoring and backups</span>
-            </li>
-            <li class="flex gap-2">
-              <span class="text-accent font-bold">✓</span>
-              <span>Small content tweaks each month</span>
-            </li>
-            <li class="flex gap-2">
-              <span class="text-accent font-bold">✓</span>
-              <span>Fast, reliable hosting</span>
-            </li>
-          </ul>
+        <div class="grid grid-cols-[2.5rem_1fr] items-start gap-6">
+          <span class="font-mono text-sm text-accent/70 mt-[5px]">02</span>
+
+          <div>
+            <h3 class="font-heading text-xl text-brand-900">Design & build</h3>
+            <p class="mt-2 text-brand-900/70">
+              I design and build your website with a focus on speed, clarity, and getting more enquiries.
+            </p>
+          </div>
         </div>
-      </div>
 
-      <div class="max-w-lg mx-auto mt-20">
-        <h4 class="font-heading text-2xl text-brand-900 italic mb-16">Optional extras to support your business</h4>
+        <div class="grid grid-cols-[2.5rem_1fr] items-start gap-6">
+          <span class="font-mono text-sm text-accent/70 mt-[5px]">03</span>
 
-        <div class="grid md:grid-cols-3 gap-10">
-          <div class="border border-brand-900/10 p-4 text-center">
-            <span class="text-accent tracking-wide block mb-1">£200</span>
-            <h4 class="text-lg font-semibold">Starter Brand Pack</h4>
-            <p class="font-extralight">A sharp, ready‑to‑go brand setup that gets you looking professional fast.</p>
-          </div>
-
-          <div class="border border-brand-900/10 p-4 text-center">
-            <span class="text-accent tracking-wide block mb-1">£95</span>
-            <h4 class="text-lg font-semibold">Local SEO Boost</h4>
-            <p class="font-extralight">Quick, targeted improvements that help you show up higher in local searches.</p>
-          </div>
-
-          <div class="border border-brand-900/10 p-4 text-center">
-            <span class="text-accent tracking-wide block mb-1">From £150</span>
-            <h4 class="text-lg font-semibold">Digital Menus</h4>
-            <p class="font-extralight">Digital menus designed for smooth browsing on any device.</p>
+          <div>
+            <h3 class="font-heading text-xl text-brand-900">Launch</h3>
+            <p class="mt-2 text-brand-900/70">We go live. Your site is connected, tested, and ready to bring in new customers.</p>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="bg-brand-100 text-center pb-28">
-    <div class="max-w-4xl mx-auto px-6 pt-28 pb-20">
-      <h2 class="font-heading text-4xl mb-6">Thinking about a new website?</h2>
+  <!-- PRICING -->
+  <section class="py-24">
+    <div class="max-w-lg px-6 mx-auto">
+      <div class="flex items-center gap-4 mb-4">
+        <div class="h-px w-10 bg-brand-900/10"></div>
 
-      <p class="leading-relaxed">
-        If you’re looking for a simple, fast, and dependable website, I’d be happy to talk things through. No pressure — just a
-        straightforward chat to see if it’s the right fit.
+        <p class="font-mono text-xs tracking-[0.3em] uppercase text-accent">04 · Pricing</p>
+      </div>
+
+      <h2 class="font-heading text-brand-900 text-3xl md:text-4xl font-semibold">Simple pricing for bespoke websites.</h2>
+
+      <p class="mt-4 text-lg text-brand-900/70 max-w-md">
+        Choose the package that best suits your business. Every website is built from scratch, focused on generating enquiries, and tailored
+        to your goals.
       </p>
     </div>
 
-    <Button href="/contact" title="Start a conversation" variant="main" />
+    <div class="mt-16 max-w-xl px-6 md:px-16 mx-auto grid gap-8 lg:grid-cols-3">
+      {pricingPlans.map((plan, i) => <FeatureCard index={i} {...plan} />)}
+    </div>
 
-    <p class="text-brand-900/80 text-sm mt-4">
-      Or email me directly at
-      <a href="mailto:hello@penninedigital.co.uk" class="text-brand-900/60 hover:text-accent transition"> hello@penninedigital.co.uk </a>
-    </p>
+    <div class="mx-6">
+      <div class="mt-20 max-w-lg mx-auto bg-brand-50/40 border border-brand-900/10 rounded-md p-8 md:p-10">
+        <div class="flex items-center gap-4 mb-4">
+          <div class="h-px w-10 bg-brand-900/10"></div>
+
+          <p class="font-mono text-xs tracking-[0.3em] uppercase text-accent">Support</p>
+        </div>
+
+        <h3 class="font-heading text-2xl text-brand-900">Hosting & ongoing support</h3>
+
+        <p class="mt-4 max-w-md text-brand-900/70">
+          Your website is yours to manage. If you'd rather not worry about hosting, updates or maintenance, optional monthly plans are
+          available.
+        </p>
+
+        <div class="mt-10 divide-y divide-brand-900/10">
+          <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-6 py-6">
+            <div>
+              <h4 class="font-heading text-xl text-brand-900">Managed Hosting</h4>
+
+              <p class="mt-2 text-brand-900/70 leading-relaxed">
+                Fast, secure hosting with SSL, backups and monitoring to keep your website online and performing reliably.
+              </p>
+            </div>
+
+            <p class="shrink-0 font-heading text-2xl text-brand-900">
+              £12
+              <span class="text-sm font-normal text-brand-900/60">/month</span>
+            </p>
+          </div>
+
+          <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-6 py-6">
+            <div>
+              <h4 class="font-heading text-xl text-brand-900">Care Plan</h4>
+
+              <p class="mt-2 text-brand-900/70 leading-relaxed">
+                Everything in Managed Hosting, plus software updates, maintenance, priority support and small content changes.
+              </p>
+            </div>
+
+            <p class="shrink-0 font-heading text-2xl text-brand-900">
+              £45
+              <span class="text-sm font-normal text-brand-900/60">/month</span>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="mt-16 max-w-lg mx-auto px-6">
+      <h3 class="font-heading text-2xl text-brand-900">Need help choosing the right option?</h3>
+
+      <p class="mt-3 max-w-md text-brand-900/70">Tell me a little about your business and I'll recommend the best approach.</p>
+
+      <div class="mt-6">
+        <Button href="/contact" title="Start a Conversation" variant="main" />
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQS -->
+  <section class="py-24">
+    <div class="max-w-lg px-6 mx-auto">
+      <div class="flex items-center gap-4 mb-4">
+        <div class="h-px w-10 bg-brand-900/10"></div>
+
+        <p class="font-mono text-xs tracking-[0.3em] uppercase text-accent">05 · FAQ</p>
+      </div>
+
+      <h2 class="text-3xl md:text-4xl font-heading font-semibold text-brand-900">Common questions.</h2>
+
+      <p class="mt-4 max-w-md text-lg text-brand-900/70">Everything you might want to know before getting started.</p>
+
+      <div class="mt-12">
+        <Accordion items={faqs} />
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-32">
+    <div class="max-w-lg px-6 mx-auto">
+      <div class="flex items-center gap-4 mb-4">
+        <div class="h-px w-10 bg-brand-900/10"></div>
+
+        <p class="font-mono text-xs tracking-[0.3em] uppercase text-accent">Start a project</p>
+      </div>
+
+      <h2 class="text-3xl md:text-4xl font-heading font-semibold text-brand-900">
+        Ready for a website that brings your business more enquiries?
+      </h2>
+
+      <p class="mt-5 max-w-md text-lg text-brand-900/70 leading-relaxed">
+        Tell me a bit about your business and what you're looking to achieve. I'll get back to you with the best next step.
+      </p>
+
+      <div class="mt-10 flex flex-col sm:flex-row gap-4">
+        <Button href="/contact" title="Start a Project" variant="main" />
+
+        <Button href="/projects" title="View Work" variant="ghost" />
+      </div>
+    </div>
   </section>
 </BaseLayout>
