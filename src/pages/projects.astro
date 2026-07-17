@@ -1,13 +1,11 @@
 ---
 import Button from "../components/Button.astro";
+import Chevron from "../components/icons/Chevron.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
-import FeatureProjectCard from "../components/FeatureProjectCard.astro";
-import loftScreenshot from "../assets/projects/loft-cafe/screenshot.webp";
-import formFirstScreenshot from "../assets/projects/form-first/screenshot.webp";
 ---
 
 <BaseLayout title="Work | Pennine Digital">
-  <section class="relative min-h-[80vh] py-32 overflow-hidden">
+  <section class="relative min-h-[80vh] pt-40 pb-24 overflow-hidden">
     <div class="max-w-lg px-6 mx-auto">
       <div class="flex items-center gap-4 mb-4">
         <div class="h-px w-10 bg-brand-900/10"></div>
@@ -30,7 +28,7 @@ import formFirstScreenshot from "../assets/projects/form-first/screenshot.webp";
 
         <div class="space-y-5">
           <div class="grid grid-cols-[3rem_1fr] gap-6">
-            <span class="font-mono text-sm text-accent/70 mt-[5px]">01</span>
+            <Chevron class="text-brand-900/70 mt-[10px] w-3 h-3" />
 
             <div>
               <h2 class="font-heading text-xl text-brand-900">Trade websites</h2>
@@ -40,7 +38,7 @@ import formFirstScreenshot from "../assets/projects/form-first/screenshot.webp";
           </div>
 
           <div class="grid grid-cols-[3rem_1fr] gap-6">
-            <span class="font-mono text-sm text-accent/70 mt-[5px]">02</span>
+            <Chevron class="text-brand-900/70 mt-[10px] w-3 h-3" />
 
             <div>
               <h2 class="font-heading text-xl text-brand-900">Local service businesses</h2>
@@ -50,7 +48,7 @@ import formFirstScreenshot from "../assets/projects/form-first/screenshot.webp";
           </div>
 
           <div class="grid grid-cols-[3rem_1fr] gap-6">
-            <span class="font-mono text-sm text-accent/70 mt-[5px]">03</span>
+            <Chevron class="text-brand-900/70 mt-[10px] w-3 h-3" />
 
             <div>
               <h2 class="font-heading text-xl text-brand-900">Bespoke solutions</h2>

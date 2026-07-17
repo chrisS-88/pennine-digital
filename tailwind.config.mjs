@@ -9,7 +9,6 @@ export default {
     extend: {
       colors: {
         accent: "#2F6B4F",
-        highlight: "#C8A27A",
       },
 
       fontFamily: {
