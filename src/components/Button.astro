@@ -2,9 +2,20 @@
 const { title, href, variant } = Astro.props;
 
 const variants = {
-  main: "bg-accent text-brand-100 border border-transparent hover:bg-accent/90 transition-colors duration-200",
-  light: "text-accent border border-accent/60 hover:bg-accent/10 transition-colors duration-200",
-  ghost: "text-brand-100 border border-accent/40 hover:border-accent hover:bg-brand-100/5 transition-colors duration-200",
+  main:
+    "bg-accent text-white border border-transparent rounded-md " +
+    "hover:bg-accent/90 active:bg-accent/80 " +
+    "transition-all duration-200 ease-out " +
+    "hover:-translate-y-[1px] active:translate-y-0 " +
+    "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/40",
+
+  ghost:
+    "text-brand-900 border border-brand-900/15 bg-transparent rounded-md " +
+    "hover:bg-brand-900/5 hover:border-brand-900/25 " +
+    "active:bg-brand-900/10 backdrop-blur-sm " +
+    "transition-all duration-200 ease-out " +
+    "hover:-translate-y-[1px] active:translate-y-0 " +
+    "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-900/20",
 };
 ---
 

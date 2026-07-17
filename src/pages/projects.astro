@@ -1,65 +1,68 @@
 ---
 import Button from "../components/Button.astro";
+import Chevron from "../components/icons/Chevron.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
-import FeatureProjectCard from "../components/FeatureProjectCard.astro";
-import loftScreenshot from "../assets/projects/loft-cafe/screenshot.webp";
-import formFirstScreenshot from "../assets/projects/form-first/screenshot.webp";
 ---
 
-<BaseLayout title="Pennine Digital – Work">
-  <div class="bg-brand-50">
-    <section class="pt-44 pb-24">
-      <div class="px-6 max-w-2xl mx-auto text-center">
-        <p class="text-sm uppercase tracking-widest text-accent mb-2">My Work</p>
+<BaseLayout title="Work | Pennine Digital">
+  <section class="relative min-h-[80vh] pt-40 pb-24 overflow-hidden">
+    <div class="max-w-lg px-6 mx-auto">
+      <div class="flex items-center gap-4 mb-4">
+        <div class="h-px w-10 bg-brand-900/10"></div>
 
-        <h1 class="text-4xl md:text-5xl font-heading text-brand-900 font-semibold">A few projects I’ve worked on</h1>
-
-        <p class="mt-4 text-lg font-thin leading-relaxed">
-          A few examples of real and concept work, each built with the same focus: clarity, ease of use, and helping small businesses guide
-          customers forward.
-        </p>
+        <p class="font-mono text-xs tracking-[0.3em] uppercase text-accent">Projects</p>
       </div>
-    </section>
 
-    <section class="pb-24">
-      <div class="max-w-xl mx-auto px-6 lg:px-20 grid gap-16 lg:gap-36">
-        <FeatureProjectCard
-          index={0}
-          title="The Loft Café — Concept Website"
-          eyebrow="Concept Project"
-          description="A clean, welcoming website for a modern local café. A self‑initiated project exploring layout, clarity, and a warm, simple experience. Not commissioned or affiliated with The Loft Café."
-          image={loftScreenshot}
-          link="/projects/loft-cafe"
-          list={["Mobile‑first layout", "Clear navigation", "Fast loading performance"]}
-          tech={["Astro", "Tailwind", "Responsive Design", "Netlify"]}
-        />
+      <h1 class="text-4xl md:text-5xl font-heading font-semibold leading-tight text-brand-900">
+        Real examples are
+        <span class="text-accent">coming soon.</span>
+      </h1>
 
-        <FeatureProjectCard
-          index={1}
-          title="Form First — Booking Flow Demo"
-          eyebrow="Demo Project"
-          description="A step‑by‑step booking flow with lookup and a simple admin view. Built to explore structure, usability, and a straightforward interface for small service businesses."
-          image={formFirstScreenshot}
-          link="/projects/form-first"
-          list={["Multi‑step booking flow", "Lookup by reference", "Lightweight admin dashboard"]}
-          tech={["Astro", "React Islands", "Tailwind"]}
-        />
-      </div>
-    </section>
-  </div>
-
-  <section class="bg-primary text-center text-brand-100">
-    <div class="max-w-3xl mx-auto px-6 py-28">
-      <p class="text-sm uppercase tracking-widest text-highlight mb-2">Next Steps</p>
-
-      <h2 class="font-heading text-4xl mb-6">Have a project in mind?</h2>
-
-      <p class="text-brand-100/80 max-w-xl mx-auto leading-relaxed">
-        If you’d like something similar for your business, I’d love to hear what you’re working on and see how I can help.
+      <p class="mt-8 max-w-md text-lg text-brand-900/70 leading-relaxed">
+        I'm currently building a collection of websites for Yorkshire trades and local service businesses. This page will showcase completed
+        projects, the challenges solved, and the results achieved.
       </p>
 
-      <div class="mt-10 flex justify-center">
-        <Button href="/contact" title="Start Your Project" variant="ghost" />
+      <div class="mt-12 border-t border-brand-900/10 pt-8">
+        <p class="font-mono text-xs uppercase tracking-[0.3em] text-brand-900/50 mb-6">Currently building</p>
+
+        <div class="space-y-5">
+          <div class="grid grid-cols-[3rem_1fr] gap-6">
+            <Chevron class="text-brand-900/70 mt-[10px] w-3 h-3" />
+
+            <div>
+              <h2 class="font-heading text-xl text-brand-900">Trade websites</h2>
+
+              <p class="mt-1 text-brand-900/70">Fast, professional websites designed to turn visitors into enquiries.</p>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-[3rem_1fr] gap-6">
+            <Chevron class="text-brand-900/70 mt-[10px] w-3 h-3" />
+
+            <div>
+              <h2 class="font-heading text-xl text-brand-900">Local service businesses</h2>
+
+              <p class="mt-1 text-brand-900/70">Clear websites built around services, locations, and customer trust.</p>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-[3rem_1fr] gap-6">
+            <Chevron class="text-brand-900/70 mt-[10px] w-3 h-3" />
+
+            <div>
+              <h2 class="font-heading text-xl text-brand-900">Bespoke solutions</h2>
+
+              <p class="mt-1 text-brand-900/70">Custom builds tailored around each business rather than generic templates.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-12 flex flex-col sm:flex-row gap-4">
+        <Button href="/contact" title="Start Your Project" variant="main" />
+
+        <Button href="/" title="Back Home" variant="ghost" />
       </div>
     </div>
   </section>

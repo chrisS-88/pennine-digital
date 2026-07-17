@@ -8,24 +8,29 @@ const current = Astro.url.pathname;
 ---
 
 <nav
-  class="fixed top-0 left-0 w-full h-20 flex items-center px-6 tracking-wide z-50
-         bg-brand-100/90 backdrop-blur-md text-brand-900 shadow-lg">
-  <!-- Left: Logo -->
-  <a href="/" class="flex items-center gap-4">
-    <Image src={logo} alt="Pennine Digital Logo" class="w-12" />
-    <span class="font-bold text-lg uppercase">Pennine<span class="font-thin">Digital</span></span>
+  class="fixed top-0 left-0 w-full h-20 flex items-center px-6 tracking-wide z-40
+        bg-brand-50/80 backdrop-blur-md text-brand-900 border-b
+        border-brand-900/10 transition-transform duration-300 ease-out">
+  <a href="/" class="leading-none">
+    <p class="font-heading text-lg text-brand-900">Pennine Digital</p>
+
+    <p class="mt-1 font-mono text-[10px] uppercase tracking-[0.25em] text-brand-900/50">Web Design · Yorkshire</p>
   </a>
 
-  <ul class="hidden lg:flex gap-6 mx-auto">
+  <ul class="hidden md:flex gap-12 mx-auto">
     {
       navLinks.slice(0, navLinks.length - 1).map((link) => (
         <li>
           <a
             href={link.href}
             class={`
-              relative font-heading text-lg italic px-2 py-2 transition-all duration-300
-              ${current === link.href ? "text-brand-900 underline underline-offset-8" : "text-brand-700 hover:text-brand-900"}
-              
+              font-mono
+              text-xs
+              uppercase
+              tracking-[0.25em]
+              transition-colors
+              duration-200
+              ${current === link.href ? "text-brand-900" : "text-brand-900/55 hover:text-brand-900"}
             `}>
             {link.label}
           </a>
@@ -34,18 +39,25 @@ const current = Astro.url.pathname;
     }
   </ul>
 
-  <div class="hidden lg:block">
+  <div class="hidden md:block">
     <a
       href={navLinks[navLinks.length - 1].href}
-      class={`font-heading text-lg italic px-6 py-2 ml-4 transition-all duration-300
-              ${current === navLinks[navLinks.length - 1].href ? "border border-accent bg-accent/5" : "border border-accent/40 hover:border-accent hover:bg-accent/5 text-brand-700 hover:text-brand-900"}
-            `}>
-      {navLinks[navLinks.length - 1].label}
+      class="border
+      border-brand-900/10
+      px-5
+      py-2
+      rounded-full
+      font-mono
+      text-xs
+      uppercase
+      tracking-[0.25em]
+      hover:border-brand-900/20">
+      Contact
     </a>
   </div>
 
   <!-- Mobile Button -->
-  <button id="menu-btn" aria-label="Toggle Menu" class="lg:hidden ml-auto">
+  <button id="menu-btn" aria-label="Toggle Menu" class="fixed top-7 right-6 z-[70] md:hidden text-brand-900">
     <span></span>
     <span></span>
     <span></span>
@@ -55,49 +67,49 @@ const current = Astro.url.pathname;
 <!-- Mobile Sidebar -->
 <div
   id="mobile-menu"
-  class="p-6 z-50 lg:hidden fixed left-0 top-0 h-full w-2/3 bg-primary/90 backdrop-blur-md
-         transform -translate-x-full transition-all duration-700 ease-in-out opacity-0
-         text-brand-100 overflow-y-scroll">
-  <a href="/" class="flex items-center gap-4">
-    <Image src={logoWhite} alt="Pennine Digital Logo" class="w-12" />
-    <span class="font-bold text-xl uppercase">Pennine<span class="font-thin">Digital</span></span>
-  </a>
+  class="p-6 z-50 lg:hidden fixed left-0 top-20 h-[calc(100vh-5rem)] w-full max-w-sm bg-brand-50 backdrop-blur-md
+        transform -translate-x-full transition-all duration-700 ease-in-out opacity-0
+        overflow-y-scroll">
+  <div class="pt-6">
+    <p class="font-mono text-[10px] uppercase tracking-[0.3em] text-brand-900/50">Menu</p>
+  </div>
 
-  <div class="w-full h-px bg-brand-100/20 mt-6"></div>
+  <div class="mt-6 h-px bg-brand-900/10"></div>
 
-  <ul class="flex flex-col gap-8 text-2xl px-2 py-12">
+  <ul class="mt-8 space-y-8">
     {
-      navLinks.map((link, i) => {
-        return (
-          <li>
-            <a
-              href={link.href}
-              class={`
-                block py-2 text-left font-heading transition-all duration-200 italic  hover:text-brand-100
-                
-                ${current === link.href ? "text-brand-100 underline underline-offset-8" : "text-brand-100/80"}
-              `}>
-              {link.label}
-            </a>
-          </li>
-        );
-      })
+      navLinks.map((link, i) => (
+        <li class="flex items-baseline gap-5">
+          <span class="font-mono text-xs tracking-[0.2em] text-accent">{(i + 1).toString().padStart(2, "0")}</span>
+
+          <a
+            href={link.href}
+            class={`
+                  font-heading text-2xl transition-colors duration-200
+                  ${current === link.href ? "text-brand-900" : "text-brand-900/60 hover:text-brand-900"}
+            `}>
+            {link.label}
+          </a>
+        </li>
+      ))
     }
   </ul>
 
-  <div class="w-full h-px bg-brand-100/20 mb-6"></div>
+  <div class="mt-12 h-px bg-brand-900/10"></div>
 
-  <div class="mt-10 text-sm">
-    <p class="mb-3 text-brand-100/60">Reach me here:</p>
+  <div class="mt-16">
+    <p class="font-mono text-[10px] uppercase tracking-[0.3em] text-brand-900/50">Contact</p>
 
-    <div class="flex flex-col gap-2 text-accent">
-      <a href="tel:+447930971103" class="hover:text-accent/80 transition">07930 971103</a>
-      <a href="mailto:hello@penninedigital.co.uk" class="hover:text-accent/80 transition">hello@penninedigital.co.uk</a>
+    <div class="flex flex-col space-y-3 mt-6">
+      <a href="tel:+447930971103" class="text-brand-900 hover:text-accent transition"> hello@penninedigital.co.uk </a>
+
+      <a href="mailto:hello@penninedigital.co.uk" class="text-brand-900 hover:text-accent transition"> 07930 971103 </a>
     </div>
 
-    <div class="mt-12 text-brand-100/40 text-xs leading-relaxed">
-      <p>© 2026 Pennine Digital</p>
-      <p>Based in Riddlesden, West Yorkshire</p>
+    <div class="mt-16 pt-6 border-t border-brand-900/10">
+      <p class="font-mono text-[10px] uppercase tracking-[0.2em] text-brand-900/40">© 2026 Pennine Digital</p>
+
+      <p class="mt-2 text-brand-900/40 text-sm">West Yorkshire</p>
     </div>
   </div>
 </div>
@@ -107,7 +119,7 @@ const current = Astro.url.pathname;
 
   const NAV_DEFAULTS = {
     hideOnScroll: true,
-    hideAfter: 80,
+    hideAfter: 120,
     showAtTop: true,
     hiddenClass: "-translate-y-full",
   };

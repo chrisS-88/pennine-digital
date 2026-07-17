@@ -1,72 +1,40 @@
 ---
-const { title, price, description, includes, icon: Icon, variant, iconPosition = "top", index } = Astro.props;
+import Check from "./icons/Check.astro";
 
-const variants = {
-  services: "border border-brand-200/10 transition-all hover:border-brand-200/40 duration-300",
-
-  projects: "bg-white/80 rounded-2xl border border-neutral-200 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-md",
-
-  pricing: "bg-brand-100 border border-brand-900/10 shadow-sm transition-all duration-300 hover:shadow-md",
-};
-
-const descriptionStyles = variant === "pricing" ? "text-brand-900/70 font-thin italic" : "text-brand-200/60";
+const { title, price, prefix, description, includes, index } = Astro.props;
 ---
 
 <div
-  class={`p-8 min-h-48 h-full text-left ${variants[variant as keyof typeof variants]} ${index === 1 ? "scale-[1.05] border-accent/30 shadow-md bg-brand-50 border border-primary" : ""}`}>
-  <!-- {/* ICON AT TOP */}
-  {
-    Icon && iconPosition === "top" && (
-      <div class="flex justify-center mb-4">
-        <div class="bg-accent/10 rounded-full p-3">
-          <Icon class="w-8 h-8 text-highlight" />
-        </div>
-      </div>
-    )
-  } -->
+  class="relative rounded-md border p-10 text-left transition-colors duration-200 border-brand-900/10 hover:border-brand-900/20 bg-brand-50">
+  {index === 1 && <span class="absolute top-4 right-4 font-mono text-[10px] uppercase tracking-[0.3em] text-accent">Recommended</span>}
 
-  {
-    Icon && iconPosition === "top-left" && (
-      <div class="flex justify-start mb-4">
-        <Icon class="w-6 h-6 text-highlight" />
-      </div>
-    )
-  }
-
-  <h3 class="font-heading text-xl mb-2">{title}</h3>
-
-  <p class={`${descriptionStyles} leading-relaxed mb-2`}>
-    {description}
-  </p>
+  <h3 class="font-heading text-xl text-brand-900">
+    {title}
+  </h3>
 
   {
     price && (
-      <p class=" font-heading text-4xl mb-3">
-        {`£${price}`}
-        <span class="text-base text-brand-900/60">(from)</span>
+      <p class="mt-4 font-heading text-3xl text-brand-900">
+        £{price}
+        <span class="ml-1 text-sm font-normal text-brand-900/60">{prefix}</span>
       </p>
     )
   }
 
+  <p class="mt-4 text-brand-900/70 leading-relaxed">
+    {description}
+  </p>
+
   {
     includes && (
-      <ul class="text-brand-900/70 text-sm space-y-3 mt-8 text-left max-w-[260px]">
+      <ul class="mt-8 space-y-2 text-sm text-brand-900/70">
         {includes.map((item = "string") => (
-          <li class="flex gap-2">
-            <span class="text-accent font-bold">✓</span>
+          <li class="flex gap-3">
+            <Check class="mt-0.5 h-4 w-4 shrink-0 text-accent" />
             <span>{item}</span>
           </li>
         ))}
       </ul>
     )
   }
-
-  <!-- {/* ICON AT BOTTOM */}
-  {
-    Icon && iconPosition === "bottom" && (
-      <div class="flex justify-center mt-6">
-        <Icon class="w-8 h-8 text-accent" />
-      </div>
-    )
-  } -->
 </div>

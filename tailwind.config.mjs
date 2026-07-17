@@ -8,14 +8,13 @@ export default {
   theme: {
     extend: {
       colors: {
-        primary: "#062a29",
-        accent: "#4c998e",
-        highlight: "#C8A27A",
+        accent: "#2F6B4F",
       },
 
       fontFamily: {
-        sans: ["SN Pro", "sans-serif"],
-        heading: ["Playwrite NZ", "serif"],
+        heading: ["Outfit Variable", "sans-serif"],
+        body: ["Inter Variable", "sans-serif"],
+        accent: ["Newsreader Variable", "serif"],
       },
     },
   },
