@@ -64,7 +64,7 @@ const current = Astro.url.pathname;
 <!-- Mobile Sidebar -->
 <div
   id="mobile-menu"
-  class="px-6 pt-6 pb-12 z-50 lg:hidden fixed left-0 top-20 h-[calc(100vh-5rem)] w-full max-w-sm bg-brand-50 backdrop-blur-md
+  class="px-6 pt-6 pb-16 z-50 lg:hidden fixed left-0 top-20 h-[calc(100dvh-5rem)] w-full max-w-sm bg-brand-50 backdrop-blur-md
         transform -translate-x-full transition-all duration-700 ease-in-out opacity-0
         overflow-y-scroll">
   <div class="pt-6">
@@ -83,7 +83,7 @@ const current = Astro.url.pathname;
             href={link.href}
             class={`
                   font-heading text-2xl transition-colors duration-200
-                  ${current === link.href ? "text-brand-900 pl-2" : "text-brand-900/60 hover:text-brand-900"}
+                  ${current === link.href ? "text-brand-900" : "text-brand-900/60 hover:text-brand-900"}
             `}>
             {link.label}
           </a>
