@@ -38,5 +38,10 @@ const { title } = Astro.props;
     <Nav />
     <slot />
     <Footer />
+
+    <script>
+      import animateIn from "../../pennine-design-system/utils/animate-in.js";
+      animateIn();
+    </script>
   </body>
 </html>

@@ -1,11 +1,17 @@
-/* Self hosted fonts to speed up performance */
+/* Fonts */
 @import "@fontsource-variable/outfit";
 @import "@fontsource-variable/inter";
 @import "@fontsource-variable/newsreader";
 
+/* Design system */
+@import "../../pennine-design-system/utils/animate-in.css";
+
+/* Tailwind */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Custom styles below */
 
 /* NAV BURGER BTN */
 #menu-btn {
