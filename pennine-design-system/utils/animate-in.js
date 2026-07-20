@@ -1,27 +1,34 @@
 export default function initScrollAnimations() {
   const elements = document.querySelectorAll("[data-animate]");
+  console.log(elements);
+
+  if (!elements.length) return;
 
   const observer = new IntersectionObserver(
     (entries, observer) => {
       entries.forEach((entry) => {
+        const el = entry.target;
+        const once = el.dataset.once !== "false";
+
+        if (el.dataset.delay) {
+          el.style.transitionDelay = `${el.dataset.delay}ms`;
+        }
+
         if (entry.isIntersecting) {
-          const el = entry.target;
-
-          // Apply optional delay
-          const delay = el.dataset.delay;
-          if (delay) {
-            el.style.transitionDelay = `${delay}ms`;
-          }
-
+          console.log("Visible:", entry.target);
           el.classList.add("is-visible");
 
-          // Animate once
-          observer.unobserve(el);
+          if (once) {
+            observer.unobserve(el);
+          }
+        } else if (!once) {
+          el.classList.remove("is-visible");
         }
       });
     },
     {
-      threshold: 0.2,
+      threshold: 0.15,
+      rootMargin: "0px 0px -10% 0px",
     },
   );
 

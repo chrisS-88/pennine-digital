@@ -1,146 +1,73 @@
-# Pennine Design System
+# Scroll Animations
 
-Pennine Design System is a modular, theme-driven foundation for building fast, consistent, and maintainable front-end experiences across Pennine Digital projects. It centralises design tokens, themes, motion packs, and behaviour utilities into a single versioned package that can be reused across any Astro + Tailwind project.
-
-The goal is to keep client projects lightweight while ensuring visual and behavioural consistency across the entire Pennine Digital ecosystem.
-
----
+A lightweight intersection observer animation system for adding subtle fade-in effects to projects.
 
 ## Installation
 
-The design system can be installed locally during development or directly from GitHub for portability and clean handoff.
+Copy both files into your project:
+animate-in.css
+animate-in.js
 
-### Local install (recommended during development)
+---
 
-If your folder structure looks like:
+## 1. Add the CSS globally
 
-/dev
-/pennine-design-system
-/clients/client-site
+Import `animate-in.css` into your main/global stylesheet.
 
-Install into a project:
+Example:
 
-```
-npm install ../../pennine-design-system
-```
-
-### GitHub install (recommended for portability and handoff)
-
-```
-npm install git+https://github.com/<your-username>/pennine-design-system.git
+```css
+@import "./design-system/utils/animate-in.css";
 ```
 
-### Tailwind Setup
+Make sure this loads globally so any component can use the animations.
 
-Load the design system presets inside your project’s `tailwind.config.mjs`:
+## 2. Initialise the script
 
-```
-import base from "pennine-design-system/base/tailwind.base.js";
-import theme from "pennine-design-system/themes/warmMinimal.js";
-import minimal from "pennine-design-system/motion/minimal.js";
+Import and run the animation script in your main layout or app entry point.
 
-export default {
-  presets: [base, theme, minimal],
-  content: ["./src/**/*.{astro,js,jsx,ts,tsx,md,mdx}"]
-};
-```
-
-This provides global tokens, theme colours, wrapper widths, spacing scales, and motion utilities.
-
-### Utilities
-
-Behaviour utilities live in:
+Example (Astro):
 
 ```
-pennine-design-system/utils/
+<script type="module">
+  import initScrollAnimations from "./design-system/utils/animate-in.js";
+
+  initScrollAnimations();
+</script>
 ```
 
-They can be imported individually depending on the project’s needs.
+## 3. Add animations to elements
 
-### Scroll-reveal
-
-### CSS
+Add the data-animate attribute:
 
 ```
-@import "pennine-design-system/utils/animate.css";
-```
+<h2 data-animate="fade-up">
+  Your heading
+</h2>
 
-### JS
-
-```
-import initScrollAnimations from "pennine-design-system/utils/animate.js";
-
-initScrollAnimations();
-```
-
-### Markup
 
 ```
-<div data-animate class="fade-up" data-delay="100">
-  Hello
+
+Use data-delay for staggered animations.
+
+```
+<div data-animate="fade-up">
+  First item
+</div>
+
+<div data-animate="fade-up" data-delay="150">
+  Second item
+</div>
+
+<div data-animate="fade-up" data-delay="300">
+  Third item
 </div>
 ```
 
-### Parallax
+By default, animations run once.
 
-### JS
-
-```
-import { initParallax } from "pennine-design-system/utils/parallax.js";
-
-initParallax();
-```
-
-### Markup
+To replay animations every time an element enters the viewport:
 
 ```
-<div data-parallax data-parallax-speed="1.2"></div>
-
+<div data-animate="fade-up" data-once="false">
 ```
-
-### Scroll-lock
-
-```
-import { lockScroll, unlockScroll } from "pennine-design-system/utils/scroll-lock.js";
-```
-
-### Reduced motion detection
-
-```
-import { prefersReducedMotion } from "pennine-design-system/utils/prefers-reduced-motion.js";
-
-if (prefersReducedMotion()) {
-  document.documentElement.classList.add("reduce-motion");
-}
-```
-
-### Folder Structure
-
-```
-pennine-design-system/
-  base/                → core tokens (typography, spacing, wrappers, radii)
-  themes/              → brand colour palettes
-  motion/              → minimal & expressive animation packs
-  utils/               → behaviour utilities (scroll, parallax, accessibility)
-  components/          → optional reusable UI components
-  package.json
-  README.md
-```
-
-### Philosophy
-
-Pennine Design System is designed to:
-
-- Keep client projects clean and lightweight
-
-- Avoid duplication of tokens and utilities
-
-- Provide consistent spacing, typography, and motion
-
-- Allow theme swapping per project
-
-- Offer behaviour utilities without heavy dependencies
-
-- Scale as Pennine Digital grows
-
-It acts as the shared foundation for all Pennine Digital work, ensuring clarity, consistency, and maintainability across every project.

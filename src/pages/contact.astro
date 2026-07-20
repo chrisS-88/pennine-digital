@@ -7,21 +7,23 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 <BaseLayout title="Contact | Pennine Digital">
   <section class="pt-40 pb-24">
     <div class="max-w-lg px-6 mx-auto">
-      <div class="flex items-center gap-4 mb-4">
+      <div data-animate="fade-up" class="flex items-center gap-4 mb-4">
         <div class="h-px w-10 bg-brand-900/10"></div>
 
         <p class="font-mono text-xs uppercase tracking-[0.3em] text-accent">Contact</p>
       </div>
 
-      <h1 class="max-w-md font-heading text-4xl md:text-5xl font-semibold text-brand-900">Tell me about your project.</h1>
+      <h1 data-animate="fade-up" data-delay="100" class="max-w-md font-heading text-4xl md:text-5xl font-semibold text-brand-900">
+        Tell me about your project.
+      </h1>
 
-      <p class="mt-4 max-w-md text-lg text-brand-900/70">
+      <p data-animate="fade-up" data-delay="200" class="mt-4 max-w-md text-lg text-brand-900/70">
         Whether you're launching a new business or replacing an existing website, send over a few details and I'll get back to you within
         one working day.
       </p>
 
       <div class="mt-16 space-y-10">
-        <div class="grid grid-cols-[3rem_1fr] gap-x-6 items-baseline">
+        <div data-animate="fade-up" data-delay="300" class="grid grid-cols-[3rem_1fr] gap-x-6 items-baseline">
           <Chevron class="text-brand-900/70 w-3 h-3" />
 
           <div>
@@ -33,7 +35,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
           </div>
         </div>
 
-        <div class="grid grid-cols-[3rem_1fr] gap-x-6 items-baseline">
+        <div data-animate="fade-up" data-delay="400" class="grid grid-cols-[3rem_1fr] gap-x-6 items-baseline">
           <Chevron class="text-brand-900/70 w-3 h-3" />
 
           <div>
@@ -45,7 +47,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
           </div>
         </div>
 
-        <div class="grid grid-cols-[3rem_1fr] gap-x-6 items-baseline">
+        <div data-animate="fade-up" data-delay="500" class="grid grid-cols-[3rem_1fr] gap-x-6 items-baseline">
           <Chevron class="text-brand-900/70 w-3 h-3" />
 
           <div>
@@ -56,11 +58,11 @@ import BaseLayout from "../layouts/BaseLayout.astro";
         </div>
       </div>
 
-      <div class="mt-20 border-t border-brand-900/10 pt-16">
+      <div data-animate="zoom" data-delay="600" class="mt-20 border-t border-brand-900/10 pt-16">
         <Form />
       </div>
 
-      <div class="mt-10">
+      <div data-animate="fade-up" data-delay="700" class="mt-10">
         <p class="font-mono text-[11px] uppercase tracking-[0.25em] text-brand-900/40">Usually replies within one working day.</p>
 
         <p class="mt-3 text-brand-900/60">No pressure, no sales calls, and no mailing lists — just a conversation about your project.</p>
