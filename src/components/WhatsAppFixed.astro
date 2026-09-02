@@ -1,0 +1,21 @@
+---
+import WhatsApp from "./icons/WhatsApp.astro";
+
+interface Props {
+  phone: string;
+  message?: string;
+}
+
+const { phone, message = "Hi, I'd like to enquire about a project. Could you let me know if you can help?" } = Astro.props;
+
+const whatsappUrl = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
+---
+
+<a
+  href={whatsappUrl}
+  target="_blank"
+  rel="noopener noreferrer"
+  aria-label="Contact us on WhatsApp"
+  class="fixed bottom-5 right-5 z-50 flex h-14 w-14 items-center justify-center rounded-full bg-accent shadow-lg transition-transform hover:scale-105 hover:brightness-110 md:hidden">
+  <WhatsApp class="text-brand-100 w-10 h-10" />
+</a>

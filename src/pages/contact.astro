@@ -5,67 +5,64 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 ---
 
 <BaseLayout title="Contact | Pennine Digital">
-  <section class="pt-40 pb-24">
-    <div class="max-w-lg px-6 mx-auto">
-      <div data-animate="fade-up" class="flex items-center gap-4 mb-4">
-        <div class="h-px w-10 bg-brand-900/10"></div>
-
-        <p class="font-mono text-xs uppercase tracking-[0.3em] text-accent">Contact</p>
-      </div>
-
-      <h1 data-animate="fade-up" data-delay="100" class="max-w-md font-heading text-4xl md:text-5xl font-semibold text-brand-900">
-        Tell me about your project.
-      </h1>
-
-      <p data-animate="fade-up" data-delay="200" class="mt-4 max-w-md text-lg text-brand-900/70">
-        Whether you're launching a new business or replacing an existing website, send over a few details and I'll get back to you within
-        one working day.
-      </p>
-
-      <div class="mt-16 space-y-10">
-        <div data-animate="fade-up" data-delay="300" class="grid grid-cols-[3rem_1fr] gap-x-6 items-baseline">
-          <Chevron class="text-brand-900/70 w-3 h-3" />
-
-          <div>
-            <h2 class="font-heading text-xl text-brand-900">Email</h2>
-
-            <a href="mailto:hello@penninedigital.co.uk" class="mt-2 inline-block text-brand-900/70 hover:text-brand-900 transition-colors">
-              hello@penninedigital.co.uk
-            </a>
-          </div>
+  <section class="pt-40 pb-32">
+    <div class="max-w-5xl px-6 mx-auto grid md:grid-cols-[35%_auto] gap-20">
+      <div>
+        <div data-animate="fade-up" class="flex items-center gap-4 mb-4">
+          <div class="h-px w-10 bg-brand-900/10"></div>
+          <p class="text-xs uppercase tracking-[0.15em] text-accent">Contact</p>
         </div>
 
-        <div data-animate="fade-up" data-delay="400" class="grid grid-cols-[3rem_1fr] gap-x-6 items-baseline">
-          <Chevron class="text-brand-900/70 w-3 h-3" />
+        <h1 data-animate="fade-up" data-delay="100" class="font-heading text-4xl md:text-5xl text-brand-900 max-w-sm">
+          Tell me about your project.
+        </h1>
 
-          <div>
-            <h2 class="font-heading text-xl text-brand-900">Phone</h2>
+        <p data-animate="fade-up" data-delay="200" class="mt-4 text-brand-900/70 max-w-sm">
+          Whether you're launching a new business or replacing an existing website, send over a few details and I'll get back to you within
+          one working day.
+        </p>
 
-            <a href="tel:+447930971103" class="mt-2 inline-block text-brand-900/70 hover:text-brand-900 transition-colors">
-              07930 971103
-            </a>
+        <div class="mt-12 space-y-10">
+          <div data-animate="fade-up" data-delay="300" class="grid grid-cols-[2rem_1fr] gap-x-6 items-baseline">
+            <Chevron class="text-brand-900/70 w-3 h-3" />
+            <div>
+              <h2 class="font-heading text-xl text-brand-900">Email</h2>
+              <a
+                href="mailto:hello@penninedigital.co.uk"
+                class="mt-2 inline-block text-brand-900/70 hover:text-brand-900 transition-colors">
+                hello@penninedigital.co.uk
+              </a>
+            </div>
           </div>
-        </div>
 
-        <div data-animate="fade-up" data-delay="500" class="grid grid-cols-[3rem_1fr] gap-x-6 items-baseline">
-          <Chevron class="text-brand-900/70 w-3 h-3" />
+          <div data-animate="fade-up" data-delay="400" class="grid grid-cols-[2rem_1fr] gap-x-6 items-baseline">
+            <Chevron class="text-brand-900/70 w-3 h-3" />
+            <div>
+              <h2 class="font-heading text-xl text-brand-900">Phone</h2>
+              <a href="tel:+447930971103" class="mt-2 inline-block text-brand-900/70 hover:text-brand-900 transition-colors">
+                07930 971103
+              </a>
+            </div>
+          </div>
 
-          <div>
-            <h2 class="font-heading text-xl text-brand-900">Based in</h2>
-
-            <p class="mt-2 text-brand-900/70">West Yorkshire, working with trades and local service businesses across the UK.</p>
+          <div data-animate="fade-up" data-delay="500" class="grid grid-cols-[2rem_1fr] gap-x-6 items-baseline">
+            <Chevron class="text-brand-900/70 w-3 h-3" />
+            <div>
+              <h2 class="font-heading text-xl text-brand-900">Based in</h2>
+              <p class="mt-2 text-brand-900/70">West Yorkshire, working with trades and local service businesses across the UK.</p>
+            </div>
           </div>
         </div>
       </div>
 
-      <div data-animate="zoom" data-delay="600" class="mt-20 border-t border-brand-900/10 pt-16">
-        <Form />
-      </div>
-
-      <div data-animate="fade-up" data-delay="700" class="mt-10">
-        <p class="font-mono text-[11px] uppercase tracking-[0.25em] text-brand-900/40">Usually replies within one working day.</p>
-
-        <p class="mt-3 text-brand-900/60">No pressure, no sales calls, and no mailing lists — just a conversation about your project.</p>
+      <div>
+        <div data-animate="zoom" data-delay="600" class="border border-brand-900/10 p-10 shadow-md">
+          <Form />
+        </div>
+        <div data-animate="fade-up" data-delay="700" class="mt-12">
+          <p class="text-[11px] uppercase tracking-[0.15em] text-brand-900/40">Usually replies within one working day.</p>
+          <p class="mt-3 text-brand-900/60">No pressure, no sales calls, and no mailing lists — just a conversation about your project.</p>
+        </div>
       </div>
     </div>
   </section>

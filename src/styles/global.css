@@ -1,7 +1,6 @@
 /* Fonts */
-@import "@fontsource-variable/outfit";
-@import "@fontsource-variable/inter";
-@import "@fontsource-variable/newsreader";
+@import "@fontsource-variable/oswald/wght.css";
+@import "@fontsource-variable/montserrat/wght.css";
 
 /* Design system */
 @import "../../pennine-design-system/utils/animate-in.css";
@@ -12,6 +11,10 @@
 @tailwind utilities;
 
 /* Custom styles below */
+
+html {
+  scroll-behavior: smooth;
+}
 
 /* NAV BURGER BTN */
 #menu-btn {
@@ -67,6 +70,17 @@
 }
 
 /* HERO GRID */
+@keyframes gridBreath {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.025);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
 
 .hero-grid::before {
   content: "";
@@ -77,7 +91,7 @@
   bottom: -10%;
 
   width: 55%;
-  height: 75%;
+  height: 95%;
 
   background-image:
     linear-gradient(to left, rgb(38 38 38 / 0.06) 1px, transparent 1px),
@@ -90,6 +104,8 @@
   pointer-events: none;
 
   z-index: 0;
+
+  animation: gridBreath 7s ease-in-out infinite;
 }
 
 /* CONTACT FORM */

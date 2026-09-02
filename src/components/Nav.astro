@@ -5,13 +5,13 @@ const current = Astro.url.pathname;
 ---
 
 <nav
-  class="fixed top-0 left-0 w-full h-20 flex items-center px-6 tracking-wide z-40
+  class="fixed top-0 left-0 w-full h-16 flex items-center px-6 tracking-wide z-40
         bg-brand-50/80 backdrop-blur-md text-brand-900 border-b
         border-brand-900/10 transition-transform duration-300 ease-out">
   <a href="/" class="leading-none">
     <p class="font-heading text-lg text-brand-900">Pennine Digital</p>
 
-    <p class="mt-1 font-mono text-[10px] uppercase tracking-[0.25em] text-brand-900/50">Web Design · Yorkshire</p>
+    <p class="mt-1 text-[10px] uppercase tracking-[0.15em] text-brand-900/50">Web Design · Yorkshire</p>
   </a>
 
   <ul class="hidden md:flex gap-12 mx-auto">
@@ -21,10 +21,10 @@ const current = Astro.url.pathname;
           <a
             href={link.href}
             class={`
-              font-mono
+              
               text-xs
               uppercase
-              tracking-[0.25em]
+              tracking-[0.15em]
               transition-colors
               duration-200
               ${current === link.href ? "text-brand-900" : "text-brand-900/55 hover:text-brand-900"}
@@ -44,17 +44,16 @@ const current = Astro.url.pathname;
       px-5
       py-2
       rounded-full
-      font-mono
       text-xs
       uppercase
-      tracking-[0.25em]
+      tracking-[0.15em]
       hover:border-brand-900/20">
       Contact
     </a>
   </div>
 
   <!-- Mobile Button -->
-  <button id="menu-btn" aria-label="Toggle Menu" class="fixed top-7 right-6 z-[70] md:hidden text-brand-900">
+  <button id="menu-btn" aria-label="Toggle Menu" class="fixed top-5 right-6 z-[70] md:hidden text-brand-900">
     <span></span>
     <span></span>
     <span></span>
@@ -64,11 +63,11 @@ const current = Astro.url.pathname;
 <!-- Mobile Sidebar -->
 <div
   id="mobile-menu"
-  class="px-6 pt-6 pb-16 z-50 lg:hidden fixed left-0 top-20 h-[calc(100dvh-5rem)] w-full max-w-sm bg-brand-50 backdrop-blur-md
+  class="px-6 pt-6 pb-16 z-50 lg:hidden fixed left-0 top-16 h-[calc(100dvh-4rem)] w-full max-w-sm bg-brand-50 backdrop-blur-md
         transform -translate-x-full transition-all duration-700 ease-in-out opacity-0
         overflow-y-scroll">
   <div class="pt-6">
-    <p class="font-mono text-[10px] uppercase tracking-[0.3em] text-brand-900/50">Menu</p>
+    <p class="text-[10px] uppercase tracking-[0.15em] text-brand-900/50">Menu</p>
   </div>
 
   <div class="mt-6 h-px bg-brand-900/10"></div>
@@ -82,7 +81,7 @@ const current = Astro.url.pathname;
           <a
             href={link.href}
             class={`
-                  font-heading text-2xl transition-colors duration-200
+                  text-xl uppercase tracking-[0.15em] transition-colors duration-200
                   ${current === link.href ? "text-brand-900" : "text-brand-900/60 hover:text-brand-900"}
             `}>
             {link.label}
@@ -95,7 +94,7 @@ const current = Astro.url.pathname;
   <div class="mt-12 h-px bg-brand-900/10"></div>
 
   <div class="mt-16">
-    <p class="font-mono text-[10px] uppercase tracking-[0.3em] text-brand-900/50">Contact</p>
+    <p class="text-[10px] uppercase tracking-[0.15em] text-brand-900/50">Contact</p>
 
     <div class="flex flex-col space-y-3 mt-6">
       <a href="mailto:hello@penninedigital.co.uk" class="text-brand-900 hover:text-accent transition"> hello@penninedigital.co.uk </a>
@@ -104,7 +103,7 @@ const current = Astro.url.pathname;
     </div>
 
     <div class="mt-16 pt-6 border-t border-brand-900/10">
-      <p class="font-mono text-[10px] uppercase tracking-[0.2em] text-brand-900/40">© 2026 Pennine Digital</p>
+      <p class="text-[10px] uppercase tracking-[0.15em] text-brand-900/40">© 2026 Pennine Digital</p>
 
       <p class="mt-2 text-brand-900/40 text-sm">West Yorkshire</p>
     </div>

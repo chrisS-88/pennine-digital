@@ -9,12 +9,12 @@ export default {
     extend: {
       colors: {
         accent: "#2F6B4F",
+        accentHover: "#3C8A65",
       },
 
       fontFamily: {
-        heading: ["Outfit Variable", "sans-serif"],
-        body: ["Inter Variable", "sans-serif"],
-        accent: ["Newsreader Variable", "serif"],
+        heading: ["Oswald Variable, sans-serif"],
+        body: ["Montserrat Variable', sans-serif"],
       },
     },
   },

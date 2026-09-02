@@ -39,32 +39,32 @@
   </fieldset>
 
   <fieldset class="mt-10 border-t border-brand-900/10 pt-8">
-    <legend class="font-mono text-[11px] uppercase tracking-[0.25em] text-brand-900/60"> Budget (optional) </legend>
+    <legend class="text-[11px] uppercase tracking-[0.15em] text-brand-900/60"> Website Tier (optional) </legend>
 
     <!-- Netlify field fix -->
-    <input type="hidden" name="budget" />
+    <input type="hidden" name="project-type" />
 
     <div class="mt-6 grid gap-4 sm:grid-cols-2">
       <label class="flex items-center gap-3 cursor-pointer">
-        <input type="radio" id="budget-under" name="budget" value="Under £1,000" class="check-box" />
+        <input type="radio" id="launch" name="project-type" value="Launch" class="check-box" />
 
-        <span>Under £1,000</span>
+        <span>Launch</span>
       </label>
 
       <label class="flex items-center gap-3 cursor-pointer">
-        <input type="radio" id="budget-1-2" name="budget" value="£1,000–£2,000" class="check-box" />
+        <input type="radio" id="enquiry" name="project-type" value="Enquiry" class="check-box" />
 
-        <span>£1,000–£2,000</span>
+        <span>Enquiry</span>
       </label>
 
       <label class="flex items-center gap-3 cursor-pointer">
-        <input type="radio" id="budget-2plus" name="budget" value="£2,000+" class="check-box" />
+        <input type="radio" id="custom" name="project-type" value="Custom" class="check-box" />
 
-        <span>£2,000+</span>
+        <span>Custom</span>
       </label>
 
       <label class="flex items-center gap-3 cursor-pointer">
-        <input type="radio" id="budget-unsure" name="budget" value="Not sure yet" class="check-box" />
+        <input type="radio" id="not-sure" name="project-type" value="Not sure yet" class="check-box" />
 
         <span>Not sure yet</span>
       </label>
@@ -73,7 +73,7 @@
 
   <button
     type="submit"
-    class="mt-10 inline-flex border border-brand-900/15 px-6 py-3 font-mono text-xs uppercase tracking-[0.25em] text-brand-900 transition-colors hover:border-brand-900/30">
+    class="mt-10 inline-flex border border-brand-900/15 px-6 py-3 text-xs uppercase tracking-[0.15em] text-brand-900 transition-colors hover:border-brand-900/30">
     Send enquiry
   </button>
 

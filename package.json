@@ -9,9 +9,8 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@fontsource-variable/inter": "^5.2.8",
-    "@fontsource-variable/newsreader": "^5.2.10",
-    "@fontsource-variable/outfit": "^5.2.8",
+    "@fontsource-variable/montserrat": "^5.3.0",
+    "@fontsource-variable/oswald": "^5.3.0",
     "astro": "^5.16.6",
     "pennine-design-system": "file:./pennine-design-system"
   },

@@ -3,16 +3,16 @@ const { title, href, variant } = Astro.props;
 
 const variants = {
   main:
-    "bg-accent text-white border border-transparent rounded-md " +
-    "hover:bg-accent/90 active:bg-accent/80 " +
+    "bg-accent text-white border border-transparent " +
+    "filter hover:brightness-110 active:brightness-110 " +
     "transition-all duration-200 ease-out " +
     "hover:-translate-y-[1px] active:translate-y-0 " +
     "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/40",
 
   ghost:
-    "text-brand-900 border border-brand-200 bg-brand-50 rounded-md " +
-    "hover:bg-brand-200 hover:border-brand-300 " +
-    "active:bg-brand-900/10 backdrop-blur-sm " +
+    "text-brand-900 border border-brand-900/60 bg-brand-100 " +
+    "filter hover:brightness-110 hover:border-brand-900 " +
+    "active:bg-brand-100 backdrop-blur-sm " +
     "transition-all duration-200 ease-out " +
     "hover:-translate-y-[1px] active:translate-y-0 " +
     "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-900/20",
@@ -21,6 +21,6 @@ const variants = {
 
 <a
   href={href}
-  class={`inline-block text-center w-72 uppercase tracking-widest px-4 py-2 transition-all duration-300 ${variants[variant as keyof typeof variants]}`}>
+  class={`inline-block text-center w-full md:w-72 rounded-md uppercase tracking-wider px-4 py-2 transition-all duration-300 ${variants[variant as keyof typeof variants]}`}>
   {title}
 </a>

@@ -25,10 +25,10 @@ const { items }: Props = Astro.props;
           aria-expanded="false"
           aria-controls={`panel-${i}`}>
           <div>
-            <span class="font-heading text-lg md:text-xl text-brand-900">{item.question}</span>
+            <span class=" text-lg font-semibold">{item.question}</span>
           </div>
 
-          <span class="font-mono text-2xl leading-none text-brand-900/40 transition-transform duration-200" data-icon aria-hidden="true">
+          <span class=" text-2xl leading-none text-brand-900/40 transition-transform duration-200" data-icon aria-hidden="true">
             +
           </span>
         </button>
